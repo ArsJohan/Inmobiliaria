@@ -23,23 +23,23 @@ Decora las viviendas 'modelo' en los proyectos nuevos. Gestiona proveedores para
 ````
 ## 📌 Contenido
 
-- 🎯 [Contexto del MVP](#Contextodel-MVP)
+- 🎯 [Contexto del MVP](#-contexto-del-mvp)
 
-- 🛠️ [Tecnologías Utilizadas](#Tecnologías-Utilizadas)
+- 🛠️ [Tecnologías Utilizadas](#%EF%B8%8F-tecnolog%C3%ADas-utilizadas)
 
-- 🗂️ [Base de Datos](#Basede-Datos)
+- 🗂️ [Base de Datos](#%EF%B8%8F-base-de-datos)
 
-- 🔧 [Backend](#Backend)
+- 🔧 [Backend](#-backend)
 
-- 🎨 [Frontend](#Fronted)
+- 🎨 [Frontend](#-frontend)
 
-- 🌐 [Despliegue](#Despliegue)
+- 🌐 [Despliegue](#-despliegue)
 
-- 📎 [Instalación y Uso](#Instalación-y-Uso)
+- 📎 [Instalación y Uso](#-instalación-y-uso)
 
-- 🤝 [Contribuciones](#Contribuciones)
+- 🤝 [Contribuciones](#-contribuciones)
 
-- 📄 [Licencia](#Licencia)
+- 📄 [Licencia](#-licencia)
 
 ## 🎯 Contexto del MVP
 
