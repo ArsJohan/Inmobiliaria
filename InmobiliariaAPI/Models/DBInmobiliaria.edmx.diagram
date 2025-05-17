@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e1bad52557a943e9a33f8bde656e58d8" Name="Diagram1">
+        <EntityTypeShape EntityType="DBINMOBILIARIAModel.ARRIENDO" Width="1.5" PointX="13.5" PointY="19.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBINMOBILIARIAModel.CIUDAD" Width="1.5" PointX="0.75" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBINMOBILIARIAModel.CLIENTE" Width="1.5" PointX="3" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBINMOBILIARIAModel.COMPRA_PROVEEDOR" Width="1.5" PointX="10.5" PointY="29.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBINMOBILIARIAModel.DECORACION_MODELO" Width="1.5" PointX="8.25" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBINMOBILIARIAModel.DETALLE_COMPRA_PROVEEDOR" Width="1.5" PointX="12.75" PointY="29.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBINMOBILIARIAModel.EMPLEADO" Width="1.5" PointX="5.25" PointY="25.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBINMOBILIARIAModel.FACTURA" Width="1.5" PointX="8.25" PointY="22.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBINMOBILIARIAModel.FORMA_PAGO" Width="1.5" PointX="6" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBINMOBILIARIAModel.GENERO" Width="1.5" PointX="0.75" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBINMOBILIARIAModel.INMUEBLE" Width="1.5" PointX="6" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBINMOBILIARIAModel.INMUEBLE_CONSIGNACION" Width="1.5" PointX="8.25" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBINMOBILIARIAModel.PERFIL" Width="1.5" PointX="7.5" PointY="33.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBINMOBILIARIAModel.PERFIL_USUARIO" Width="1.5" PointX="9.75" PointY="33.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBINMOBILIARIAModel.PRODUCTO_SERVICIO_PROVEEDOR" Width="1.5" PointX="10.5" PointY="36.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBINMOBILIARIAModel.PROVEEDOR" Width="1.5" PointX="8.25" PointY="36.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBINMOBILIARIAModel.PROYECTO_NUEVO" Width="1.5" PointX="11.25" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBINMOBILIARIAModel.SEDE" Width="1.5" PointX="3" PointY="27" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBINMOBILIARIAModel.TIPO_DOCUMENTO" Width="1.5" PointX="0.75" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBINMOBILIARIAModel.TIPO_EMPLEADO" Width="1.5" PointX="3" PointY="24.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBINMOBILIARIAModel.TIPO_INMUEBLE" Width="1.5" PointX="3.75" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBINMOBILIARIAModel.TIPO_PAGO" Width="1.5" PointX="3.75" PointY="21" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBINMOBILIARIAModel.TIPO_TELEFONO" Width="1.5" PointX="0.75" PointY="21.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBINMOBILIARIAModel.TIPO_TRANSACCION" Width="1.5" PointX="9" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBINMOBILIARIAModel.TRANSACCION" Width="1.5" PointX="11.25" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBINMOBILIARIAModel.USUARIO" Width="1.5" PointX="7.5" PointY="30.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBINMOBILIARIAModel.VENTA" Width="1.5" PointX="13.5" PointY="22" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBINMOBILIARIAModel.VISITA" Width="1.5" PointX="11.25" PointY="25.375" IsExpanded="true" />
+        <AssociationConnector Association="DBINMOBILIARIAModel.FK__ARRIENDO__Codigo__0E6E26BF" ManuallyRouted="false" />
+        <AssociationConnector Association="DBINMOBILIARIAModel.FK__CLIENTE__Codigo___5070F446" ManuallyRouted="false" />
+        <AssociationConnector Association="DBINMOBILIARIAModel.FK__INMUEBLE__Codigo__571DF1D5" ManuallyRouted="false" />
+        <AssociationConnector Association="DBINMOBILIARIAModel.FK__PROYECTO___Codig__5EBF139D" ManuallyRouted="false" />
+        <AssociationConnector Association="DBINMOBILIARIAModel.FK__SEDE__Codigo_Ciu__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="DBINMOBILIARIAModel.FK__CLIENTE__Codigo___5165187F" ManuallyRouted="false" />
+        <AssociationConnector Association="DBINMOBILIARIAModel.FK__CLIENTE__Tipo_Do__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="DBINMOBILIARIAModel.FK__CLIENTE__Tipo_Te__4F7CD00D" ManuallyRouted="false" />
+        <AssociationConnector Association="DBINMOBILIARIAModel.FK__FACTURA__Codigo___1332DBDC" ManuallyRouted="false" />
+        <AssociationConnector Association="DBINMOBILIARIAModel.FK__TRANSACCI__Codig__05D8E0BE" ManuallyRouted="false" />
+        <AssociationConnector Association="DBINMOBILIARIAModel.FK__VISITA__Codigo_C__66603565" ManuallyRouted="false" />
+        <AssociationConnector Association="DBINMOBILIARIAModel.FK__COMPRA_PR__Codig__6FE99F9F" ManuallyRouted="false" />
+        <AssociationConnector Association="DBINMOBILIARIAModel.FK__COMPRA_PR__Codig__70DDC3D8" ManuallyRouted="false" />
+        <AssociationConnector Association="DBINMOBILIARIAModel.FK__DETALLE_C__Codig__73BA3083" ManuallyRouted="false" />
+        <AssociationConnector Association="DBINMOBILIARIAModel.FK__DECORACIO__Codig__778AC167" ManuallyRouted="false" />
+        <AssociationConnector Association="DBINMOBILIARIAModel.FK__DETALLE_C__Codig__74AE54BC" ManuallyRouted="false" />
+        <AssociationConnector Association="DBINMOBILIARIAModel.FK__EMPLEADO__Codigo__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="DBINMOBILIARIAModel.FK__EMPLEADO__Codigo__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="DBINMOBILIARIAModel.FK__EMPLEADO__Codigo__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="DBINMOBILIARIAModel.FK__EMPLEADO__Tipo_D__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="DBINMOBILIARIAModel.FK__EMPLEADO__Tipo_T__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="DBINMOBILIARIAModel.FK__FACTURA__Codigo___151B244E" ManuallyRouted="false" />
+        <AssociationConnector Association="DBINMOBILIARIAModel.FK__INMUEBLE__Codigo__59063A47" ManuallyRouted="false" />
+        <AssociationConnector Association="DBINMOBILIARIAModel.FK__TRANSACCI__Codig__06CD04F7" ManuallyRouted="false" />
+        <AssociationConnector Association="DBINMOBILIARIAModel.FK__USUARIO__Documen__18EBB532" ManuallyRouted="false" />
+        <AssociationConnector Association="DBINMOBILIARIAModel.FK__VISITA__Codigo_E__6754599E" ManuallyRouted="false" />
+        <AssociationConnector Association="DBINMOBILIARIAModel.FK__FACTURA__Codigo___123EB7A3" ManuallyRouted="false" />
+        <AssociationConnector Association="DBINMOBILIARIAModel.FK__FACTURA__Codigo___14270015" ManuallyRouted="false" />
+        <AssociationConnector Association="DBINMOBILIARIAModel.FK__FACTURA__Codigo___160F4887" ManuallyRouted="false" />
+        <AssociationConnector Association="DBINMOBILIARIAModel.FK__FORMA_PAG__Codig__02084FDA" ManuallyRouted="false" />
+        <AssociationConnector Association="DBINMOBILIARIAModel.FK__INMUEBLE___Codig__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="DBINMOBILIARIAModel.FK__INMUEBLE__Codigo__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="DBINMOBILIARIAModel.FK__TRANSACCI__Codig__04E4BC85" ManuallyRouted="false" />
+        <AssociationConnector Association="DBINMOBILIARIAModel.FK__VISITA__Codigo_I__656C112C" ManuallyRouted="false" />
+        <AssociationConnector Association="DBINMOBILIARIAModel.FK__PERFIL_US__Codig__1EA48E88" ManuallyRouted="false" />
+        <AssociationConnector Association="DBINMOBILIARIAModel.FK__PERFIL_US__Codig__1DB06A4F" ManuallyRouted="false" />
+        <AssociationConnector Association="DBINMOBILIARIAModel.FK__PRODUCTO___Codig__6D0D32F4" ManuallyRouted="false" />
+        <AssociationConnector Association="DBINMOBILIARIAModel.FK__PROVEEDOR__Tipo___6A30C649" ManuallyRouted="false" />
+        <AssociationConnector Association="DBINMOBILIARIAModel.FK__TRANSACCI__Codig__07C12930" ManuallyRouted="false" />
+        <AssociationConnector Association="DBINMOBILIARIAModel.FK__VENTA__Codigo_Tr__0B91BA14" ManuallyRouted="false" />
+        <AssociationConnector Association="DBINMOBILIARIAModel.INMUEBLE_MODELO_DECORACION" ManuallyRouted="false" />
+        <AssociationConnector Association="DBINMOBILIARIAModel.INMUEBLE_PROYECTO" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

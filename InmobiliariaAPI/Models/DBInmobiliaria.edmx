@@ -1,0 +1,2469 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DBINMOBILIARIAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ARRIENDO">
+          <Key>
+            <PropertyRef Name="Codigo_Transaccion" />
+          </Key>
+          <Property Name="Codigo_Transaccion" Type="int" Nullable="false" />
+          <Property Name="Fecha_Inicio_Contrato" Type="date" Nullable="false" />
+          <Property Name="Fecha_Fin_Contrato" Type="date" Nullable="false" />
+          <Property Name="Duracion_Contrato_Meses" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CIUDAD">
+          <Key>
+            <PropertyRef Name="Codigo_Ciudad" />
+          </Key>
+          <Property Name="Codigo_Ciudad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre_Ciudad" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CLIENTE">
+          <Key>
+            <PropertyRef Name="Codigo_Cliente" />
+          </Key>
+          <Property Name="Codigo_Cliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Activo" Type="bit" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Apellido" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Tipo_Doc" Type="int" />
+          <Property Name="Nro_Documento" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Tipo_Telefono" Type="int" />
+          <Property Name="Telefono" Type="varchar" MaxLength="100" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="Direccion" Type="varchar" MaxLength="255" />
+          <Property Name="Codigo_Ciudad" Type="int" />
+          <Property Name="Codigo_Genero" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="COMPRA_PROVEEDOR">
+          <Key>
+            <PropertyRef Name="Codigo_Compra" />
+          </Key>
+          <Property Name="Codigo_Compra" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Codigo_Proveedor" Type="int" Nullable="false" />
+          <Property Name="Fecha_Compra" Type="date" Nullable="false" />
+          <Property Name="Monto_Total" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Descripcion" Type="text" />
+          <Property Name="Codigo_Empleado" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DECORACION_MODELO">
+          <Key>
+            <PropertyRef Name="Codigo_Decoracion" />
+          </Key>
+          <Property Name="Codigo_Decoracion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre_Estilo" Type="varchar" MaxLength="100" />
+          <Property Name="Descripcion" Type="text" />
+          <Property Name="Costo" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Fecha_Inicio" Type="date" />
+          <Property Name="Fecha_Fin" Type="date" />
+          <Property Name="Codigo_Empleado" Type="int" />
+        </EntityType>
+        <EntityType Name="DETALLE_COMPRA_PROVEEDOR">
+          <Key>
+            <PropertyRef Name="Detalle_ID" />
+          </Key>
+          <Property Name="Detalle_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Codigo_Compra" Type="int" Nullable="false" />
+          <Property Name="Codigo_Producto" Type="int" Nullable="false" />
+          <Property Name="Cantidad" Type="int" Nullable="false" />
+          <Property Name="Precio_Unitario" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EMPLEADO">
+          <Key>
+            <PropertyRef Name="Codigo_Empleado" />
+          </Key>
+          <Property Name="Codigo_Empleado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Activo" Type="bit" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Apellido" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Tipo_Doc" Type="int" />
+          <Property Name="Nro_Documento" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Tipo_Telefono" Type="int" />
+          <Property Name="Telefono" Type="varchar" MaxLength="100" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="Fecha_Contratacion" Type="date" Nullable="false" />
+          <Property Name="Codigo_TipoEmpleado" Type="int" Nullable="false" />
+          <Property Name="Codigo_Sede" Type="int" Nullable="false" />
+          <Property Name="Codigo_Genero" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FACTURA">
+          <Key>
+            <PropertyRef Name="Codigo_Factura" />
+          </Key>
+          <Property Name="Codigo_Factura" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Codigo_Transaccion" Type="int" Nullable="false" />
+          <Property Name="Codigo_Cliente" Type="int" Nullable="false" />
+          <Property Name="Codigo_Inmueble" Type="int" Nullable="false" />
+          <Property Name="Codigo_Empleado_Genera" Type="int" />
+          <Property Name="Codigo_Forma" Type="int" Nullable="false" />
+          <Property Name="Fecha_Emision" Type="date" Nullable="false" />
+          <Property Name="Fecha_Vencimiento" Type="date" />
+          <Property Name="Monto_Total" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Concepto" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Estado" Type="varchar" MaxLength="50" />
+          <Property Name="Fecha_Pago" Type="date" />
+          <Property Name="Notas_Factura" Type="text" />
+        </EntityType>
+        <EntityType Name="FORMA_PAGO">
+          <Key>
+            <PropertyRef Name="Codigo_Forma" />
+          </Key>
+          <Property Name="Codigo_Forma" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Codigo_TipoPago" Type="int" Nullable="false" />
+          <Property Name="Valor" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GENERO">
+          <Key>
+            <PropertyRef Name="Codigo_Genero" />
+          </Key>
+          <Property Name="Codigo_Genero" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="INMUEBLE">
+          <Key>
+            <PropertyRef Name="Codigo_Inmueble" />
+          </Key>
+          <Property Name="Codigo_Inmueble" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Activo" Type="bit" />
+          <Property Name="Direccion" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Codigo_Ciudad" Type="int" Nullable="false" />
+          <Property Name="Codigo_TipoInmueble" Type="int" Nullable="false" />
+          <Property Name="Es_Nuevo" Type="bit" Nullable="false" />
+          <Property Name="Fecha_Alta" Type="date" Nullable="false" />
+          <Property Name="Descripcion" Type="text" />
+          <Property Name="Codigo_Empleado_Captacion" Type="int" Nullable="false" />
+          <Property Name="Precio_Venta" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Canon_Mensual" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="INMUEBLE_CONSIGNACION">
+          <Key>
+            <PropertyRef Name="Codigo_Inmueble" />
+          </Key>
+          <Property Name="Codigo_Inmueble" Type="int" Nullable="false" />
+          <Property Name="Nombre_Propietario" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Telefono_Propietario" Type="varchar" MaxLength="100" />
+          <Property Name="Email_Propietario" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="INMUEBLE_MODELO_DECORACION">
+          <Key>
+            <PropertyRef Name="Codigo_Inmueble" />
+            <PropertyRef Name="Codigo_Decoracion" />
+          </Key>
+          <Property Name="Codigo_Inmueble" Type="int" Nullable="false" />
+          <Property Name="Codigo_Decoracion" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="INMUEBLE_PROYECTO">
+          <Key>
+            <PropertyRef Name="Codigo_Inmueble" />
+            <PropertyRef Name="Codigo_Proyecto" />
+          </Key>
+          <Property Name="Codigo_Inmueble" Type="int" Nullable="false" />
+          <Property Name="Codigo_Proyecto" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PERFIL">
+          <Key>
+            <PropertyRef Name="Codigo_Perfil" />
+          </Key>
+          <Property Name="Codigo_Perfil" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="PaginaNavegar" Type="nvarchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PERFIL_USUARIO">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Codigo_Usuario" Type="int" Nullable="false" />
+          <Property Name="Codigo_Perfil" Type="int" Nullable="false" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PRODUCTO_SERVICIO_PROVEEDOR">
+          <Key>
+            <PropertyRef Name="Codigo_Producto" />
+          </Key>
+          <Property Name="Codigo_Producto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Codigo_Proveedor" Type="int" Nullable="false" />
+          <Property Name="Nombre_Producto" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Unidad_Medida" Type="varchar" MaxLength="50" />
+          <Property Name="Precio_Unitario" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PROVEEDOR">
+          <Key>
+            <PropertyRef Name="Codigo_Proveedor" />
+          </Key>
+          <Property Name="Codigo_Proveedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre_Proveedor" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Nombre_Contacto" Type="varchar" MaxLength="100" />
+          <Property Name="Tipo_Telefono" Type="int" />
+          <Property Name="Telefono" Type="varchar" MaxLength="100" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="Direccion" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="PROYECTO_NUEVO">
+          <Key>
+            <PropertyRef Name="Codigo_Proyecto" />
+          </Key>
+          <Property Name="Codigo_Proyecto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre_Proyecto" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Direccion" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Codigo_Ciudad" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SEDE">
+          <Key>
+            <PropertyRef Name="Codigo_Sede" />
+          </Key>
+          <Property Name="Codigo_Sede" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre_Sede" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Direccion" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Codigo_Ciudad" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TIPO_DOCUMENTO">
+          <Key>
+            <PropertyRef Name="Codigo_doc" />
+          </Key>
+          <Property Name="Codigo_doc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TIPO_EMPLEADO">
+          <Key>
+            <PropertyRef Name="Codigo_TipoEmpleado" />
+          </Key>
+          <Property Name="Codigo_TipoEmpleado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TIPO_INMUEBLE">
+          <Key>
+            <PropertyRef Name="Codigo_TipoInmueble" />
+          </Key>
+          <Property Name="Codigo_TipoInmueble" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TIPO_PAGO">
+          <Key>
+            <PropertyRef Name="Codigo_TipoPago" />
+          </Key>
+          <Property Name="Codigo_TipoPago" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TIPO_TELEFONO">
+          <Key>
+            <PropertyRef Name="Codigo_TipoTelefono" />
+          </Key>
+          <Property Name="Codigo_TipoTelefono" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TIPO_TRANSACCION">
+          <Key>
+            <PropertyRef Name="Codigo_TipoTransaccion" />
+          </Key>
+          <Property Name="Codigo_TipoTransaccion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Porcentaje_Comision" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TRANSACCION">
+          <Key>
+            <PropertyRef Name="Codigo_Transaccion" />
+          </Key>
+          <Property Name="Codigo_Transaccion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Codigo_Inmueble" Type="int" Nullable="false" />
+          <Property Name="Codigo_Cliente" Type="int" Nullable="false" />
+          <Property Name="Codigo_Empleado_Cierre" Type="int" Nullable="false" />
+          <Property Name="Codigo_TipoTransaccion" Type="int" Nullable="false" />
+          <Property Name="Fecha_Transaccion" Type="date" Nullable="false" />
+          <Property Name="Precio_Acordado" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Comision_Agente" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Notas_Transaccion" Type="text" />
+        </EntityType>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="Codigo_Usuario" />
+          </Key>
+          <Property Name="Codigo_Usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Documento_Empleado" Type="int" />
+          <Property Name="Username" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Clave" Type="nvarchar" MaxLength="2000" Nullable="false" />
+          <Property Name="Salt" Type="nvarchar" MaxLength="2000" />
+        </EntityType>
+        <EntityType Name="VENTA">
+          <Key>
+            <PropertyRef Name="Codigo_Transaccion" />
+          </Key>
+          <Property Name="Codigo_Transaccion" Type="int" Nullable="false" />
+          <Property Name="Fecha_Pago" Type="date" Nullable="false" />
+          <Property Name="Monto_Pagado" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Estado_Pago" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Notas_Venta" Type="text" />
+        </EntityType>
+        <EntityType Name="VISITA">
+          <Key>
+            <PropertyRef Name="Codigo_Visita" />
+          </Key>
+          <Property Name="Codigo_Visita" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Codigo_Inmueble" Type="int" Nullable="false" />
+          <Property Name="Codigo_Cliente" Type="int" Nullable="false" />
+          <Property Name="Fecha_Visita" Type="datetime" Nullable="false" />
+          <Property Name="Comentarios" Type="text" />
+          <Property Name="Codigo_Empleado" Type="int" />
+        </EntityType>
+        <Association Name="FK__ARRIENDO__Codigo__0E6E26BF">
+          <End Role="TRANSACCION" Type="Self.TRANSACCION" Multiplicity="1" />
+          <End Role="ARRIENDO" Type="Self.ARRIENDO" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="TRANSACCION">
+              <PropertyRef Name="Codigo_Transaccion" />
+            </Principal>
+            <Dependent Role="ARRIENDO">
+              <PropertyRef Name="Codigo_Transaccion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CLIENTE__Codigo___5070F446">
+          <End Role="CIUDAD" Type="Self.CIUDAD" Multiplicity="0..1" />
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CIUDAD">
+              <PropertyRef Name="Codigo_Ciudad" />
+            </Principal>
+            <Dependent Role="CLIENTE">
+              <PropertyRef Name="Codigo_Ciudad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CLIENTE__Codigo___5165187F">
+          <End Role="GENERO" Type="Self.GENERO" Multiplicity="1" />
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GENERO">
+              <PropertyRef Name="Codigo_Genero" />
+            </Principal>
+            <Dependent Role="CLIENTE">
+              <PropertyRef Name="Codigo_Genero" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CLIENTE__Tipo_Do__4E88ABD4">
+          <End Role="TIPO_DOCUMENTO" Type="Self.TIPO_DOCUMENTO" Multiplicity="0..1" />
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_DOCUMENTO">
+              <PropertyRef Name="Codigo_doc" />
+            </Principal>
+            <Dependent Role="CLIENTE">
+              <PropertyRef Name="Tipo_Doc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CLIENTE__Tipo_Te__4F7CD00D">
+          <End Role="TIPO_TELEFONO" Type="Self.TIPO_TELEFONO" Multiplicity="0..1" />
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_TELEFONO">
+              <PropertyRef Name="Codigo_TipoTelefono" />
+            </Principal>
+            <Dependent Role="CLIENTE">
+              <PropertyRef Name="Tipo_Telefono" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__COMPRA_PR__Codig__6FE99F9F">
+          <End Role="PROVEEDOR" Type="Self.PROVEEDOR" Multiplicity="1" />
+          <End Role="COMPRA_PROVEEDOR" Type="Self.COMPRA_PROVEEDOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROVEEDOR">
+              <PropertyRef Name="Codigo_Proveedor" />
+            </Principal>
+            <Dependent Role="COMPRA_PROVEEDOR">
+              <PropertyRef Name="Codigo_Proveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__COMPRA_PR__Codig__70DDC3D8">
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="1" />
+          <End Role="COMPRA_PROVEEDOR" Type="Self.COMPRA_PROVEEDOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLEADO">
+              <PropertyRef Name="Codigo_Empleado" />
+            </Principal>
+            <Dependent Role="COMPRA_PROVEEDOR">
+              <PropertyRef Name="Codigo_Empleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DECORACIO__Codig__778AC167">
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="0..1" />
+          <End Role="DECORACION_MODELO" Type="Self.DECORACION_MODELO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLEADO">
+              <PropertyRef Name="Codigo_Empleado" />
+            </Principal>
+            <Dependent Role="DECORACION_MODELO">
+              <PropertyRef Name="Codigo_Empleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DETALLE_C__Codig__73BA3083">
+          <End Role="COMPRA_PROVEEDOR" Type="Self.COMPRA_PROVEEDOR" Multiplicity="1" />
+          <End Role="DETALLE_COMPRA_PROVEEDOR" Type="Self.DETALLE_COMPRA_PROVEEDOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COMPRA_PROVEEDOR">
+              <PropertyRef Name="Codigo_Compra" />
+            </Principal>
+            <Dependent Role="DETALLE_COMPRA_PROVEEDOR">
+              <PropertyRef Name="Codigo_Compra" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DETALLE_C__Codig__74AE54BC">
+          <End Role="PRODUCTO_SERVICIO_PROVEEDOR" Type="Self.PRODUCTO_SERVICIO_PROVEEDOR" Multiplicity="1" />
+          <End Role="DETALLE_COMPRA_PROVEEDOR" Type="Self.DETALLE_COMPRA_PROVEEDOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCTO_SERVICIO_PROVEEDOR">
+              <PropertyRef Name="Codigo_Producto" />
+            </Principal>
+            <Dependent Role="DETALLE_COMPRA_PROVEEDOR">
+              <PropertyRef Name="Codigo_Producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EMPLEADO__Codigo__47DBAE45">
+          <End Role="TIPO_EMPLEADO" Type="Self.TIPO_EMPLEADO" Multiplicity="1" />
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_EMPLEADO">
+              <PropertyRef Name="Codigo_TipoEmpleado" />
+            </Principal>
+            <Dependent Role="EMPLEADO">
+              <PropertyRef Name="Codigo_TipoEmpleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EMPLEADO__Codigo__48CFD27E">
+          <End Role="SEDE" Type="Self.SEDE" Multiplicity="1" />
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SEDE">
+              <PropertyRef Name="Codigo_Sede" />
+            </Principal>
+            <Dependent Role="EMPLEADO">
+              <PropertyRef Name="Codigo_Sede" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EMPLEADO__Codigo__49C3F6B7">
+          <End Role="GENERO" Type="Self.GENERO" Multiplicity="1" />
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GENERO">
+              <PropertyRef Name="Codigo_Genero" />
+            </Principal>
+            <Dependent Role="EMPLEADO">
+              <PropertyRef Name="Codigo_Genero" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EMPLEADO__Tipo_D__45F365D3">
+          <End Role="TIPO_DOCUMENTO" Type="Self.TIPO_DOCUMENTO" Multiplicity="0..1" />
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_DOCUMENTO">
+              <PropertyRef Name="Codigo_doc" />
+            </Principal>
+            <Dependent Role="EMPLEADO">
+              <PropertyRef Name="Tipo_Doc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EMPLEADO__Tipo_T__46E78A0C">
+          <End Role="TIPO_TELEFONO" Type="Self.TIPO_TELEFONO" Multiplicity="0..1" />
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_TELEFONO">
+              <PropertyRef Name="Codigo_TipoTelefono" />
+            </Principal>
+            <Dependent Role="EMPLEADO">
+              <PropertyRef Name="Tipo_Telefono" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FACTURA__Codigo___123EB7A3">
+          <End Role="TRANSACCION" Type="Self.TRANSACCION" Multiplicity="1" />
+          <End Role="FACTURA" Type="Self.FACTURA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TRANSACCION">
+              <PropertyRef Name="Codigo_Transaccion" />
+            </Principal>
+            <Dependent Role="FACTURA">
+              <PropertyRef Name="Codigo_Transaccion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FACTURA__Codigo___1332DBDC">
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+          <End Role="FACTURA" Type="Self.FACTURA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="Codigo_Cliente" />
+            </Principal>
+            <Dependent Role="FACTURA">
+              <PropertyRef Name="Codigo_Cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FACTURA__Codigo___14270015">
+          <End Role="INMUEBLE" Type="Self.INMUEBLE" Multiplicity="1" />
+          <End Role="FACTURA" Type="Self.FACTURA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INMUEBLE">
+              <PropertyRef Name="Codigo_Inmueble" />
+            </Principal>
+            <Dependent Role="FACTURA">
+              <PropertyRef Name="Codigo_Inmueble" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FACTURA__Codigo___151B244E">
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="0..1" />
+          <End Role="FACTURA" Type="Self.FACTURA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLEADO">
+              <PropertyRef Name="Codigo_Empleado" />
+            </Principal>
+            <Dependent Role="FACTURA">
+              <PropertyRef Name="Codigo_Empleado_Genera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FACTURA__Codigo___160F4887">
+          <End Role="FORMA_PAGO" Type="Self.FORMA_PAGO" Multiplicity="1" />
+          <End Role="FACTURA" Type="Self.FACTURA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FORMA_PAGO">
+              <PropertyRef Name="Codigo_Forma" />
+            </Principal>
+            <Dependent Role="FACTURA">
+              <PropertyRef Name="Codigo_Forma" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FORMA_PAG__Codig__02084FDA">
+          <End Role="TIPO_PAGO" Type="Self.TIPO_PAGO" Multiplicity="1" />
+          <End Role="FORMA_PAGO" Type="Self.FORMA_PAGO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_PAGO">
+              <PropertyRef Name="Codigo_TipoPago" />
+            </Principal>
+            <Dependent Role="FORMA_PAGO">
+              <PropertyRef Name="Codigo_TipoPago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__INMUEBLE___Codig__5BE2A6F2">
+          <End Role="INMUEBLE" Type="Self.INMUEBLE" Multiplicity="1" />
+          <End Role="INMUEBLE_CONSIGNACION" Type="Self.INMUEBLE_CONSIGNACION" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="INMUEBLE">
+              <PropertyRef Name="Codigo_Inmueble" />
+            </Principal>
+            <Dependent Role="INMUEBLE_CONSIGNACION">
+              <PropertyRef Name="Codigo_Inmueble" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__INMUEBLE___Codig__619B8048">
+          <End Role="INMUEBLE" Type="Self.INMUEBLE" Multiplicity="1" />
+          <End Role="INMUEBLE_PROYECTO" Type="Self.INMUEBLE_PROYECTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INMUEBLE">
+              <PropertyRef Name="Codigo_Inmueble" />
+            </Principal>
+            <Dependent Role="INMUEBLE_PROYECTO">
+              <PropertyRef Name="Codigo_Inmueble" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__INMUEBLE___Codig__628FA481">
+          <End Role="PROYECTO_NUEVO" Type="Self.PROYECTO_NUEVO" Multiplicity="1" />
+          <End Role="INMUEBLE_PROYECTO" Type="Self.INMUEBLE_PROYECTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROYECTO_NUEVO">
+              <PropertyRef Name="Codigo_Proyecto" />
+            </Principal>
+            <Dependent Role="INMUEBLE_PROYECTO">
+              <PropertyRef Name="Codigo_Proyecto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__INMUEBLE___Codig__7A672E12">
+          <End Role="INMUEBLE" Type="Self.INMUEBLE" Multiplicity="1" />
+          <End Role="INMUEBLE_MODELO_DECORACION" Type="Self.INMUEBLE_MODELO_DECORACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INMUEBLE">
+              <PropertyRef Name="Codigo_Inmueble" />
+            </Principal>
+            <Dependent Role="INMUEBLE_MODELO_DECORACION">
+              <PropertyRef Name="Codigo_Inmueble" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__INMUEBLE___Codig__7B5B524B">
+          <End Role="DECORACION_MODELO" Type="Self.DECORACION_MODELO" Multiplicity="1" />
+          <End Role="INMUEBLE_MODELO_DECORACION" Type="Self.INMUEBLE_MODELO_DECORACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DECORACION_MODELO">
+              <PropertyRef Name="Codigo_Decoracion" />
+            </Principal>
+            <Dependent Role="INMUEBLE_MODELO_DECORACION">
+              <PropertyRef Name="Codigo_Decoracion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__INMUEBLE__Codigo__571DF1D5">
+          <End Role="CIUDAD" Type="Self.CIUDAD" Multiplicity="1" />
+          <End Role="INMUEBLE" Type="Self.INMUEBLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CIUDAD">
+              <PropertyRef Name="Codigo_Ciudad" />
+            </Principal>
+            <Dependent Role="INMUEBLE">
+              <PropertyRef Name="Codigo_Ciudad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__INMUEBLE__Codigo__5812160E">
+          <End Role="TIPO_INMUEBLE" Type="Self.TIPO_INMUEBLE" Multiplicity="1" />
+          <End Role="INMUEBLE" Type="Self.INMUEBLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_INMUEBLE">
+              <PropertyRef Name="Codigo_TipoInmueble" />
+            </Principal>
+            <Dependent Role="INMUEBLE">
+              <PropertyRef Name="Codigo_TipoInmueble" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__INMUEBLE__Codigo__59063A47">
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="1" />
+          <End Role="INMUEBLE" Type="Self.INMUEBLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLEADO">
+              <PropertyRef Name="Codigo_Empleado" />
+            </Principal>
+            <Dependent Role="INMUEBLE">
+              <PropertyRef Name="Codigo_Empleado_Captacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PERFIL_US__Codig__1DB06A4F">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="PERFIL_USUARIO" Type="Self.PERFIL_USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="Codigo_Usuario" />
+            </Principal>
+            <Dependent Role="PERFIL_USUARIO">
+              <PropertyRef Name="Codigo_Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PERFIL_US__Codig__1EA48E88">
+          <End Role="PERFIL" Type="Self.PERFIL" Multiplicity="1" />
+          <End Role="PERFIL_USUARIO" Type="Self.PERFIL_USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERFIL">
+              <PropertyRef Name="Codigo_Perfil" />
+            </Principal>
+            <Dependent Role="PERFIL_USUARIO">
+              <PropertyRef Name="Codigo_Perfil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PRODUCTO___Codig__6D0D32F4">
+          <End Role="PROVEEDOR" Type="Self.PROVEEDOR" Multiplicity="1" />
+          <End Role="PRODUCTO_SERVICIO_PROVEEDOR" Type="Self.PRODUCTO_SERVICIO_PROVEEDOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROVEEDOR">
+              <PropertyRef Name="Codigo_Proveedor" />
+            </Principal>
+            <Dependent Role="PRODUCTO_SERVICIO_PROVEEDOR">
+              <PropertyRef Name="Codigo_Proveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PROVEEDOR__Tipo___6A30C649">
+          <End Role="TIPO_TELEFONO" Type="Self.TIPO_TELEFONO" Multiplicity="0..1" />
+          <End Role="PROVEEDOR" Type="Self.PROVEEDOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_TELEFONO">
+              <PropertyRef Name="Codigo_TipoTelefono" />
+            </Principal>
+            <Dependent Role="PROVEEDOR">
+              <PropertyRef Name="Tipo_Telefono" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PROYECTO___Codig__5EBF139D">
+          <End Role="CIUDAD" Type="Self.CIUDAD" Multiplicity="1" />
+          <End Role="PROYECTO_NUEVO" Type="Self.PROYECTO_NUEVO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CIUDAD">
+              <PropertyRef Name="Codigo_Ciudad" />
+            </Principal>
+            <Dependent Role="PROYECTO_NUEVO">
+              <PropertyRef Name="Codigo_Ciudad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SEDE__Codigo_Ciu__398D8EEE">
+          <End Role="CIUDAD" Type="Self.CIUDAD" Multiplicity="1" />
+          <End Role="SEDE" Type="Self.SEDE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CIUDAD">
+              <PropertyRef Name="Codigo_Ciudad" />
+            </Principal>
+            <Dependent Role="SEDE">
+              <PropertyRef Name="Codigo_Ciudad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TRANSACCI__Codig__04E4BC85">
+          <End Role="INMUEBLE" Type="Self.INMUEBLE" Multiplicity="1" />
+          <End Role="TRANSACCION" Type="Self.TRANSACCION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INMUEBLE">
+              <PropertyRef Name="Codigo_Inmueble" />
+            </Principal>
+            <Dependent Role="TRANSACCION">
+              <PropertyRef Name="Codigo_Inmueble" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TRANSACCI__Codig__05D8E0BE">
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+          <End Role="TRANSACCION" Type="Self.TRANSACCION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="Codigo_Cliente" />
+            </Principal>
+            <Dependent Role="TRANSACCION">
+              <PropertyRef Name="Codigo_Cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TRANSACCI__Codig__06CD04F7">
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="1" />
+          <End Role="TRANSACCION" Type="Self.TRANSACCION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLEADO">
+              <PropertyRef Name="Codigo_Empleado" />
+            </Principal>
+            <Dependent Role="TRANSACCION">
+              <PropertyRef Name="Codigo_Empleado_Cierre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TRANSACCI__Codig__07C12930">
+          <End Role="TIPO_TRANSACCION" Type="Self.TIPO_TRANSACCION" Multiplicity="1" />
+          <End Role="TRANSACCION" Type="Self.TRANSACCION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_TRANSACCION">
+              <PropertyRef Name="Codigo_TipoTransaccion" />
+            </Principal>
+            <Dependent Role="TRANSACCION">
+              <PropertyRef Name="Codigo_TipoTransaccion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__USUARIO__Documen__18EBB532">
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="0..1" />
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLEADO">
+              <PropertyRef Name="Codigo_Empleado" />
+            </Principal>
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="Documento_Empleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VENTA__Codigo_Tr__0B91BA14">
+          <End Role="TRANSACCION" Type="Self.TRANSACCION" Multiplicity="1" />
+          <End Role="VENTA" Type="Self.VENTA" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="TRANSACCION">
+              <PropertyRef Name="Codigo_Transaccion" />
+            </Principal>
+            <Dependent Role="VENTA">
+              <PropertyRef Name="Codigo_Transaccion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VISITA__Codigo_C__66603565">
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+          <End Role="VISITA" Type="Self.VISITA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="Codigo_Cliente" />
+            </Principal>
+            <Dependent Role="VISITA">
+              <PropertyRef Name="Codigo_Cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VISITA__Codigo_E__6754599E">
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="0..1" />
+          <End Role="VISITA" Type="Self.VISITA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLEADO">
+              <PropertyRef Name="Codigo_Empleado" />
+            </Principal>
+            <Dependent Role="VISITA">
+              <PropertyRef Name="Codigo_Empleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VISITA__Codigo_I__656C112C">
+          <End Role="INMUEBLE" Type="Self.INMUEBLE" Multiplicity="1" />
+          <End Role="VISITA" Type="Self.VISITA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INMUEBLE">
+              <PropertyRef Name="Codigo_Inmueble" />
+            </Principal>
+            <Dependent Role="VISITA">
+              <PropertyRef Name="Codigo_Inmueble" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DBINMOBILIARIAModelStoreContainer">
+          <EntitySet Name="ARRIENDO" EntityType="Self.ARRIENDO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CIUDAD" EntityType="Self.CIUDAD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="COMPRA_PROVEEDOR" EntityType="Self.COMPRA_PROVEEDOR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DECORACION_MODELO" EntityType="Self.DECORACION_MODELO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DETALLE_COMPRA_PROVEEDOR" EntityType="Self.DETALLE_COMPRA_PROVEEDOR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EMPLEADO" EntityType="Self.EMPLEADO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FACTURA" EntityType="Self.FACTURA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FORMA_PAGO" EntityType="Self.FORMA_PAGO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GENERO" EntityType="Self.GENERO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="INMUEBLE" EntityType="Self.INMUEBLE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="INMUEBLE_CONSIGNACION" EntityType="Self.INMUEBLE_CONSIGNACION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="INMUEBLE_MODELO_DECORACION" EntityType="Self.INMUEBLE_MODELO_DECORACION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="INMUEBLE_PROYECTO" EntityType="Self.INMUEBLE_PROYECTO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PERFIL" EntityType="Self.PERFIL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PERFIL_USUARIO" EntityType="Self.PERFIL_USUARIO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PRODUCTO_SERVICIO_PROVEEDOR" EntityType="Self.PRODUCTO_SERVICIO_PROVEEDOR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PROVEEDOR" EntityType="Self.PROVEEDOR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PROYECTO_NUEVO" EntityType="Self.PROYECTO_NUEVO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SEDE" EntityType="Self.SEDE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TIPO_DOCUMENTO" EntityType="Self.TIPO_DOCUMENTO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TIPO_EMPLEADO" EntityType="Self.TIPO_EMPLEADO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TIPO_INMUEBLE" EntityType="Self.TIPO_INMUEBLE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TIPO_PAGO" EntityType="Self.TIPO_PAGO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TIPO_TELEFONO" EntityType="Self.TIPO_TELEFONO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TIPO_TRANSACCION" EntityType="Self.TIPO_TRANSACCION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TRANSACCION" EntityType="Self.TRANSACCION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USUARIO" EntityType="Self.USUARIO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VENTA" EntityType="Self.VENTA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VISITA" EntityType="Self.VISITA" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__ARRIENDO__Codigo__0E6E26BF" Association="Self.FK__ARRIENDO__Codigo__0E6E26BF">
+            <End Role="TRANSACCION" EntitySet="TRANSACCION" />
+            <End Role="ARRIENDO" EntitySet="ARRIENDO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CLIENTE__Codigo___5070F446" Association="Self.FK__CLIENTE__Codigo___5070F446">
+            <End Role="CIUDAD" EntitySet="CIUDAD" />
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CLIENTE__Codigo___5165187F" Association="Self.FK__CLIENTE__Codigo___5165187F">
+            <End Role="GENERO" EntitySet="GENERO" />
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CLIENTE__Tipo_Do__4E88ABD4" Association="Self.FK__CLIENTE__Tipo_Do__4E88ABD4">
+            <End Role="TIPO_DOCUMENTO" EntitySet="TIPO_DOCUMENTO" />
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CLIENTE__Tipo_Te__4F7CD00D" Association="Self.FK__CLIENTE__Tipo_Te__4F7CD00D">
+            <End Role="TIPO_TELEFONO" EntitySet="TIPO_TELEFONO" />
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__COMPRA_PR__Codig__6FE99F9F" Association="Self.FK__COMPRA_PR__Codig__6FE99F9F">
+            <End Role="PROVEEDOR" EntitySet="PROVEEDOR" />
+            <End Role="COMPRA_PROVEEDOR" EntitySet="COMPRA_PROVEEDOR" />
+          </AssociationSet>
+          <AssociationSet Name="FK__COMPRA_PR__Codig__70DDC3D8" Association="Self.FK__COMPRA_PR__Codig__70DDC3D8">
+            <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+            <End Role="COMPRA_PROVEEDOR" EntitySet="COMPRA_PROVEEDOR" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DECORACIO__Codig__778AC167" Association="Self.FK__DECORACIO__Codig__778AC167">
+            <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+            <End Role="DECORACION_MODELO" EntitySet="DECORACION_MODELO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DETALLE_C__Codig__73BA3083" Association="Self.FK__DETALLE_C__Codig__73BA3083">
+            <End Role="COMPRA_PROVEEDOR" EntitySet="COMPRA_PROVEEDOR" />
+            <End Role="DETALLE_COMPRA_PROVEEDOR" EntitySet="DETALLE_COMPRA_PROVEEDOR" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DETALLE_C__Codig__74AE54BC" Association="Self.FK__DETALLE_C__Codig__74AE54BC">
+            <End Role="PRODUCTO_SERVICIO_PROVEEDOR" EntitySet="PRODUCTO_SERVICIO_PROVEEDOR" />
+            <End Role="DETALLE_COMPRA_PROVEEDOR" EntitySet="DETALLE_COMPRA_PROVEEDOR" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EMPLEADO__Codigo__47DBAE45" Association="Self.FK__EMPLEADO__Codigo__47DBAE45">
+            <End Role="TIPO_EMPLEADO" EntitySet="TIPO_EMPLEADO" />
+            <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EMPLEADO__Codigo__48CFD27E" Association="Self.FK__EMPLEADO__Codigo__48CFD27E">
+            <End Role="SEDE" EntitySet="SEDE" />
+            <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EMPLEADO__Codigo__49C3F6B7" Association="Self.FK__EMPLEADO__Codigo__49C3F6B7">
+            <End Role="GENERO" EntitySet="GENERO" />
+            <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EMPLEADO__Tipo_D__45F365D3" Association="Self.FK__EMPLEADO__Tipo_D__45F365D3">
+            <End Role="TIPO_DOCUMENTO" EntitySet="TIPO_DOCUMENTO" />
+            <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EMPLEADO__Tipo_T__46E78A0C" Association="Self.FK__EMPLEADO__Tipo_T__46E78A0C">
+            <End Role="TIPO_TELEFONO" EntitySet="TIPO_TELEFONO" />
+            <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FACTURA__Codigo___123EB7A3" Association="Self.FK__FACTURA__Codigo___123EB7A3">
+            <End Role="TRANSACCION" EntitySet="TRANSACCION" />
+            <End Role="FACTURA" EntitySet="FACTURA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FACTURA__Codigo___1332DBDC" Association="Self.FK__FACTURA__Codigo___1332DBDC">
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+            <End Role="FACTURA" EntitySet="FACTURA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FACTURA__Codigo___14270015" Association="Self.FK__FACTURA__Codigo___14270015">
+            <End Role="INMUEBLE" EntitySet="INMUEBLE" />
+            <End Role="FACTURA" EntitySet="FACTURA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FACTURA__Codigo___151B244E" Association="Self.FK__FACTURA__Codigo___151B244E">
+            <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+            <End Role="FACTURA" EntitySet="FACTURA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FACTURA__Codigo___160F4887" Association="Self.FK__FACTURA__Codigo___160F4887">
+            <End Role="FORMA_PAGO" EntitySet="FORMA_PAGO" />
+            <End Role="FACTURA" EntitySet="FACTURA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FORMA_PAG__Codig__02084FDA" Association="Self.FK__FORMA_PAG__Codig__02084FDA">
+            <End Role="TIPO_PAGO" EntitySet="TIPO_PAGO" />
+            <End Role="FORMA_PAGO" EntitySet="FORMA_PAGO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__INMUEBLE___Codig__5BE2A6F2" Association="Self.FK__INMUEBLE___Codig__5BE2A6F2">
+            <End Role="INMUEBLE" EntitySet="INMUEBLE" />
+            <End Role="INMUEBLE_CONSIGNACION" EntitySet="INMUEBLE_CONSIGNACION" />
+          </AssociationSet>
+          <AssociationSet Name="FK__INMUEBLE___Codig__619B8048" Association="Self.FK__INMUEBLE___Codig__619B8048">
+            <End Role="INMUEBLE" EntitySet="INMUEBLE" />
+            <End Role="INMUEBLE_PROYECTO" EntitySet="INMUEBLE_PROYECTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__INMUEBLE___Codig__628FA481" Association="Self.FK__INMUEBLE___Codig__628FA481">
+            <End Role="PROYECTO_NUEVO" EntitySet="PROYECTO_NUEVO" />
+            <End Role="INMUEBLE_PROYECTO" EntitySet="INMUEBLE_PROYECTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__INMUEBLE___Codig__7A672E12" Association="Self.FK__INMUEBLE___Codig__7A672E12">
+            <End Role="INMUEBLE" EntitySet="INMUEBLE" />
+            <End Role="INMUEBLE_MODELO_DECORACION" EntitySet="INMUEBLE_MODELO_DECORACION" />
+          </AssociationSet>
+          <AssociationSet Name="FK__INMUEBLE___Codig__7B5B524B" Association="Self.FK__INMUEBLE___Codig__7B5B524B">
+            <End Role="DECORACION_MODELO" EntitySet="DECORACION_MODELO" />
+            <End Role="INMUEBLE_MODELO_DECORACION" EntitySet="INMUEBLE_MODELO_DECORACION" />
+          </AssociationSet>
+          <AssociationSet Name="FK__INMUEBLE__Codigo__571DF1D5" Association="Self.FK__INMUEBLE__Codigo__571DF1D5">
+            <End Role="CIUDAD" EntitySet="CIUDAD" />
+            <End Role="INMUEBLE" EntitySet="INMUEBLE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__INMUEBLE__Codigo__5812160E" Association="Self.FK__INMUEBLE__Codigo__5812160E">
+            <End Role="TIPO_INMUEBLE" EntitySet="TIPO_INMUEBLE" />
+            <End Role="INMUEBLE" EntitySet="INMUEBLE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__INMUEBLE__Codigo__59063A47" Association="Self.FK__INMUEBLE__Codigo__59063A47">
+            <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+            <End Role="INMUEBLE" EntitySet="INMUEBLE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PERFIL_US__Codig__1DB06A4F" Association="Self.FK__PERFIL_US__Codig__1DB06A4F">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="PERFIL_USUARIO" EntitySet="PERFIL_USUARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PERFIL_US__Codig__1EA48E88" Association="Self.FK__PERFIL_US__Codig__1EA48E88">
+            <End Role="PERFIL" EntitySet="PERFIL" />
+            <End Role="PERFIL_USUARIO" EntitySet="PERFIL_USUARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PRODUCTO___Codig__6D0D32F4" Association="Self.FK__PRODUCTO___Codig__6D0D32F4">
+            <End Role="PROVEEDOR" EntitySet="PROVEEDOR" />
+            <End Role="PRODUCTO_SERVICIO_PROVEEDOR" EntitySet="PRODUCTO_SERVICIO_PROVEEDOR" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PROVEEDOR__Tipo___6A30C649" Association="Self.FK__PROVEEDOR__Tipo___6A30C649">
+            <End Role="TIPO_TELEFONO" EntitySet="TIPO_TELEFONO" />
+            <End Role="PROVEEDOR" EntitySet="PROVEEDOR" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PROYECTO___Codig__5EBF139D" Association="Self.FK__PROYECTO___Codig__5EBF139D">
+            <End Role="CIUDAD" EntitySet="CIUDAD" />
+            <End Role="PROYECTO_NUEVO" EntitySet="PROYECTO_NUEVO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SEDE__Codigo_Ciu__398D8EEE" Association="Self.FK__SEDE__Codigo_Ciu__398D8EEE">
+            <End Role="CIUDAD" EntitySet="CIUDAD" />
+            <End Role="SEDE" EntitySet="SEDE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TRANSACCI__Codig__04E4BC85" Association="Self.FK__TRANSACCI__Codig__04E4BC85">
+            <End Role="INMUEBLE" EntitySet="INMUEBLE" />
+            <End Role="TRANSACCION" EntitySet="TRANSACCION" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TRANSACCI__Codig__05D8E0BE" Association="Self.FK__TRANSACCI__Codig__05D8E0BE">
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+            <End Role="TRANSACCION" EntitySet="TRANSACCION" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TRANSACCI__Codig__06CD04F7" Association="Self.FK__TRANSACCI__Codig__06CD04F7">
+            <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+            <End Role="TRANSACCION" EntitySet="TRANSACCION" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TRANSACCI__Codig__07C12930" Association="Self.FK__TRANSACCI__Codig__07C12930">
+            <End Role="TIPO_TRANSACCION" EntitySet="TIPO_TRANSACCION" />
+            <End Role="TRANSACCION" EntitySet="TRANSACCION" />
+          </AssociationSet>
+          <AssociationSet Name="FK__USUARIO__Documen__18EBB532" Association="Self.FK__USUARIO__Documen__18EBB532">
+            <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+            <End Role="USUARIO" EntitySet="USUARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VENTA__Codigo_Tr__0B91BA14" Association="Self.FK__VENTA__Codigo_Tr__0B91BA14">
+            <End Role="TRANSACCION" EntitySet="TRANSACCION" />
+            <End Role="VENTA" EntitySet="VENTA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VISITA__Codigo_C__66603565" Association="Self.FK__VISITA__Codigo_C__66603565">
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+            <End Role="VISITA" EntitySet="VISITA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VISITA__Codigo_E__6754599E" Association="Self.FK__VISITA__Codigo_E__6754599E">
+            <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+            <End Role="VISITA" EntitySet="VISITA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VISITA__Codigo_I__656C112C" Association="Self.FK__VISITA__Codigo_I__656C112C">
+            <End Role="INMUEBLE" EntitySet="INMUEBLE" />
+            <End Role="VISITA" EntitySet="VISITA" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DBINMOBILIARIAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ARRIENDO">
+          <Key>
+            <PropertyRef Name="Codigo_Transaccion" />
+          </Key>
+          <Property Name="Codigo_Transaccion" Type="Int32" Nullable="false" />
+          <Property Name="Fecha_Inicio_Contrato" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Fecha_Fin_Contrato" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Duracion_Contrato_Meses" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TRANSACCION" Relationship="Self.FK__ARRIENDO__Codigo__0E6E26BF" FromRole="ARRIENDO" ToRole="TRANSACCION" />
+        </EntityType>
+        <EntityType Name="CIUDAD">
+          <Key>
+            <PropertyRef Name="Codigo_Ciudad" />
+          </Key>
+          <Property Name="Codigo_Ciudad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre_Ciudad" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CLIENTEs" Relationship="Self.FK__CLIENTE__Codigo___5070F446" FromRole="CIUDAD" ToRole="CLIENTE" />
+          <NavigationProperty Name="INMUEBLEs" Relationship="Self.FK__INMUEBLE__Codigo__571DF1D5" FromRole="CIUDAD" ToRole="INMUEBLE" />
+          <NavigationProperty Name="PROYECTO_NUEVO" Relationship="Self.FK__PROYECTO___Codig__5EBF139D" FromRole="CIUDAD" ToRole="PROYECTO_NUEVO" />
+          <NavigationProperty Name="SEDEs" Relationship="Self.FK__SEDE__Codigo_Ciu__398D8EEE" FromRole="CIUDAD" ToRole="SEDE" />
+        </EntityType>
+        <EntityType Name="CLIENTE">
+          <Key>
+            <PropertyRef Name="Codigo_Cliente" />
+          </Key>
+          <Property Name="Codigo_Cliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Activo" Type="Boolean" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Tipo_Doc" Type="Int32" />
+          <Property Name="Nro_Documento" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Tipo_Telefono" Type="Int32" />
+          <Property Name="Telefono" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Direccion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Codigo_Ciudad" Type="Int32" />
+          <Property Name="Codigo_Genero" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CIUDAD" Relationship="Self.FK__CLIENTE__Codigo___5070F446" FromRole="CLIENTE" ToRole="CIUDAD" />
+          <NavigationProperty Name="GENERO" Relationship="Self.FK__CLIENTE__Codigo___5165187F" FromRole="CLIENTE" ToRole="GENERO" />
+          <NavigationProperty Name="TIPO_DOCUMENTO" Relationship="Self.FK__CLIENTE__Tipo_Do__4E88ABD4" FromRole="CLIENTE" ToRole="TIPO_DOCUMENTO" />
+          <NavigationProperty Name="TIPO_TELEFONO1" Relationship="Self.FK__CLIENTE__Tipo_Te__4F7CD00D" FromRole="CLIENTE" ToRole="TIPO_TELEFONO" />
+          <NavigationProperty Name="FACTURAs" Relationship="Self.FK__FACTURA__Codigo___1332DBDC" FromRole="CLIENTE" ToRole="FACTURA" />
+          <NavigationProperty Name="TRANSACCIONs" Relationship="Self.FK__TRANSACCI__Codig__05D8E0BE" FromRole="CLIENTE" ToRole="TRANSACCION" />
+          <NavigationProperty Name="VISITAs" Relationship="Self.FK__VISITA__Codigo_C__66603565" FromRole="CLIENTE" ToRole="VISITA" />
+        </EntityType>
+        <EntityType Name="COMPRA_PROVEEDOR">
+          <Key>
+            <PropertyRef Name="Codigo_Compra" />
+          </Key>
+          <Property Name="Codigo_Compra" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Codigo_Proveedor" Type="Int32" Nullable="false" />
+          <Property Name="Fecha_Compra" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Monto_Total" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Codigo_Empleado" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="PROVEEDOR" Relationship="Self.FK__COMPRA_PR__Codig__6FE99F9F" FromRole="COMPRA_PROVEEDOR" ToRole="PROVEEDOR" />
+          <NavigationProperty Name="EMPLEADO" Relationship="Self.FK__COMPRA_PR__Codig__70DDC3D8" FromRole="COMPRA_PROVEEDOR" ToRole="EMPLEADO" />
+          <NavigationProperty Name="DETALLE_COMPRA_PROVEEDOR" Relationship="Self.FK__DETALLE_C__Codig__73BA3083" FromRole="COMPRA_PROVEEDOR" ToRole="DETALLE_COMPRA_PROVEEDOR" />
+        </EntityType>
+        <EntityType Name="DECORACION_MODELO">
+          <Key>
+            <PropertyRef Name="Codigo_Decoracion" />
+          </Key>
+          <Property Name="Codigo_Decoracion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre_Estilo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Costo" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Fecha_Inicio" Type="DateTime" Precision="0" />
+          <Property Name="Fecha_Fin" Type="DateTime" Precision="0" />
+          <Property Name="Codigo_Empleado" Type="Int32" />
+          <NavigationProperty Name="EMPLEADO" Relationship="Self.FK__DECORACIO__Codig__778AC167" FromRole="DECORACION_MODELO" ToRole="EMPLEADO" />
+          <NavigationProperty Name="INMUEBLEs" Relationship="Self.INMUEBLE_MODELO_DECORACION" FromRole="DECORACION_MODELO" ToRole="INMUEBLE" />
+        </EntityType>
+        <EntityType Name="DETALLE_COMPRA_PROVEEDOR">
+          <Key>
+            <PropertyRef Name="Detalle_ID" />
+          </Key>
+          <Property Name="Detalle_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Codigo_Compra" Type="Int32" Nullable="false" />
+          <Property Name="Codigo_Producto" Type="Int32" Nullable="false" />
+          <Property Name="Cantidad" Type="Int32" Nullable="false" />
+          <Property Name="Precio_Unitario" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <NavigationProperty Name="COMPRA_PROVEEDOR" Relationship="Self.FK__DETALLE_C__Codig__73BA3083" FromRole="DETALLE_COMPRA_PROVEEDOR" ToRole="COMPRA_PROVEEDOR" />
+          <NavigationProperty Name="PRODUCTO_SERVICIO_PROVEEDOR" Relationship="Self.FK__DETALLE_C__Codig__74AE54BC" FromRole="DETALLE_COMPRA_PROVEEDOR" ToRole="PRODUCTO_SERVICIO_PROVEEDOR" />
+        </EntityType>
+        <EntityType Name="EMPLEADO">
+          <Key>
+            <PropertyRef Name="Codigo_Empleado" />
+          </Key>
+          <Property Name="Codigo_Empleado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Activo" Type="Boolean" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Tipo_Doc" Type="Int32" />
+          <Property Name="Nro_Documento" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Tipo_Telefono" Type="Int32" />
+          <Property Name="Telefono" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Contratacion" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Codigo_TipoEmpleado" Type="Int32" Nullable="false" />
+          <Property Name="Codigo_Sede" Type="Int32" Nullable="false" />
+          <Property Name="Codigo_Genero" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="COMPRA_PROVEEDOR" Relationship="Self.FK__COMPRA_PR__Codig__70DDC3D8" FromRole="EMPLEADO" ToRole="COMPRA_PROVEEDOR" />
+          <NavigationProperty Name="DECORACION_MODELO" Relationship="Self.FK__DECORACIO__Codig__778AC167" FromRole="EMPLEADO" ToRole="DECORACION_MODELO" />
+          <NavigationProperty Name="TIPO_EMPLEADO" Relationship="Self.FK__EMPLEADO__Codigo__47DBAE45" FromRole="EMPLEADO" ToRole="TIPO_EMPLEADO" />
+          <NavigationProperty Name="SEDE" Relationship="Self.FK__EMPLEADO__Codigo__48CFD27E" FromRole="EMPLEADO" ToRole="SEDE" />
+          <NavigationProperty Name="GENERO" Relationship="Self.FK__EMPLEADO__Codigo__49C3F6B7" FromRole="EMPLEADO" ToRole="GENERO" />
+          <NavigationProperty Name="TIPO_DOCUMENTO" Relationship="Self.FK__EMPLEADO__Tipo_D__45F365D3" FromRole="EMPLEADO" ToRole="TIPO_DOCUMENTO" />
+          <NavigationProperty Name="TIPO_TELEFONO1" Relationship="Self.FK__EMPLEADO__Tipo_T__46E78A0C" FromRole="EMPLEADO" ToRole="TIPO_TELEFONO" />
+          <NavigationProperty Name="FACTURAs" Relationship="Self.FK__FACTURA__Codigo___151B244E" FromRole="EMPLEADO" ToRole="FACTURA" />
+          <NavigationProperty Name="INMUEBLEs" Relationship="Self.FK__INMUEBLE__Codigo__59063A47" FromRole="EMPLEADO" ToRole="INMUEBLE" />
+          <NavigationProperty Name="TRANSACCIONs" Relationship="Self.FK__TRANSACCI__Codig__06CD04F7" FromRole="EMPLEADO" ToRole="TRANSACCION" />
+          <NavigationProperty Name="USUARIOs" Relationship="Self.FK__USUARIO__Documen__18EBB532" FromRole="EMPLEADO" ToRole="USUARIO" />
+          <NavigationProperty Name="VISITAs" Relationship="Self.FK__VISITA__Codigo_E__6754599E" FromRole="EMPLEADO" ToRole="VISITA" />
+        </EntityType>
+        <EntityType Name="FACTURA">
+          <Key>
+            <PropertyRef Name="Codigo_Factura" />
+          </Key>
+          <Property Name="Codigo_Factura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Codigo_Transaccion" Type="Int32" Nullable="false" />
+          <Property Name="Codigo_Cliente" Type="Int32" Nullable="false" />
+          <Property Name="Codigo_Inmueble" Type="Int32" Nullable="false" />
+          <Property Name="Codigo_Empleado_Genera" Type="Int32" />
+          <Property Name="Codigo_Forma" Type="Int32" Nullable="false" />
+          <Property Name="Fecha_Emision" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Fecha_Vencimiento" Type="DateTime" Precision="0" />
+          <Property Name="Monto_Total" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Concepto" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Pago" Type="DateTime" Precision="0" />
+          <Property Name="Notas_Factura" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CLIENTE" Relationship="Self.FK__FACTURA__Codigo___1332DBDC" FromRole="FACTURA" ToRole="CLIENTE" />
+          <NavigationProperty Name="EMPLEADO" Relationship="Self.FK__FACTURA__Codigo___151B244E" FromRole="FACTURA" ToRole="EMPLEADO" />
+          <NavigationProperty Name="TRANSACCION" Relationship="Self.FK__FACTURA__Codigo___123EB7A3" FromRole="FACTURA" ToRole="TRANSACCION" />
+          <NavigationProperty Name="INMUEBLE" Relationship="Self.FK__FACTURA__Codigo___14270015" FromRole="FACTURA" ToRole="INMUEBLE" />
+          <NavigationProperty Name="FORMA_PAGO" Relationship="Self.FK__FACTURA__Codigo___160F4887" FromRole="FACTURA" ToRole="FORMA_PAGO" />
+        </EntityType>
+        <EntityType Name="FORMA_PAGO">
+          <Key>
+            <PropertyRef Name="Codigo_Forma" />
+          </Key>
+          <Property Name="Codigo_Forma" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Codigo_TipoPago" Type="Int32" Nullable="false" />
+          <Property Name="Valor" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <NavigationProperty Name="FACTURAs" Relationship="Self.FK__FACTURA__Codigo___160F4887" FromRole="FORMA_PAGO" ToRole="FACTURA" />
+          <NavigationProperty Name="TIPO_PAGO" Relationship="Self.FK__FORMA_PAG__Codig__02084FDA" FromRole="FORMA_PAGO" ToRole="TIPO_PAGO" />
+        </EntityType>
+        <EntityType Name="GENERO">
+          <Key>
+            <PropertyRef Name="Codigo_Genero" />
+          </Key>
+          <Property Name="Codigo_Genero" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CLIENTEs" Relationship="Self.FK__CLIENTE__Codigo___5165187F" FromRole="GENERO" ToRole="CLIENTE" />
+          <NavigationProperty Name="EMPLEADOes" Relationship="Self.FK__EMPLEADO__Codigo__49C3F6B7" FromRole="GENERO" ToRole="EMPLEADO" />
+        </EntityType>
+        <EntityType Name="INMUEBLE">
+          <Key>
+            <PropertyRef Name="Codigo_Inmueble" />
+          </Key>
+          <Property Name="Codigo_Inmueble" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Activo" Type="Boolean" />
+          <Property Name="Direccion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Codigo_Ciudad" Type="Int32" Nullable="false" />
+          <Property Name="Codigo_TipoInmueble" Type="Int32" Nullable="false" />
+          <Property Name="Es_Nuevo" Type="Boolean" Nullable="false" />
+          <Property Name="Fecha_Alta" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Codigo_Empleado_Captacion" Type="Int32" Nullable="false" />
+          <Property Name="Precio_Venta" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Canon_Mensual" Type="Decimal" Precision="18" Scale="2" />
+          <NavigationProperty Name="CIUDAD" Relationship="Self.FK__INMUEBLE__Codigo__571DF1D5" FromRole="INMUEBLE" ToRole="CIUDAD" />
+          <NavigationProperty Name="EMPLEADO" Relationship="Self.FK__INMUEBLE__Codigo__59063A47" FromRole="INMUEBLE" ToRole="EMPLEADO" />
+          <NavigationProperty Name="FACTURAs" Relationship="Self.FK__FACTURA__Codigo___14270015" FromRole="INMUEBLE" ToRole="FACTURA" />
+          <NavigationProperty Name="INMUEBLE_CONSIGNACION" Relationship="Self.FK__INMUEBLE___Codig__5BE2A6F2" FromRole="INMUEBLE" ToRole="INMUEBLE_CONSIGNACION" />
+          <NavigationProperty Name="TIPO_INMUEBLE" Relationship="Self.FK__INMUEBLE__Codigo__5812160E" FromRole="INMUEBLE" ToRole="TIPO_INMUEBLE" />
+          <NavigationProperty Name="TRANSACCIONs" Relationship="Self.FK__TRANSACCI__Codig__04E4BC85" FromRole="INMUEBLE" ToRole="TRANSACCION" />
+          <NavigationProperty Name="VISITAs" Relationship="Self.FK__VISITA__Codigo_I__656C112C" FromRole="INMUEBLE" ToRole="VISITA" />
+          <NavigationProperty Name="DECORACION_MODELO" Relationship="Self.INMUEBLE_MODELO_DECORACION" FromRole="INMUEBLE" ToRole="DECORACION_MODELO" />
+          <NavigationProperty Name="PROYECTO_NUEVO" Relationship="Self.INMUEBLE_PROYECTO" FromRole="INMUEBLE" ToRole="PROYECTO_NUEVO" />
+        </EntityType>
+        <EntityType Name="INMUEBLE_CONSIGNACION">
+          <Key>
+            <PropertyRef Name="Codigo_Inmueble" />
+          </Key>
+          <Property Name="Codigo_Inmueble" Type="Int32" Nullable="false" />
+          <Property Name="Nombre_Propietario" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Telefono_Propietario" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Email_Propietario" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="INMUEBLE" Relationship="Self.FK__INMUEBLE___Codig__5BE2A6F2" FromRole="INMUEBLE_CONSIGNACION" ToRole="INMUEBLE" />
+        </EntityType>
+        <EntityType Name="PERFIL">
+          <Key>
+            <PropertyRef Name="Codigo_Perfil" />
+          </Key>
+          <Property Name="Codigo_Perfil" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PaginaNavegar" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="PERFIL_USUARIO" Relationship="Self.FK__PERFIL_US__Codig__1EA48E88" FromRole="PERFIL" ToRole="PERFIL_USUARIO" />
+        </EntityType>
+        <EntityType Name="PERFIL_USUARIO">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Codigo_Usuario" Type="Int32" Nullable="false" />
+          <Property Name="Codigo_Perfil" Type="Int32" Nullable="false" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="PERFIL" Relationship="Self.FK__PERFIL_US__Codig__1EA48E88" FromRole="PERFIL_USUARIO" ToRole="PERFIL" />
+          <NavigationProperty Name="USUARIO" Relationship="Self.FK__PERFIL_US__Codig__1DB06A4F" FromRole="PERFIL_USUARIO" ToRole="USUARIO" />
+        </EntityType>
+        <EntityType Name="PRODUCTO_SERVICIO_PROVEEDOR">
+          <Key>
+            <PropertyRef Name="Codigo_Producto" />
+          </Key>
+          <Property Name="Codigo_Producto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Codigo_Proveedor" Type="Int32" Nullable="false" />
+          <Property Name="Nombre_Producto" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Unidad_Medida" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Precio_Unitario" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <NavigationProperty Name="DETALLE_COMPRA_PROVEEDOR" Relationship="Self.FK__DETALLE_C__Codig__74AE54BC" FromRole="PRODUCTO_SERVICIO_PROVEEDOR" ToRole="DETALLE_COMPRA_PROVEEDOR" />
+          <NavigationProperty Name="PROVEEDOR" Relationship="Self.FK__PRODUCTO___Codig__6D0D32F4" FromRole="PRODUCTO_SERVICIO_PROVEEDOR" ToRole="PROVEEDOR" />
+        </EntityType>
+        <EntityType Name="PROVEEDOR">
+          <Key>
+            <PropertyRef Name="Codigo_Proveedor" />
+          </Key>
+          <Property Name="Codigo_Proveedor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre_Proveedor" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombre_Contacto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Tipo_Telefono" Type="Int32" />
+          <Property Name="Telefono" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Direccion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="COMPRA_PROVEEDOR" Relationship="Self.FK__COMPRA_PR__Codig__6FE99F9F" FromRole="PROVEEDOR" ToRole="COMPRA_PROVEEDOR" />
+          <NavigationProperty Name="PRODUCTO_SERVICIO_PROVEEDOR" Relationship="Self.FK__PRODUCTO___Codig__6D0D32F4" FromRole="PROVEEDOR" ToRole="PRODUCTO_SERVICIO_PROVEEDOR" />
+          <NavigationProperty Name="TIPO_TELEFONO1" Relationship="Self.FK__PROVEEDOR__Tipo___6A30C649" FromRole="PROVEEDOR" ToRole="TIPO_TELEFONO" />
+        </EntityType>
+        <EntityType Name="PROYECTO_NUEVO">
+          <Key>
+            <PropertyRef Name="Codigo_Proyecto" />
+          </Key>
+          <Property Name="Codigo_Proyecto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre_Proyecto" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Direccion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Codigo_Ciudad" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CIUDAD" Relationship="Self.FK__PROYECTO___Codig__5EBF139D" FromRole="PROYECTO_NUEVO" ToRole="CIUDAD" />
+          <NavigationProperty Name="INMUEBLEs" Relationship="Self.INMUEBLE_PROYECTO" FromRole="PROYECTO_NUEVO" ToRole="INMUEBLE" />
+        </EntityType>
+        <EntityType Name="SEDE">
+          <Key>
+            <PropertyRef Name="Codigo_Sede" />
+          </Key>
+          <Property Name="Codigo_Sede" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre_Sede" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Direccion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Codigo_Ciudad" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CIUDAD" Relationship="Self.FK__SEDE__Codigo_Ciu__398D8EEE" FromRole="SEDE" ToRole="CIUDAD" />
+          <NavigationProperty Name="EMPLEADOes" Relationship="Self.FK__EMPLEADO__Codigo__48CFD27E" FromRole="SEDE" ToRole="EMPLEADO" />
+        </EntityType>
+        <EntityType Name="TIPO_DOCUMENTO">
+          <Key>
+            <PropertyRef Name="Codigo_doc" />
+          </Key>
+          <Property Name="Codigo_doc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CLIENTEs" Relationship="Self.FK__CLIENTE__Tipo_Do__4E88ABD4" FromRole="TIPO_DOCUMENTO" ToRole="CLIENTE" />
+          <NavigationProperty Name="EMPLEADOes" Relationship="Self.FK__EMPLEADO__Tipo_D__45F365D3" FromRole="TIPO_DOCUMENTO" ToRole="EMPLEADO" />
+        </EntityType>
+        <EntityType Name="TIPO_EMPLEADO">
+          <Key>
+            <PropertyRef Name="Codigo_TipoEmpleado" />
+          </Key>
+          <Property Name="Codigo_TipoEmpleado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="EMPLEADOes" Relationship="Self.FK__EMPLEADO__Codigo__47DBAE45" FromRole="TIPO_EMPLEADO" ToRole="EMPLEADO" />
+        </EntityType>
+        <EntityType Name="TIPO_INMUEBLE">
+          <Key>
+            <PropertyRef Name="Codigo_TipoInmueble" />
+          </Key>
+          <Property Name="Codigo_TipoInmueble" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="INMUEBLEs" Relationship="Self.FK__INMUEBLE__Codigo__5812160E" FromRole="TIPO_INMUEBLE" ToRole="INMUEBLE" />
+        </EntityType>
+        <EntityType Name="TIPO_PAGO">
+          <Key>
+            <PropertyRef Name="Codigo_TipoPago" />
+          </Key>
+          <Property Name="Codigo_TipoPago" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="FORMA_PAGO" Relationship="Self.FK__FORMA_PAG__Codig__02084FDA" FromRole="TIPO_PAGO" ToRole="FORMA_PAGO" />
+        </EntityType>
+        <EntityType Name="TIPO_TELEFONO">
+          <Key>
+            <PropertyRef Name="Codigo_TipoTelefono" />
+          </Key>
+          <Property Name="Codigo_TipoTelefono" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CLIENTEs" Relationship="Self.FK__CLIENTE__Tipo_Te__4F7CD00D" FromRole="TIPO_TELEFONO" ToRole="CLIENTE" />
+          <NavigationProperty Name="EMPLEADOes" Relationship="Self.FK__EMPLEADO__Tipo_T__46E78A0C" FromRole="TIPO_TELEFONO" ToRole="EMPLEADO" />
+          <NavigationProperty Name="PROVEEDORs" Relationship="Self.FK__PROVEEDOR__Tipo___6A30C649" FromRole="TIPO_TELEFONO" ToRole="PROVEEDOR" />
+        </EntityType>
+        <EntityType Name="TIPO_TRANSACCION">
+          <Key>
+            <PropertyRef Name="Codigo_TipoTransaccion" />
+          </Key>
+          <Property Name="Codigo_TipoTransaccion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Porcentaje_Comision" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+          <NavigationProperty Name="TRANSACCIONs" Relationship="Self.FK__TRANSACCI__Codig__07C12930" FromRole="TIPO_TRANSACCION" ToRole="TRANSACCION" />
+        </EntityType>
+        <EntityType Name="TRANSACCION">
+          <Key>
+            <PropertyRef Name="Codigo_Transaccion" />
+          </Key>
+          <Property Name="Codigo_Transaccion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Codigo_Inmueble" Type="Int32" Nullable="false" />
+          <Property Name="Codigo_Cliente" Type="Int32" Nullable="false" />
+          <Property Name="Codigo_Empleado_Cierre" Type="Int32" Nullable="false" />
+          <Property Name="Codigo_TipoTransaccion" Type="Int32" Nullable="false" />
+          <Property Name="Fecha_Transaccion" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Precio_Acordado" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Comision_Agente" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Notas_Transaccion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ARRIENDO" Relationship="Self.FK__ARRIENDO__Codigo__0E6E26BF" FromRole="TRANSACCION" ToRole="ARRIENDO" />
+          <NavigationProperty Name="CLIENTE" Relationship="Self.FK__TRANSACCI__Codig__05D8E0BE" FromRole="TRANSACCION" ToRole="CLIENTE" />
+          <NavigationProperty Name="EMPLEADO" Relationship="Self.FK__TRANSACCI__Codig__06CD04F7" FromRole="TRANSACCION" ToRole="EMPLEADO" />
+          <NavigationProperty Name="FACTURAs" Relationship="Self.FK__FACTURA__Codigo___123EB7A3" FromRole="TRANSACCION" ToRole="FACTURA" />
+          <NavigationProperty Name="INMUEBLE" Relationship="Self.FK__TRANSACCI__Codig__04E4BC85" FromRole="TRANSACCION" ToRole="INMUEBLE" />
+          <NavigationProperty Name="TIPO_TRANSACCION" Relationship="Self.FK__TRANSACCI__Codig__07C12930" FromRole="TRANSACCION" ToRole="TIPO_TRANSACCION" />
+          <NavigationProperty Name="VENTA" Relationship="Self.FK__VENTA__Codigo_Tr__0B91BA14" FromRole="TRANSACCION" ToRole="VENTA" />
+        </EntityType>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="Codigo_Usuario" />
+          </Key>
+          <Property Name="Codigo_Usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Documento_Empleado" Type="Int32" />
+          <Property Name="Username" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Clave" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Salt" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="EMPLEADO" Relationship="Self.FK__USUARIO__Documen__18EBB532" FromRole="USUARIO" ToRole="EMPLEADO" />
+          <NavigationProperty Name="PERFIL_USUARIO" Relationship="Self.FK__PERFIL_US__Codig__1DB06A4F" FromRole="USUARIO" ToRole="PERFIL_USUARIO" />
+        </EntityType>
+        <EntityType Name="VENTA">
+          <Key>
+            <PropertyRef Name="Codigo_Transaccion" />
+          </Key>
+          <Property Name="Codigo_Transaccion" Type="Int32" Nullable="false" />
+          <Property Name="Fecha_Pago" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Monto_Pagado" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Estado_Pago" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Notas_Venta" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TRANSACCION" Relationship="Self.FK__VENTA__Codigo_Tr__0B91BA14" FromRole="VENTA" ToRole="TRANSACCION" />
+        </EntityType>
+        <EntityType Name="VISITA">
+          <Key>
+            <PropertyRef Name="Codigo_Visita" />
+          </Key>
+          <Property Name="Codigo_Visita" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Codigo_Inmueble" Type="Int32" Nullable="false" />
+          <Property Name="Codigo_Cliente" Type="Int32" Nullable="false" />
+          <Property Name="Fecha_Visita" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Comentarios" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Codigo_Empleado" Type="Int32" />
+          <NavigationProperty Name="CLIENTE" Relationship="Self.FK__VISITA__Codigo_C__66603565" FromRole="VISITA" ToRole="CLIENTE" />
+          <NavigationProperty Name="EMPLEADO" Relationship="Self.FK__VISITA__Codigo_E__6754599E" FromRole="VISITA" ToRole="EMPLEADO" />
+          <NavigationProperty Name="INMUEBLE" Relationship="Self.FK__VISITA__Codigo_I__656C112C" FromRole="VISITA" ToRole="INMUEBLE" />
+        </EntityType>
+        <Association Name="FK__ARRIENDO__Codigo__0E6E26BF">
+          <End Role="TRANSACCION" Type="Self.TRANSACCION" Multiplicity="1" />
+          <End Role="ARRIENDO" Type="Self.ARRIENDO" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="TRANSACCION">
+              <PropertyRef Name="Codigo_Transaccion" />
+            </Principal>
+            <Dependent Role="ARRIENDO">
+              <PropertyRef Name="Codigo_Transaccion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CLIENTE__Codigo___5070F446">
+          <End Role="CIUDAD" Type="Self.CIUDAD" Multiplicity="0..1" />
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CIUDAD">
+              <PropertyRef Name="Codigo_Ciudad" />
+            </Principal>
+            <Dependent Role="CLIENTE">
+              <PropertyRef Name="Codigo_Ciudad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__INMUEBLE__Codigo__571DF1D5">
+          <End Role="CIUDAD" Type="Self.CIUDAD" Multiplicity="1" />
+          <End Role="INMUEBLE" Type="Self.INMUEBLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CIUDAD">
+              <PropertyRef Name="Codigo_Ciudad" />
+            </Principal>
+            <Dependent Role="INMUEBLE">
+              <PropertyRef Name="Codigo_Ciudad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PROYECTO___Codig__5EBF139D">
+          <End Role="CIUDAD" Type="Self.CIUDAD" Multiplicity="1" />
+          <End Role="PROYECTO_NUEVO" Type="Self.PROYECTO_NUEVO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CIUDAD">
+              <PropertyRef Name="Codigo_Ciudad" />
+            </Principal>
+            <Dependent Role="PROYECTO_NUEVO">
+              <PropertyRef Name="Codigo_Ciudad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SEDE__Codigo_Ciu__398D8EEE">
+          <End Role="CIUDAD" Type="Self.CIUDAD" Multiplicity="1" />
+          <End Role="SEDE" Type="Self.SEDE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CIUDAD">
+              <PropertyRef Name="Codigo_Ciudad" />
+            </Principal>
+            <Dependent Role="SEDE">
+              <PropertyRef Name="Codigo_Ciudad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CLIENTE__Codigo___5165187F">
+          <End Role="GENERO" Type="Self.GENERO" Multiplicity="1" />
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GENERO">
+              <PropertyRef Name="Codigo_Genero" />
+            </Principal>
+            <Dependent Role="CLIENTE">
+              <PropertyRef Name="Codigo_Genero" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CLIENTE__Tipo_Do__4E88ABD4">
+          <End Role="TIPO_DOCUMENTO" Type="Self.TIPO_DOCUMENTO" Multiplicity="0..1" />
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_DOCUMENTO">
+              <PropertyRef Name="Codigo_doc" />
+            </Principal>
+            <Dependent Role="CLIENTE">
+              <PropertyRef Name="Tipo_Doc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CLIENTE__Tipo_Te__4F7CD00D">
+          <End Role="TIPO_TELEFONO" Type="Self.TIPO_TELEFONO" Multiplicity="0..1" />
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_TELEFONO">
+              <PropertyRef Name="Codigo_TipoTelefono" />
+            </Principal>
+            <Dependent Role="CLIENTE">
+              <PropertyRef Name="Tipo_Telefono" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FACTURA__Codigo___1332DBDC">
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+          <End Role="FACTURA" Type="Self.FACTURA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="Codigo_Cliente" />
+            </Principal>
+            <Dependent Role="FACTURA">
+              <PropertyRef Name="Codigo_Cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TRANSACCI__Codig__05D8E0BE">
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+          <End Role="TRANSACCION" Type="Self.TRANSACCION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="Codigo_Cliente" />
+            </Principal>
+            <Dependent Role="TRANSACCION">
+              <PropertyRef Name="Codigo_Cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VISITA__Codigo_C__66603565">
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+          <End Role="VISITA" Type="Self.VISITA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="Codigo_Cliente" />
+            </Principal>
+            <Dependent Role="VISITA">
+              <PropertyRef Name="Codigo_Cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__COMPRA_PR__Codig__6FE99F9F">
+          <End Role="PROVEEDOR" Type="Self.PROVEEDOR" Multiplicity="1" />
+          <End Role="COMPRA_PROVEEDOR" Type="Self.COMPRA_PROVEEDOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROVEEDOR">
+              <PropertyRef Name="Codigo_Proveedor" />
+            </Principal>
+            <Dependent Role="COMPRA_PROVEEDOR">
+              <PropertyRef Name="Codigo_Proveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__COMPRA_PR__Codig__70DDC3D8">
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="1" />
+          <End Role="COMPRA_PROVEEDOR" Type="Self.COMPRA_PROVEEDOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLEADO">
+              <PropertyRef Name="Codigo_Empleado" />
+            </Principal>
+            <Dependent Role="COMPRA_PROVEEDOR">
+              <PropertyRef Name="Codigo_Empleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DETALLE_C__Codig__73BA3083">
+          <End Role="COMPRA_PROVEEDOR" Type="Self.COMPRA_PROVEEDOR" Multiplicity="1" />
+          <End Role="DETALLE_COMPRA_PROVEEDOR" Type="Self.DETALLE_COMPRA_PROVEEDOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COMPRA_PROVEEDOR">
+              <PropertyRef Name="Codigo_Compra" />
+            </Principal>
+            <Dependent Role="DETALLE_COMPRA_PROVEEDOR">
+              <PropertyRef Name="Codigo_Compra" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DECORACIO__Codig__778AC167">
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="0..1" />
+          <End Role="DECORACION_MODELO" Type="Self.DECORACION_MODELO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLEADO">
+              <PropertyRef Name="Codigo_Empleado" />
+            </Principal>
+            <Dependent Role="DECORACION_MODELO">
+              <PropertyRef Name="Codigo_Empleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DETALLE_C__Codig__74AE54BC">
+          <End Role="PRODUCTO_SERVICIO_PROVEEDOR" Type="Self.PRODUCTO_SERVICIO_PROVEEDOR" Multiplicity="1" />
+          <End Role="DETALLE_COMPRA_PROVEEDOR" Type="Self.DETALLE_COMPRA_PROVEEDOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCTO_SERVICIO_PROVEEDOR">
+              <PropertyRef Name="Codigo_Producto" />
+            </Principal>
+            <Dependent Role="DETALLE_COMPRA_PROVEEDOR">
+              <PropertyRef Name="Codigo_Producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EMPLEADO__Codigo__47DBAE45">
+          <End Role="TIPO_EMPLEADO" Type="Self.TIPO_EMPLEADO" Multiplicity="1" />
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_EMPLEADO">
+              <PropertyRef Name="Codigo_TipoEmpleado" />
+            </Principal>
+            <Dependent Role="EMPLEADO">
+              <PropertyRef Name="Codigo_TipoEmpleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EMPLEADO__Codigo__48CFD27E">
+          <End Role="SEDE" Type="Self.SEDE" Multiplicity="1" />
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SEDE">
+              <PropertyRef Name="Codigo_Sede" />
+            </Principal>
+            <Dependent Role="EMPLEADO">
+              <PropertyRef Name="Codigo_Sede" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EMPLEADO__Codigo__49C3F6B7">
+          <End Role="GENERO" Type="Self.GENERO" Multiplicity="1" />
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GENERO">
+              <PropertyRef Name="Codigo_Genero" />
+            </Principal>
+            <Dependent Role="EMPLEADO">
+              <PropertyRef Name="Codigo_Genero" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EMPLEADO__Tipo_D__45F365D3">
+          <End Role="TIPO_DOCUMENTO" Type="Self.TIPO_DOCUMENTO" Multiplicity="0..1" />
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_DOCUMENTO">
+              <PropertyRef Name="Codigo_doc" />
+            </Principal>
+            <Dependent Role="EMPLEADO">
+              <PropertyRef Name="Tipo_Doc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EMPLEADO__Tipo_T__46E78A0C">
+          <End Role="TIPO_TELEFONO" Type="Self.TIPO_TELEFONO" Multiplicity="0..1" />
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_TELEFONO">
+              <PropertyRef Name="Codigo_TipoTelefono" />
+            </Principal>
+            <Dependent Role="EMPLEADO">
+              <PropertyRef Name="Tipo_Telefono" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FACTURA__Codigo___151B244E">
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="0..1" />
+          <End Role="FACTURA" Type="Self.FACTURA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLEADO">
+              <PropertyRef Name="Codigo_Empleado" />
+            </Principal>
+            <Dependent Role="FACTURA">
+              <PropertyRef Name="Codigo_Empleado_Genera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__INMUEBLE__Codigo__59063A47">
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="1" />
+          <End Role="INMUEBLE" Type="Self.INMUEBLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLEADO">
+              <PropertyRef Name="Codigo_Empleado" />
+            </Principal>
+            <Dependent Role="INMUEBLE">
+              <PropertyRef Name="Codigo_Empleado_Captacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TRANSACCI__Codig__06CD04F7">
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="1" />
+          <End Role="TRANSACCION" Type="Self.TRANSACCION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLEADO">
+              <PropertyRef Name="Codigo_Empleado" />
+            </Principal>
+            <Dependent Role="TRANSACCION">
+              <PropertyRef Name="Codigo_Empleado_Cierre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__USUARIO__Documen__18EBB532">
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="0..1" />
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLEADO">
+              <PropertyRef Name="Codigo_Empleado" />
+            </Principal>
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="Documento_Empleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VISITA__Codigo_E__6754599E">
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="0..1" />
+          <End Role="VISITA" Type="Self.VISITA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLEADO">
+              <PropertyRef Name="Codigo_Empleado" />
+            </Principal>
+            <Dependent Role="VISITA">
+              <PropertyRef Name="Codigo_Empleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FACTURA__Codigo___123EB7A3">
+          <End Role="TRANSACCION" Type="Self.TRANSACCION" Multiplicity="1" />
+          <End Role="FACTURA" Type="Self.FACTURA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TRANSACCION">
+              <PropertyRef Name="Codigo_Transaccion" />
+            </Principal>
+            <Dependent Role="FACTURA">
+              <PropertyRef Name="Codigo_Transaccion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FACTURA__Codigo___14270015">
+          <End Role="INMUEBLE" Type="Self.INMUEBLE" Multiplicity="1" />
+          <End Role="FACTURA" Type="Self.FACTURA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INMUEBLE">
+              <PropertyRef Name="Codigo_Inmueble" />
+            </Principal>
+            <Dependent Role="FACTURA">
+              <PropertyRef Name="Codigo_Inmueble" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FACTURA__Codigo___160F4887">
+          <End Role="FORMA_PAGO" Type="Self.FORMA_PAGO" Multiplicity="1" />
+          <End Role="FACTURA" Type="Self.FACTURA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FORMA_PAGO">
+              <PropertyRef Name="Codigo_Forma" />
+            </Principal>
+            <Dependent Role="FACTURA">
+              <PropertyRef Name="Codigo_Forma" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FORMA_PAG__Codig__02084FDA">
+          <End Role="TIPO_PAGO" Type="Self.TIPO_PAGO" Multiplicity="1" />
+          <End Role="FORMA_PAGO" Type="Self.FORMA_PAGO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_PAGO">
+              <PropertyRef Name="Codigo_TipoPago" />
+            </Principal>
+            <Dependent Role="FORMA_PAGO">
+              <PropertyRef Name="Codigo_TipoPago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__INMUEBLE___Codig__5BE2A6F2">
+          <End Role="INMUEBLE" Type="Self.INMUEBLE" Multiplicity="1" />
+          <End Role="INMUEBLE_CONSIGNACION" Type="Self.INMUEBLE_CONSIGNACION" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="INMUEBLE">
+              <PropertyRef Name="Codigo_Inmueble" />
+            </Principal>
+            <Dependent Role="INMUEBLE_CONSIGNACION">
+              <PropertyRef Name="Codigo_Inmueble" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__INMUEBLE__Codigo__5812160E">
+          <End Role="TIPO_INMUEBLE" Type="Self.TIPO_INMUEBLE" Multiplicity="1" />
+          <End Role="INMUEBLE" Type="Self.INMUEBLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_INMUEBLE">
+              <PropertyRef Name="Codigo_TipoInmueble" />
+            </Principal>
+            <Dependent Role="INMUEBLE">
+              <PropertyRef Name="Codigo_TipoInmueble" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TRANSACCI__Codig__04E4BC85">
+          <End Role="INMUEBLE" Type="Self.INMUEBLE" Multiplicity="1" />
+          <End Role="TRANSACCION" Type="Self.TRANSACCION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INMUEBLE">
+              <PropertyRef Name="Codigo_Inmueble" />
+            </Principal>
+            <Dependent Role="TRANSACCION">
+              <PropertyRef Name="Codigo_Inmueble" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VISITA__Codigo_I__656C112C">
+          <End Role="INMUEBLE" Type="Self.INMUEBLE" Multiplicity="1" />
+          <End Role="VISITA" Type="Self.VISITA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INMUEBLE">
+              <PropertyRef Name="Codigo_Inmueble" />
+            </Principal>
+            <Dependent Role="VISITA">
+              <PropertyRef Name="Codigo_Inmueble" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PERFIL_US__Codig__1EA48E88">
+          <End Role="PERFIL" Type="Self.PERFIL" Multiplicity="1" />
+          <End Role="PERFIL_USUARIO" Type="Self.PERFIL_USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERFIL">
+              <PropertyRef Name="Codigo_Perfil" />
+            </Principal>
+            <Dependent Role="PERFIL_USUARIO">
+              <PropertyRef Name="Codigo_Perfil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PERFIL_US__Codig__1DB06A4F">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="PERFIL_USUARIO" Type="Self.PERFIL_USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="Codigo_Usuario" />
+            </Principal>
+            <Dependent Role="PERFIL_USUARIO">
+              <PropertyRef Name="Codigo_Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PRODUCTO___Codig__6D0D32F4">
+          <End Role="PROVEEDOR" Type="Self.PROVEEDOR" Multiplicity="1" />
+          <End Role="PRODUCTO_SERVICIO_PROVEEDOR" Type="Self.PRODUCTO_SERVICIO_PROVEEDOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROVEEDOR">
+              <PropertyRef Name="Codigo_Proveedor" />
+            </Principal>
+            <Dependent Role="PRODUCTO_SERVICIO_PROVEEDOR">
+              <PropertyRef Name="Codigo_Proveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PROVEEDOR__Tipo___6A30C649">
+          <End Role="TIPO_TELEFONO" Type="Self.TIPO_TELEFONO" Multiplicity="0..1" />
+          <End Role="PROVEEDOR" Type="Self.PROVEEDOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_TELEFONO">
+              <PropertyRef Name="Codigo_TipoTelefono" />
+            </Principal>
+            <Dependent Role="PROVEEDOR">
+              <PropertyRef Name="Tipo_Telefono" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TRANSACCI__Codig__07C12930">
+          <End Role="TIPO_TRANSACCION" Type="Self.TIPO_TRANSACCION" Multiplicity="1" />
+          <End Role="TRANSACCION" Type="Self.TRANSACCION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_TRANSACCION">
+              <PropertyRef Name="Codigo_TipoTransaccion" />
+            </Principal>
+            <Dependent Role="TRANSACCION">
+              <PropertyRef Name="Codigo_TipoTransaccion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VENTA__Codigo_Tr__0B91BA14">
+          <End Role="TRANSACCION" Type="Self.TRANSACCION" Multiplicity="1" />
+          <End Role="VENTA" Type="Self.VENTA" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="TRANSACCION">
+              <PropertyRef Name="Codigo_Transaccion" />
+            </Principal>
+            <Dependent Role="VENTA">
+              <PropertyRef Name="Codigo_Transaccion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INMUEBLE_MODELO_DECORACION">
+          <End Role="INMUEBLE" Type="Self.INMUEBLE" Multiplicity="*" />
+          <End Role="DECORACION_MODELO" Type="Self.DECORACION_MODELO" Multiplicity="*" />
+        </Association>
+        <Association Name="INMUEBLE_PROYECTO">
+          <End Role="INMUEBLE" Type="Self.INMUEBLE" Multiplicity="*" />
+          <End Role="PROYECTO_NUEVO" Type="Self.PROYECTO_NUEVO" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="DBINMOBILIARIAEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ARRIENDOes" EntityType="Self.ARRIENDO" />
+          <EntitySet Name="CIUDADs" EntityType="Self.CIUDAD" />
+          <EntitySet Name="CLIENTEs" EntityType="Self.CLIENTE" />
+          <EntitySet Name="COMPRA_PROVEEDOR" EntityType="Self.COMPRA_PROVEEDOR" />
+          <EntitySet Name="DECORACION_MODELO" EntityType="Self.DECORACION_MODELO" />
+          <EntitySet Name="DETALLE_COMPRA_PROVEEDOR" EntityType="Self.DETALLE_COMPRA_PROVEEDOR" />
+          <EntitySet Name="EMPLEADOes" EntityType="Self.EMPLEADO" />
+          <EntitySet Name="FACTURAs" EntityType="Self.FACTURA" />
+          <EntitySet Name="FORMA_PAGO" EntityType="Self.FORMA_PAGO" />
+          <EntitySet Name="GENEROes" EntityType="Self.GENERO" />
+          <EntitySet Name="INMUEBLEs" EntityType="Self.INMUEBLE" />
+          <EntitySet Name="INMUEBLE_CONSIGNACION" EntityType="Self.INMUEBLE_CONSIGNACION" />
+          <EntitySet Name="PERFILs" EntityType="Self.PERFIL" />
+          <EntitySet Name="PERFIL_USUARIO" EntityType="Self.PERFIL_USUARIO" />
+          <EntitySet Name="PRODUCTO_SERVICIO_PROVEEDOR" EntityType="Self.PRODUCTO_SERVICIO_PROVEEDOR" />
+          <EntitySet Name="PROVEEDORs" EntityType="Self.PROVEEDOR" />
+          <EntitySet Name="PROYECTO_NUEVO" EntityType="Self.PROYECTO_NUEVO" />
+          <EntitySet Name="SEDEs" EntityType="Self.SEDE" />
+          <EntitySet Name="TIPO_DOCUMENTO" EntityType="Self.TIPO_DOCUMENTO" />
+          <EntitySet Name="TIPO_EMPLEADO" EntityType="Self.TIPO_EMPLEADO" />
+          <EntitySet Name="TIPO_INMUEBLE" EntityType="Self.TIPO_INMUEBLE" />
+          <EntitySet Name="TIPO_PAGO" EntityType="Self.TIPO_PAGO" />
+          <EntitySet Name="TIPO_TELEFONO" EntityType="Self.TIPO_TELEFONO" />
+          <EntitySet Name="TIPO_TRANSACCION" EntityType="Self.TIPO_TRANSACCION" />
+          <EntitySet Name="TRANSACCIONs" EntityType="Self.TRANSACCION" />
+          <EntitySet Name="USUARIOs" EntityType="Self.USUARIO" />
+          <EntitySet Name="VENTAs" EntityType="Self.VENTA" />
+          <EntitySet Name="VISITAs" EntityType="Self.VISITA" />
+          <AssociationSet Name="FK__ARRIENDO__Codigo__0E6E26BF" Association="Self.FK__ARRIENDO__Codigo__0E6E26BF">
+            <End Role="TRANSACCION" EntitySet="TRANSACCIONs" />
+            <End Role="ARRIENDO" EntitySet="ARRIENDOes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CLIENTE__Codigo___5070F446" Association="Self.FK__CLIENTE__Codigo___5070F446">
+            <End Role="CIUDAD" EntitySet="CIUDADs" />
+            <End Role="CLIENTE" EntitySet="CLIENTEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__INMUEBLE__Codigo__571DF1D5" Association="Self.FK__INMUEBLE__Codigo__571DF1D5">
+            <End Role="CIUDAD" EntitySet="CIUDADs" />
+            <End Role="INMUEBLE" EntitySet="INMUEBLEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PROYECTO___Codig__5EBF139D" Association="Self.FK__PROYECTO___Codig__5EBF139D">
+            <End Role="CIUDAD" EntitySet="CIUDADs" />
+            <End Role="PROYECTO_NUEVO" EntitySet="PROYECTO_NUEVO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SEDE__Codigo_Ciu__398D8EEE" Association="Self.FK__SEDE__Codigo_Ciu__398D8EEE">
+            <End Role="CIUDAD" EntitySet="CIUDADs" />
+            <End Role="SEDE" EntitySet="SEDEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CLIENTE__Codigo___5165187F" Association="Self.FK__CLIENTE__Codigo___5165187F">
+            <End Role="GENERO" EntitySet="GENEROes" />
+            <End Role="CLIENTE" EntitySet="CLIENTEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CLIENTE__Tipo_Do__4E88ABD4" Association="Self.FK__CLIENTE__Tipo_Do__4E88ABD4">
+            <End Role="TIPO_DOCUMENTO" EntitySet="TIPO_DOCUMENTO" />
+            <End Role="CLIENTE" EntitySet="CLIENTEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CLIENTE__Tipo_Te__4F7CD00D" Association="Self.FK__CLIENTE__Tipo_Te__4F7CD00D">
+            <End Role="TIPO_TELEFONO" EntitySet="TIPO_TELEFONO" />
+            <End Role="CLIENTE" EntitySet="CLIENTEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FACTURA__Codigo___1332DBDC" Association="Self.FK__FACTURA__Codigo___1332DBDC">
+            <End Role="CLIENTE" EntitySet="CLIENTEs" />
+            <End Role="FACTURA" EntitySet="FACTURAs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TRANSACCI__Codig__05D8E0BE" Association="Self.FK__TRANSACCI__Codig__05D8E0BE">
+            <End Role="CLIENTE" EntitySet="CLIENTEs" />
+            <End Role="TRANSACCION" EntitySet="TRANSACCIONs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VISITA__Codigo_C__66603565" Association="Self.FK__VISITA__Codigo_C__66603565">
+            <End Role="CLIENTE" EntitySet="CLIENTEs" />
+            <End Role="VISITA" EntitySet="VISITAs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__COMPRA_PR__Codig__6FE99F9F" Association="Self.FK__COMPRA_PR__Codig__6FE99F9F">
+            <End Role="PROVEEDOR" EntitySet="PROVEEDORs" />
+            <End Role="COMPRA_PROVEEDOR" EntitySet="COMPRA_PROVEEDOR" />
+          </AssociationSet>
+          <AssociationSet Name="FK__COMPRA_PR__Codig__70DDC3D8" Association="Self.FK__COMPRA_PR__Codig__70DDC3D8">
+            <End Role="EMPLEADO" EntitySet="EMPLEADOes" />
+            <End Role="COMPRA_PROVEEDOR" EntitySet="COMPRA_PROVEEDOR" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DETALLE_C__Codig__73BA3083" Association="Self.FK__DETALLE_C__Codig__73BA3083">
+            <End Role="COMPRA_PROVEEDOR" EntitySet="COMPRA_PROVEEDOR" />
+            <End Role="DETALLE_COMPRA_PROVEEDOR" EntitySet="DETALLE_COMPRA_PROVEEDOR" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DECORACIO__Codig__778AC167" Association="Self.FK__DECORACIO__Codig__778AC167">
+            <End Role="EMPLEADO" EntitySet="EMPLEADOes" />
+            <End Role="DECORACION_MODELO" EntitySet="DECORACION_MODELO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DETALLE_C__Codig__74AE54BC" Association="Self.FK__DETALLE_C__Codig__74AE54BC">
+            <End Role="PRODUCTO_SERVICIO_PROVEEDOR" EntitySet="PRODUCTO_SERVICIO_PROVEEDOR" />
+            <End Role="DETALLE_COMPRA_PROVEEDOR" EntitySet="DETALLE_COMPRA_PROVEEDOR" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EMPLEADO__Codigo__47DBAE45" Association="Self.FK__EMPLEADO__Codigo__47DBAE45">
+            <End Role="TIPO_EMPLEADO" EntitySet="TIPO_EMPLEADO" />
+            <End Role="EMPLEADO" EntitySet="EMPLEADOes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EMPLEADO__Codigo__48CFD27E" Association="Self.FK__EMPLEADO__Codigo__48CFD27E">
+            <End Role="SEDE" EntitySet="SEDEs" />
+            <End Role="EMPLEADO" EntitySet="EMPLEADOes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EMPLEADO__Codigo__49C3F6B7" Association="Self.FK__EMPLEADO__Codigo__49C3F6B7">
+            <End Role="GENERO" EntitySet="GENEROes" />
+            <End Role="EMPLEADO" EntitySet="EMPLEADOes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EMPLEADO__Tipo_D__45F365D3" Association="Self.FK__EMPLEADO__Tipo_D__45F365D3">
+            <End Role="TIPO_DOCUMENTO" EntitySet="TIPO_DOCUMENTO" />
+            <End Role="EMPLEADO" EntitySet="EMPLEADOes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EMPLEADO__Tipo_T__46E78A0C" Association="Self.FK__EMPLEADO__Tipo_T__46E78A0C">
+            <End Role="TIPO_TELEFONO" EntitySet="TIPO_TELEFONO" />
+            <End Role="EMPLEADO" EntitySet="EMPLEADOes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FACTURA__Codigo___151B244E" Association="Self.FK__FACTURA__Codigo___151B244E">
+            <End Role="EMPLEADO" EntitySet="EMPLEADOes" />
+            <End Role="FACTURA" EntitySet="FACTURAs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__INMUEBLE__Codigo__59063A47" Association="Self.FK__INMUEBLE__Codigo__59063A47">
+            <End Role="EMPLEADO" EntitySet="EMPLEADOes" />
+            <End Role="INMUEBLE" EntitySet="INMUEBLEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TRANSACCI__Codig__06CD04F7" Association="Self.FK__TRANSACCI__Codig__06CD04F7">
+            <End Role="EMPLEADO" EntitySet="EMPLEADOes" />
+            <End Role="TRANSACCION" EntitySet="TRANSACCIONs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__USUARIO__Documen__18EBB532" Association="Self.FK__USUARIO__Documen__18EBB532">
+            <End Role="EMPLEADO" EntitySet="EMPLEADOes" />
+            <End Role="USUARIO" EntitySet="USUARIOs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VISITA__Codigo_E__6754599E" Association="Self.FK__VISITA__Codigo_E__6754599E">
+            <End Role="EMPLEADO" EntitySet="EMPLEADOes" />
+            <End Role="VISITA" EntitySet="VISITAs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FACTURA__Codigo___123EB7A3" Association="Self.FK__FACTURA__Codigo___123EB7A3">
+            <End Role="TRANSACCION" EntitySet="TRANSACCIONs" />
+            <End Role="FACTURA" EntitySet="FACTURAs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FACTURA__Codigo___14270015" Association="Self.FK__FACTURA__Codigo___14270015">
+            <End Role="INMUEBLE" EntitySet="INMUEBLEs" />
+            <End Role="FACTURA" EntitySet="FACTURAs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FACTURA__Codigo___160F4887" Association="Self.FK__FACTURA__Codigo___160F4887">
+            <End Role="FORMA_PAGO" EntitySet="FORMA_PAGO" />
+            <End Role="FACTURA" EntitySet="FACTURAs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FORMA_PAG__Codig__02084FDA" Association="Self.FK__FORMA_PAG__Codig__02084FDA">
+            <End Role="TIPO_PAGO" EntitySet="TIPO_PAGO" />
+            <End Role="FORMA_PAGO" EntitySet="FORMA_PAGO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__INMUEBLE___Codig__5BE2A6F2" Association="Self.FK__INMUEBLE___Codig__5BE2A6F2">
+            <End Role="INMUEBLE" EntitySet="INMUEBLEs" />
+            <End Role="INMUEBLE_CONSIGNACION" EntitySet="INMUEBLE_CONSIGNACION" />
+          </AssociationSet>
+          <AssociationSet Name="FK__INMUEBLE__Codigo__5812160E" Association="Self.FK__INMUEBLE__Codigo__5812160E">
+            <End Role="TIPO_INMUEBLE" EntitySet="TIPO_INMUEBLE" />
+            <End Role="INMUEBLE" EntitySet="INMUEBLEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TRANSACCI__Codig__04E4BC85" Association="Self.FK__TRANSACCI__Codig__04E4BC85">
+            <End Role="INMUEBLE" EntitySet="INMUEBLEs" />
+            <End Role="TRANSACCION" EntitySet="TRANSACCIONs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VISITA__Codigo_I__656C112C" Association="Self.FK__VISITA__Codigo_I__656C112C">
+            <End Role="INMUEBLE" EntitySet="INMUEBLEs" />
+            <End Role="VISITA" EntitySet="VISITAs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PERFIL_US__Codig__1EA48E88" Association="Self.FK__PERFIL_US__Codig__1EA48E88">
+            <End Role="PERFIL" EntitySet="PERFILs" />
+            <End Role="PERFIL_USUARIO" EntitySet="PERFIL_USUARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PERFIL_US__Codig__1DB06A4F" Association="Self.FK__PERFIL_US__Codig__1DB06A4F">
+            <End Role="USUARIO" EntitySet="USUARIOs" />
+            <End Role="PERFIL_USUARIO" EntitySet="PERFIL_USUARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PRODUCTO___Codig__6D0D32F4" Association="Self.FK__PRODUCTO___Codig__6D0D32F4">
+            <End Role="PROVEEDOR" EntitySet="PROVEEDORs" />
+            <End Role="PRODUCTO_SERVICIO_PROVEEDOR" EntitySet="PRODUCTO_SERVICIO_PROVEEDOR" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PROVEEDOR__Tipo___6A30C649" Association="Self.FK__PROVEEDOR__Tipo___6A30C649">
+            <End Role="TIPO_TELEFONO" EntitySet="TIPO_TELEFONO" />
+            <End Role="PROVEEDOR" EntitySet="PROVEEDORs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TRANSACCI__Codig__07C12930" Association="Self.FK__TRANSACCI__Codig__07C12930">
+            <End Role="TIPO_TRANSACCION" EntitySet="TIPO_TRANSACCION" />
+            <End Role="TRANSACCION" EntitySet="TRANSACCIONs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VENTA__Codigo_Tr__0B91BA14" Association="Self.FK__VENTA__Codigo_Tr__0B91BA14">
+            <End Role="TRANSACCION" EntitySet="TRANSACCIONs" />
+            <End Role="VENTA" EntitySet="VENTAs" />
+          </AssociationSet>
+          <AssociationSet Name="INMUEBLE_MODELO_DECORACION" Association="Self.INMUEBLE_MODELO_DECORACION">
+            <End Role="INMUEBLE" EntitySet="INMUEBLEs" />
+            <End Role="DECORACION_MODELO" EntitySet="DECORACION_MODELO" />
+          </AssociationSet>
+          <AssociationSet Name="INMUEBLE_PROYECTO" Association="Self.INMUEBLE_PROYECTO">
+            <End Role="INMUEBLE" EntitySet="INMUEBLEs" />
+            <End Role="PROYECTO_NUEVO" EntitySet="PROYECTO_NUEVO" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DBINMOBILIARIAModelStoreContainer" CdmEntityContainer="DBINMOBILIARIAEntities">
+          <EntitySetMapping Name="ARRIENDOes">
+            <EntityTypeMapping TypeName="DBINMOBILIARIAModel.ARRIENDO">
+              <MappingFragment StoreEntitySet="ARRIENDO">
+                <ScalarProperty Name="Codigo_Transaccion" ColumnName="Codigo_Transaccion" />
+                <ScalarProperty Name="Fecha_Inicio_Contrato" ColumnName="Fecha_Inicio_Contrato" />
+                <ScalarProperty Name="Fecha_Fin_Contrato" ColumnName="Fecha_Fin_Contrato" />
+                <ScalarProperty Name="Duracion_Contrato_Meses" ColumnName="Duracion_Contrato_Meses" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CIUDADs">
+            <EntityTypeMapping TypeName="DBINMOBILIARIAModel.CIUDAD">
+              <MappingFragment StoreEntitySet="CIUDAD">
+                <ScalarProperty Name="Codigo_Ciudad" ColumnName="Codigo_Ciudad" />
+                <ScalarProperty Name="Nombre_Ciudad" ColumnName="Nombre_Ciudad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CLIENTEs">
+            <EntityTypeMapping TypeName="DBINMOBILIARIAModel.CLIENTE">
+              <MappingFragment StoreEntitySet="CLIENTE">
+                <ScalarProperty Name="Codigo_Cliente" ColumnName="Codigo_Cliente" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Tipo_Doc" ColumnName="Tipo_Doc" />
+                <ScalarProperty Name="Nro_Documento" ColumnName="Nro_Documento" />
+                <ScalarProperty Name="Tipo_Telefono" ColumnName="Tipo_Telefono" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Codigo_Ciudad" ColumnName="Codigo_Ciudad" />
+                <ScalarProperty Name="Codigo_Genero" ColumnName="Codigo_Genero" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="COMPRA_PROVEEDOR">
+            <EntityTypeMapping TypeName="DBINMOBILIARIAModel.COMPRA_PROVEEDOR">
+              <MappingFragment StoreEntitySet="COMPRA_PROVEEDOR">
+                <ScalarProperty Name="Codigo_Compra" ColumnName="Codigo_Compra" />
+                <ScalarProperty Name="Codigo_Proveedor" ColumnName="Codigo_Proveedor" />
+                <ScalarProperty Name="Fecha_Compra" ColumnName="Fecha_Compra" />
+                <ScalarProperty Name="Monto_Total" ColumnName="Monto_Total" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Codigo_Empleado" ColumnName="Codigo_Empleado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DECORACION_MODELO">
+            <EntityTypeMapping TypeName="DBINMOBILIARIAModel.DECORACION_MODELO">
+              <MappingFragment StoreEntitySet="DECORACION_MODELO">
+                <ScalarProperty Name="Codigo_Decoracion" ColumnName="Codigo_Decoracion" />
+                <ScalarProperty Name="Nombre_Estilo" ColumnName="Nombre_Estilo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Costo" ColumnName="Costo" />
+                <ScalarProperty Name="Fecha_Inicio" ColumnName="Fecha_Inicio" />
+                <ScalarProperty Name="Fecha_Fin" ColumnName="Fecha_Fin" />
+                <ScalarProperty Name="Codigo_Empleado" ColumnName="Codigo_Empleado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DETALLE_COMPRA_PROVEEDOR">
+            <EntityTypeMapping TypeName="DBINMOBILIARIAModel.DETALLE_COMPRA_PROVEEDOR">
+              <MappingFragment StoreEntitySet="DETALLE_COMPRA_PROVEEDOR">
+                <ScalarProperty Name="Detalle_ID" ColumnName="Detalle_ID" />
+                <ScalarProperty Name="Codigo_Compra" ColumnName="Codigo_Compra" />
+                <ScalarProperty Name="Codigo_Producto" ColumnName="Codigo_Producto" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Precio_Unitario" ColumnName="Precio_Unitario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EMPLEADOes">
+            <EntityTypeMapping TypeName="DBINMOBILIARIAModel.EMPLEADO">
+              <MappingFragment StoreEntitySet="EMPLEADO">
+                <ScalarProperty Name="Codigo_Empleado" ColumnName="Codigo_Empleado" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Tipo_Doc" ColumnName="Tipo_Doc" />
+                <ScalarProperty Name="Nro_Documento" ColumnName="Nro_Documento" />
+                <ScalarProperty Name="Tipo_Telefono" ColumnName="Tipo_Telefono" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Fecha_Contratacion" ColumnName="Fecha_Contratacion" />
+                <ScalarProperty Name="Codigo_TipoEmpleado" ColumnName="Codigo_TipoEmpleado" />
+                <ScalarProperty Name="Codigo_Sede" ColumnName="Codigo_Sede" />
+                <ScalarProperty Name="Codigo_Genero" ColumnName="Codigo_Genero" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FACTURAs">
+            <EntityTypeMapping TypeName="DBINMOBILIARIAModel.FACTURA">
+              <MappingFragment StoreEntitySet="FACTURA">
+                <ScalarProperty Name="Codigo_Factura" ColumnName="Codigo_Factura" />
+                <ScalarProperty Name="Codigo_Transaccion" ColumnName="Codigo_Transaccion" />
+                <ScalarProperty Name="Codigo_Cliente" ColumnName="Codigo_Cliente" />
+                <ScalarProperty Name="Codigo_Inmueble" ColumnName="Codigo_Inmueble" />
+                <ScalarProperty Name="Codigo_Empleado_Genera" ColumnName="Codigo_Empleado_Genera" />
+                <ScalarProperty Name="Codigo_Forma" ColumnName="Codigo_Forma" />
+                <ScalarProperty Name="Fecha_Emision" ColumnName="Fecha_Emision" />
+                <ScalarProperty Name="Fecha_Vencimiento" ColumnName="Fecha_Vencimiento" />
+                <ScalarProperty Name="Monto_Total" ColumnName="Monto_Total" />
+                <ScalarProperty Name="Concepto" ColumnName="Concepto" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Fecha_Pago" ColumnName="Fecha_Pago" />
+                <ScalarProperty Name="Notas_Factura" ColumnName="Notas_Factura" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FORMA_PAGO">
+            <EntityTypeMapping TypeName="DBINMOBILIARIAModel.FORMA_PAGO">
+              <MappingFragment StoreEntitySet="FORMA_PAGO">
+                <ScalarProperty Name="Codigo_Forma" ColumnName="Codigo_Forma" />
+                <ScalarProperty Name="Codigo_TipoPago" ColumnName="Codigo_TipoPago" />
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GENEROes">
+            <EntityTypeMapping TypeName="DBINMOBILIARIAModel.GENERO">
+              <MappingFragment StoreEntitySet="GENERO">
+                <ScalarProperty Name="Codigo_Genero" ColumnName="Codigo_Genero" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="INMUEBLEs">
+            <EntityTypeMapping TypeName="DBINMOBILIARIAModel.INMUEBLE">
+              <MappingFragment StoreEntitySet="INMUEBLE">
+                <ScalarProperty Name="Codigo_Inmueble" ColumnName="Codigo_Inmueble" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Codigo_Ciudad" ColumnName="Codigo_Ciudad" />
+                <ScalarProperty Name="Codigo_TipoInmueble" ColumnName="Codigo_TipoInmueble" />
+                <ScalarProperty Name="Es_Nuevo" ColumnName="Es_Nuevo" />
+                <ScalarProperty Name="Fecha_Alta" ColumnName="Fecha_Alta" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Codigo_Empleado_Captacion" ColumnName="Codigo_Empleado_Captacion" />
+                <ScalarProperty Name="Precio_Venta" ColumnName="Precio_Venta" />
+                <ScalarProperty Name="Canon_Mensual" ColumnName="Canon_Mensual" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="INMUEBLE_CONSIGNACION">
+            <EntityTypeMapping TypeName="DBINMOBILIARIAModel.INMUEBLE_CONSIGNACION">
+              <MappingFragment StoreEntitySet="INMUEBLE_CONSIGNACION">
+                <ScalarProperty Name="Codigo_Inmueble" ColumnName="Codigo_Inmueble" />
+                <ScalarProperty Name="Nombre_Propietario" ColumnName="Nombre_Propietario" />
+                <ScalarProperty Name="Telefono_Propietario" ColumnName="Telefono_Propietario" />
+                <ScalarProperty Name="Email_Propietario" ColumnName="Email_Propietario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PERFILs">
+            <EntityTypeMapping TypeName="DBINMOBILIARIAModel.PERFIL">
+              <MappingFragment StoreEntitySet="PERFIL">
+                <ScalarProperty Name="Codigo_Perfil" ColumnName="Codigo_Perfil" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="PaginaNavegar" ColumnName="PaginaNavegar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PERFIL_USUARIO">
+            <EntityTypeMapping TypeName="DBINMOBILIARIAModel.PERFIL_USUARIO">
+              <MappingFragment StoreEntitySet="PERFIL_USUARIO">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Codigo_Usuario" ColumnName="Codigo_Usuario" />
+                <ScalarProperty Name="Codigo_Perfil" ColumnName="Codigo_Perfil" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRODUCTO_SERVICIO_PROVEEDOR">
+            <EntityTypeMapping TypeName="DBINMOBILIARIAModel.PRODUCTO_SERVICIO_PROVEEDOR">
+              <MappingFragment StoreEntitySet="PRODUCTO_SERVICIO_PROVEEDOR">
+                <ScalarProperty Name="Codigo_Producto" ColumnName="Codigo_Producto" />
+                <ScalarProperty Name="Codigo_Proveedor" ColumnName="Codigo_Proveedor" />
+                <ScalarProperty Name="Nombre_Producto" ColumnName="Nombre_Producto" />
+                <ScalarProperty Name="Unidad_Medida" ColumnName="Unidad_Medida" />
+                <ScalarProperty Name="Precio_Unitario" ColumnName="Precio_Unitario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PROVEEDORs">
+            <EntityTypeMapping TypeName="DBINMOBILIARIAModel.PROVEEDOR">
+              <MappingFragment StoreEntitySet="PROVEEDOR">
+                <ScalarProperty Name="Codigo_Proveedor" ColumnName="Codigo_Proveedor" />
+                <ScalarProperty Name="Nombre_Proveedor" ColumnName="Nombre_Proveedor" />
+                <ScalarProperty Name="Nombre_Contacto" ColumnName="Nombre_Contacto" />
+                <ScalarProperty Name="Tipo_Telefono" ColumnName="Tipo_Telefono" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PROYECTO_NUEVO">
+            <EntityTypeMapping TypeName="DBINMOBILIARIAModel.PROYECTO_NUEVO">
+              <MappingFragment StoreEntitySet="PROYECTO_NUEVO">
+                <ScalarProperty Name="Codigo_Proyecto" ColumnName="Codigo_Proyecto" />
+                <ScalarProperty Name="Nombre_Proyecto" ColumnName="Nombre_Proyecto" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Codigo_Ciudad" ColumnName="Codigo_Ciudad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SEDEs">
+            <EntityTypeMapping TypeName="DBINMOBILIARIAModel.SEDE">
+              <MappingFragment StoreEntitySet="SEDE">
+                <ScalarProperty Name="Codigo_Sede" ColumnName="Codigo_Sede" />
+                <ScalarProperty Name="Nombre_Sede" ColumnName="Nombre_Sede" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Codigo_Ciudad" ColumnName="Codigo_Ciudad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIPO_DOCUMENTO">
+            <EntityTypeMapping TypeName="DBINMOBILIARIAModel.TIPO_DOCUMENTO">
+              <MappingFragment StoreEntitySet="TIPO_DOCUMENTO">
+                <ScalarProperty Name="Codigo_doc" ColumnName="Codigo_doc" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIPO_EMPLEADO">
+            <EntityTypeMapping TypeName="DBINMOBILIARIAModel.TIPO_EMPLEADO">
+              <MappingFragment StoreEntitySet="TIPO_EMPLEADO">
+                <ScalarProperty Name="Codigo_TipoEmpleado" ColumnName="Codigo_TipoEmpleado" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIPO_INMUEBLE">
+            <EntityTypeMapping TypeName="DBINMOBILIARIAModel.TIPO_INMUEBLE">
+              <MappingFragment StoreEntitySet="TIPO_INMUEBLE">
+                <ScalarProperty Name="Codigo_TipoInmueble" ColumnName="Codigo_TipoInmueble" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIPO_PAGO">
+            <EntityTypeMapping TypeName="DBINMOBILIARIAModel.TIPO_PAGO">
+              <MappingFragment StoreEntitySet="TIPO_PAGO">
+                <ScalarProperty Name="Codigo_TipoPago" ColumnName="Codigo_TipoPago" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIPO_TELEFONO">
+            <EntityTypeMapping TypeName="DBINMOBILIARIAModel.TIPO_TELEFONO">
+              <MappingFragment StoreEntitySet="TIPO_TELEFONO">
+                <ScalarProperty Name="Codigo_TipoTelefono" ColumnName="Codigo_TipoTelefono" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIPO_TRANSACCION">
+            <EntityTypeMapping TypeName="DBINMOBILIARIAModel.TIPO_TRANSACCION">
+              <MappingFragment StoreEntitySet="TIPO_TRANSACCION">
+                <ScalarProperty Name="Codigo_TipoTransaccion" ColumnName="Codigo_TipoTransaccion" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Porcentaje_Comision" ColumnName="Porcentaje_Comision" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TRANSACCIONs">
+            <EntityTypeMapping TypeName="DBINMOBILIARIAModel.TRANSACCION">
+              <MappingFragment StoreEntitySet="TRANSACCION">
+                <ScalarProperty Name="Codigo_Transaccion" ColumnName="Codigo_Transaccion" />
+                <ScalarProperty Name="Codigo_Inmueble" ColumnName="Codigo_Inmueble" />
+                <ScalarProperty Name="Codigo_Cliente" ColumnName="Codigo_Cliente" />
+                <ScalarProperty Name="Codigo_Empleado_Cierre" ColumnName="Codigo_Empleado_Cierre" />
+                <ScalarProperty Name="Codigo_TipoTransaccion" ColumnName="Codigo_TipoTransaccion" />
+                <ScalarProperty Name="Fecha_Transaccion" ColumnName="Fecha_Transaccion" />
+                <ScalarProperty Name="Precio_Acordado" ColumnName="Precio_Acordado" />
+                <ScalarProperty Name="Comision_Agente" ColumnName="Comision_Agente" />
+                <ScalarProperty Name="Notas_Transaccion" ColumnName="Notas_Transaccion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USUARIOs">
+            <EntityTypeMapping TypeName="DBINMOBILIARIAModel.USUARIO">
+              <MappingFragment StoreEntitySet="USUARIO">
+                <ScalarProperty Name="Codigo_Usuario" ColumnName="Codigo_Usuario" />
+                <ScalarProperty Name="Documento_Empleado" ColumnName="Documento_Empleado" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Clave" ColumnName="Clave" />
+                <ScalarProperty Name="Salt" ColumnName="Salt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VENTAs">
+            <EntityTypeMapping TypeName="DBINMOBILIARIAModel.VENTA">
+              <MappingFragment StoreEntitySet="VENTA">
+                <ScalarProperty Name="Codigo_Transaccion" ColumnName="Codigo_Transaccion" />
+                <ScalarProperty Name="Fecha_Pago" ColumnName="Fecha_Pago" />
+                <ScalarProperty Name="Monto_Pagado" ColumnName="Monto_Pagado" />
+                <ScalarProperty Name="Estado_Pago" ColumnName="Estado_Pago" />
+                <ScalarProperty Name="Notas_Venta" ColumnName="Notas_Venta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VISITAs">
+            <EntityTypeMapping TypeName="DBINMOBILIARIAModel.VISITA">
+              <MappingFragment StoreEntitySet="VISITA">
+                <ScalarProperty Name="Codigo_Visita" ColumnName="Codigo_Visita" />
+                <ScalarProperty Name="Codigo_Inmueble" ColumnName="Codigo_Inmueble" />
+                <ScalarProperty Name="Codigo_Cliente" ColumnName="Codigo_Cliente" />
+                <ScalarProperty Name="Fecha_Visita" ColumnName="Fecha_Visita" />
+                <ScalarProperty Name="Comentarios" ColumnName="Comentarios" />
+                <ScalarProperty Name="Codigo_Empleado" ColumnName="Codigo_Empleado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="INMUEBLE_MODELO_DECORACION" TypeName="DBINMOBILIARIAModel.INMUEBLE_MODELO_DECORACION" StoreEntitySet="INMUEBLE_MODELO_DECORACION">
+            <EndProperty Name="INMUEBLE">
+              <ScalarProperty Name="Codigo_Inmueble" ColumnName="Codigo_Inmueble" />
+            </EndProperty>
+            <EndProperty Name="DECORACION_MODELO">
+              <ScalarProperty Name="Codigo_Decoracion" ColumnName="Codigo_Decoracion" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="INMUEBLE_PROYECTO" TypeName="DBINMOBILIARIAModel.INMUEBLE_PROYECTO" StoreEntitySet="INMUEBLE_PROYECTO">
+            <EndProperty Name="INMUEBLE">
+              <ScalarProperty Name="Codigo_Inmueble" ColumnName="Codigo_Inmueble" />
+            </EndProperty>
+            <EndProperty Name="PROYECTO_NUEVO">
+              <ScalarProperty Name="Codigo_Proyecto" ColumnName="Codigo_Proyecto" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
