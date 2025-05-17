@@ -130,7 +130,7 @@ Este proyecto cuenta con los siguientes contribuidores.
 
 Si deseas conocer más detalles, revisa el siguiente enlace:
 
-🔗 [Ver guía de contribuciones]()
+🔗 [Ver guía de contribuciones](https://github.com/ArsJohan/Inmobiliaria/blob/main/CONTRIBUCIONES.MD)
 
 ## 📄 Licencia
 
