@@ -21,7 +21,7 @@ Decora las viviendas 'modelo' en los proyectos nuevos. Gestiona proveedores para
 
 
 ````
-# 📌 Contenido
+## 📌 Contenido
 
 - 🎯 [Contexto del MVP](#Contextodel-MVP)
 
@@ -41,7 +41,7 @@ Decora las viviendas 'modelo' en los proyectos nuevos. Gestiona proveedores para
 
 - 📄 [Licencia](#Licencia)
 
-# 🎯 Contexto del MVP
+## 🎯 Contexto del MVP
 
 Este sistema está diseñado para automatizar y digitalizar las operaciones básicas de una inmobiliaria moderna:
 
@@ -51,7 +51,7 @@ Este sistema está diseñado para automatizar y digitalizar las operaciones bás
 
 - Controlar los procesos de venta y arriendo.
 
-# 🛠️ Tecnologías Utilizadas
+## 🛠️ Tecnologías Utilizadas
 
 - Base de Datos: SQL Server
 
@@ -63,7 +63,7 @@ Este sistema está diseñado para automatizar y digitalizar las operaciones bás
 
 - Control de versiones: Git / GitHub
 
-# 🗂️ Base de Datos
+## 🗂️ Base de Datos
 
 El modelo de datos incluye:
 
@@ -77,7 +77,7 @@ El modelo de datos incluye:
 
 - Transacción: Operaciones de venta y arriendo.
 
-# 🔧 Backend
+## 🔧 Backend
 
 - Basado en ASP.NET Web API (.NET Framework 4.8).
 
@@ -87,7 +87,7 @@ El modelo de datos incluye:
 
 - Soporte para autenticación y manejo de usuarios.
 
-# 🎨 Frontend
+## 🎨 Frontend
 
 - Construido con Bootstrap para diseño responsivo.
 
@@ -95,20 +95,20 @@ El modelo de datos incluye:
 
 - Formularios conectados al backend mediante AJAX.
 
-# 🌐 Despliegue
+## 🌐 Despliegue
 
 El proyecto está alojado en NetMonster bajo la siguiente estructura de URL:
 
 ➡️ https://netmonster.app/nombre-del-proyecto
 
 
-# 📎 Instalación y Uso
+## 📎 Instalación y Uso
 
 La instalación y guía de uso se encuentra en un archivo separado:
 
-🔗 Ver README de instalación
+🔗 [Ver README de instalación]()
 
-# 🤝 Contribuciones
+## 🤝 Contribuciones
 
 Este proyecto cuenta con los siguientes contribuidores.
 
@@ -130,8 +130,8 @@ Este proyecto cuenta con los siguientes contribuidores.
 
 Si deseas conocer más detalles, revisa el siguiente enlace:
 
-🔗 Ver guía de contribuciones
+🔗 [Ver guía de contribuciones]()
 
-# 📄 Licencia
+## 📄 Licencia
 
 Este proyecto está bajo la [Licencia MIT](https://github.com/ArsJohan/Inmobiliaria/blob/main/LICENSE). Consulta el archivo LICENSE para más información.
