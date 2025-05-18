@@ -33,10 +33,10 @@ namespace InmobiliariaAPI.Controllers
         }
         [HttpGet]
         [Route("Consultar")]
-        public CLIENTE Consultar(int Documento)
+        public CLIENTE Consultar(string documento)
         {
             clsCliente cliente = new clsCliente();
-            return cliente.Consultar(Documento);
+            return cliente.ConsultarXDocumento(documento);
         }
         [HttpPut]
         [Route("Actualizar")]

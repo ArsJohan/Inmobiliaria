@@ -34,10 +34,10 @@ namespace InmobiliariaAPI.Controllers
             }
             [HttpGet]
             [Route("Consultar")]
-            public EMPLEADO Consultar(int Documento)
+            public EMPLEADO Consultar(string Documento)
             {
                 clsEmpleado empleado = new clsEmpleado();
-                return empleado.Consultar(Documento);
+                return empleado.ConsultarXDocumento(Documento);
             }
             [HttpPut]
             [Route("Actualizar")]
