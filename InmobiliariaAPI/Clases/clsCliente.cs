@@ -24,16 +24,16 @@ namespace InmobiliariaAPI.Clases
                 return "Error al insertar el Cliente: " + ex.Message; //Retorna un mensaje de error
             }
         }
-        public CLIENTE Consultar(int id)
+        public CLIENTE ConsultarXDocumento(string documento)
         {
             //Expresiones lambda se convierte en objetos del tipo que se esta consultando
             //El método FirstOrDefault retorna el primer objeto que cumpla con la condición que se escribe en la consulta
-            return DBinmovi.CLIENTEs.FirstOrDefault(c => c.Codigo_Cliente == id);
+            return DBinmovi.CLIENTEs.FirstOrDefault(c => c.Nro_Documento == documento);
         }
         public List<CLIENTE> ConsultarTodo()
         {
             return DBinmovi.CLIENTEs
-                .ToList(); //Retorna una lista de empleados
+                .ToList(); //Retorna una lista de cliente
         }
         public string Actualizar()
         {
@@ -41,7 +41,7 @@ namespace InmobiliariaAPI.Clases
             {
                 //Antes de actualizar, se debería consultar si el dato ya existe para poder actualizarlo, de lo contrario se debería insertar o retornar un mensaje de error
                 //Consultar el Cliente
-                CLIENTE cLIENTE = Consultar(cliente.Codigo_Cliente);
+                CLIENTE cLIENTE = ConsultarXDocumento(cliente.Nro_Documento);
                 if (cLIENTE == null)
                 {
                     return "Cliente no existe"; //Retorna un mensaje de error
@@ -59,7 +59,7 @@ namespace InmobiliariaAPI.Clases
         {
             try
             {
-                CLIENTE cLIENTE = Consultar(cliente.Codigo_Cliente);
+                CLIENTE cLIENTE = ConsultarXDocumento(cliente.Nro_Documento);
                 if (cLIENTE == null)
                 {
                     return "Cliente no existe"; //Retorna un mensaje de error
