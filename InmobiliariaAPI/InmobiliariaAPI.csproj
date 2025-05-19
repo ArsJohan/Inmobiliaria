@@ -219,9 +219,15 @@
     <Compile Include="Clases\Class.cs" />
     <Compile Include="Clases\Login.cs" />
     <Compile Include="Clases\TokenGenerator.cs" />
+    <Compile Include="Clases\clsCliente.cs" />
+    <Compile Include="Clases\clsEmpleado.cs" />
+    <Compile Include="Clases\clsVenta.cs" />
+    <Compile Include="Controllers\ClienteController.cs" />
+    <Compile Include="Controllers\EmpleadoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\VentaController.cs" />
     <Compile Include="Dtos\DtoLogin.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
