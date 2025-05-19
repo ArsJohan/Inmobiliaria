@@ -9,12 +9,10 @@ using System.Web.Http;
 
 namespace InmobiliariaAPI.Controllers
 {
+    [RoutePrefix("api/Venta")]
+    [Authorize]
     public class VentaController : ApiController
     {
-        [RoutePrefix("api/Venta")]
-        [Authorize]
-        public class clienteController : ApiController
-        {
             [HttpPost]
             [Route("Insertar")]
             public string Insertar([FromBody] VENTA dato)
@@ -55,6 +53,6 @@ namespace InmobiliariaAPI.Controllers
                 vent.venta = venta;
                 return vent.Eliminar();
             }
-        }
+        
     }
 }

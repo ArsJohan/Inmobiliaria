@@ -11,7 +11,7 @@ namespace InmobiliariaAPI.Controllers
 {
     [RoutePrefix("api/Transacion")]
     [Authorize]
-    public class TransacionController : ApiController
+    public class TransaccionController : ApiController
     {
         [HttpGet]
         [Route("ConsultarXCodigo")]

@@ -9,12 +9,11 @@ using InmobiliariaAPI.Clases;
 
 namespace InmobiliariaAPI.Controllers
 {
+    [RoutePrefix("api/Empleado")]
+    [Authorize]
     public class EmpleadoController : ApiController
     {
-        [RoutePrefix("api/Empleado")]
-        [Authorize]
-        public class clienteController : ApiController
-        {
+       
             [HttpPost]
             [Route("Insertar")]
             public string Insertar([FromBody] EMPLEADO dato)
@@ -55,6 +54,6 @@ namespace InmobiliariaAPI.Controllers
                 emplead.empleado = empleado;
                 return emplead.Eliminar();
             }
-        }
+        
     }
 }

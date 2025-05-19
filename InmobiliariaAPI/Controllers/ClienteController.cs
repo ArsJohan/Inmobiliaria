@@ -12,7 +12,7 @@ namespace InmobiliariaAPI.Controllers
 {
     [RoutePrefix("api/Cliente")]
     [Authorize]
-    public class clienteController : ApiController
+    public class ClienteController : ApiController
     {
         [HttpPost]
         [Route("Insertar")]
