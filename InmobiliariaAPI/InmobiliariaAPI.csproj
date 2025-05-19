@@ -217,6 +217,11 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Clases\Class.cs" />
+    <Compile Include="Clases\clsArriendo.cs" />
+    <Compile Include="Clases\clsTransacion.cs" />
+    <Compile Include="Controllers\ArriendoController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TransacionController.cs" />
     <Compile Include="Clases\Login.cs" />
     <Compile Include="Clases\TokenGenerator.cs" />
     <Compile Include="Clases\clsCliente.cs" />
