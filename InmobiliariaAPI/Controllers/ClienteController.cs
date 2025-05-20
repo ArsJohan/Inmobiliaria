@@ -48,11 +48,11 @@ namespace InmobiliariaAPI.Controllers
         }
         [HttpDelete]
         [Route("Eliminar")]
-        public string Eliminar([FromBody] CLIENTE cliente)
+        public string Eliminar(string documento)
         {
             clsCliente client = new clsCliente();
-            client.cliente = cliente;
-            return client.Eliminar();
+          
+            return client.Eliminar(documento);
         }
     }
 }

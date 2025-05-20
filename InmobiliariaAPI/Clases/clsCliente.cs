@@ -55,18 +55,18 @@ namespace InmobiliariaAPI.Clases
                 return "Error al actualizar el Cliente: " + ex.Message; //Retorna un mensaje de error
             }
         }
-        public string Eliminar()
+        public string Eliminar(string documento)
         {
             try
             {
-                CLIENTE cLIENTE = ConsultarXDocumento(cliente.Nro_Documento);
+                CLIENTE cLIENTE = ConsultarXDocumento(documento);
                 if (cLIENTE == null)
                 {
                     return "Cliente no existe"; //Retorna un mensaje de error
                 }
-                DBinmovi.CLIENTEs.Remove(cliente); //Elimina el cliente en la lista del entity framework, se debe invocar el metodo SaveChanges para guardar los cambios en la base de datos
+                DBinmovi.CLIENTEs.Remove(cLIENTE); //Elimina el cliente en la lista del entity framework, se debe invocar el metodo SaveChanges para guardar los cambios en la base de datos
                 DBinmovi.SaveChanges(); //Guarda los cambios en la base de datos
-                return "Clinte actualizado correctamente"; //Retorna un mensaje de confirmación
+                return "Clinte Eliminado correctamente"; //Retorna un mensaje de confirmación
             }
             catch (Exception ex)
             {

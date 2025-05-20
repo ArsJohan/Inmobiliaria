@@ -221,6 +221,7 @@
     <Compile Include="Clases\clsCypher.cs" />
     <Compile Include="Clases\clsLogin.cs" />
     <Compile Include="Clases\clsTransacion.cs" />
+    <Compile Include="Clases\clsUsuario.cs" />
     <Compile Include="Clases\TokenValidatorHandler.cs" />
     <Compile Include="Controllers\ArriendoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -232,6 +233,7 @@
     <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\EmpleadoController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Controllers\VentaController.cs" />
     <Compile Include="Dtos\DtoLogin.cs" />
     <Compile Include="Global.asax.cs">

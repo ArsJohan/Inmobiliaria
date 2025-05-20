@@ -31,7 +31,12 @@ namespace InmobiliariaAPI.Clases
             TRANSACCION tran = DBinmovi.TRANSACCIONs.FirstOrDefault(t => t.Codigo_Transaccion == codigo);
             return tran;
         }
-
+        public List<TRANSACCION> ConsultarTodo()
+        {
+            return DBinmovi.TRANSACCIONs
+                .ToList(); //Retorna una lista de empleados
+        }
+        
         public string Actualizar()
         {
             try

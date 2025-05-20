@@ -14,7 +14,7 @@ namespace InmobiliariaAPI.Controllers
     {
         [HttpPost]
         [Route("CrearUsuarios")]
-        [Authorize]
+        [AllowAnonymous]
         public string CrearUsuarios([FromBody] USUARIO usuario, int idPerfil)
         {
             clsUsuario _usuario = new clsUsuario();

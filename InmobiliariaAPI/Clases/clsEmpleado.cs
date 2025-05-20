@@ -56,24 +56,24 @@ namespace InmobiliariaAPI.Clases
                 return "Error al actualizar el Empleado: " + ex.Message; //Retorna un mensaje de error
             }
         }
-        public string Eliminar()
+        public string Eliminar(string documento)
         {
             try
             {
                 //Antes de actualizar, se debería consultar si el dato ya existe para poder actualizarlo, de lo contrario se debería insertar o retornar un mensaje de error
                 //Consultar el Empleado
-                EMPLEADO eMPLEADO = ConsultarXDocumento(empleado.Nro_Documento);
+                EMPLEADO eMPLEADO = ConsultarXDocumento(documento);
                 if (eMPLEADO == null)
                 {
                     return "Empleado no existe"; //Retorna un mensaje de error
                 }
-                DBinmovi.EMPLEADOes.Remove(empleado); //Actualiza el empleado en la lista del entity framework, se debe invocar el metodo SaveChanges para guardar los cambios en la base de datos
+                DBinmovi.EMPLEADOes.Remove(eMPLEADO); //Actualiza el empleado en la lista del entity framework, se debe invocar el metodo SaveChanges para guardar los cambios en la base de datos
                 DBinmovi.SaveChanges(); //Guarda los cambios en la base de datos
-                return "Empleado actualizado correctamente"; //Retorna un mensaje de confirmación
+                return "Empleado Eliminar correctamente"; //Retorna un mensaje de confirmación
             }
             catch (Exception ex)
             {
-                return "Error al actualizar el Empleado: " + ex.Message; //Retorna un mensaje de error
+                return "Error al Eliminar el Empleado: " + ex.Message; //Retorna un mensaje de error
             }
         }
     }

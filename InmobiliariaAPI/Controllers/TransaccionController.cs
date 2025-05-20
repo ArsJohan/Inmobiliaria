@@ -9,7 +9,7 @@ using InmobiliariaAPI.Models;
 
 namespace InmobiliariaAPI.Controllers
 {
-    [RoutePrefix("api/Transacion")]
+    [RoutePrefix("api/Transaccion")]
     [Authorize]
     public class TransaccionController : ApiController
     {
@@ -19,6 +19,15 @@ namespace InmobiliariaAPI.Controllers
         {
             clsTransacion clsTransacion = new clsTransacion();
             return clsTransacion.ConsultarXCodigo(Condigo_transacion);
+        }
+        [HttpGet]
+        [Route("ConsultarTodos")]
+        public List<TRANSACCION> ConsultarTodos()
+        {
+            //Se crea un objeto de la clase clsEmpleado
+            clsTransacion transacion = new clsTransacion(); ;
+            //Se llama al método ConsultarTodos de la clase clsEmpleado
+            return transacion.ConsultarTodo();
         }
 
         [HttpPost]

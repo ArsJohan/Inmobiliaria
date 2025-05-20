@@ -48,11 +48,10 @@ namespace InmobiliariaAPI.Controllers
             }
             [HttpDelete]
             [Route("Eliminar")]
-            public string Eliminar([FromBody] EMPLEADO empleado)
+            public string Eliminar(string documento)
             {
                 clsEmpleado emplead = new clsEmpleado();
-                emplead.empleado = empleado;
-                return emplead.Eliminar();
+                return emplead.Eliminar(documento);
             }
         
     }
