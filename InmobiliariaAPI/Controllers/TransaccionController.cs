@@ -50,10 +50,10 @@ namespace InmobiliariaAPI.Controllers
 
         [HttpDelete]
         [Route("Eliminar")]
-        public string Eliminar(int Condigo_transacion)
+        public string Eliminar(int codigo)
         {
             clsTransacion clsTransacion = new clsTransacion();
-            return clsTransacion.Eliminar(Condigo_transacion);
+            return clsTransacion.Eliminar(codigo);
         }
 
     }
