@@ -26,7 +26,11 @@ namespace InmobiliariaAPI.Clases
                 return "Error al registrar el arriendo: " + ex.Message;
             }
         }
-
+        public List<ARRIENDO> ConsultarTodo()
+        {
+            return DBinmovi.ARRIENDOes
+                .ToList(); //Retorna una lista de empleados
+        }
         public ARRIENDO ConsultarXCodigo(int codigo)
         {
             ARRIENDO arri = DBinmovi.ARRIENDOes.FirstOrDefault(a => a.Codigo_Transaccion == codigo);

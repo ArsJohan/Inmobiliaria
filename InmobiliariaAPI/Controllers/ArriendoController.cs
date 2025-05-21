@@ -20,6 +20,15 @@ namespace InmobiliariaAPI.Controllers
             clsArriendo arriendo = new clsArriendo();
             return arriendo.ConsultarXCodigo(Codigo_Transaccion);
         }
+        [HttpGet]
+        [Route("ConsultarTodos")]
+        public List<ARRIENDO> ConsultarTodos()
+        {
+            //Se crea un objeto de la clase clsEmpleado
+            clsArriendo arriendo = new clsArriendo(); ;
+            //Se llama al método ConsultarTodos de la clase clsEmpleado
+            return arriendo.ConsultarTodo();
+        }
 
         [HttpPost]
         [Route("Insertar")]

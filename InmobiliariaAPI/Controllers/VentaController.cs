@@ -47,11 +47,10 @@ namespace InmobiliariaAPI.Controllers
             }
             [HttpDelete]
             [Route("Eliminar")]
-            public string Eliminar([FromBody] VENTA venta)
+            public string Eliminar(int codigo)
             {
                 clsVenta vent = new clsVenta();
-                vent.venta = venta;
-                return vent.Eliminar();
+                return vent.Eliminar(codigo);
             }
         
     }

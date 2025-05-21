@@ -55,24 +55,24 @@ namespace InmobiliariaAPI.Clases
                 return "Error al actualizar el Empleado: " + ex.Message; //Retorna un mensaje de error
             }
         }
-        public string Eliminar()
+        public string Eliminar(int codigo)
         {
             try
             {
                 //Antes de actualizar, se debería consultar si el dato ya existe para poder actualizarlo, de lo contrario se debería insertar o retornar un mensaje de error
                 //Consultar el venta
-                VENTA vENTA= Consultar(venta.Codigo_Transaccion);
+                VENTA vENTA= Consultar(codigo);
                 if (vENTA == null)
                 {
                     return "venta no existe"; //Retorna un mensaje de error
                 }
-                DBinmovi.VENTAs.Remove(venta); //Actualiza el venta en la lista del entity framework, se debe invocar el metodo SaveChanges para guardar los cambios en la base de datos
+                DBinmovi.VENTAs.Remove(vENTA); //Actualiza el venta en la lista del entity framework, se debe invocar el metodo SaveChanges para guardar los cambios en la base de datos
                 DBinmovi.SaveChanges(); //Guarda los cambios en la base de datos
-                return "venta actualizado correctamente"; //Retorna un mensaje de confirmación
+                return "venta Eliminar correctamente"; //Retorna un mensaje de confirmación
             }
             catch (Exception ex)
             {
-                return "Error al actualizar el venta: " + ex.Message; //Retorna un mensaje de error
+                return "Error al Eliminar el venta: " + ex.Message; //Retorna un mensaje de error
             }
         }
     }
