@@ -15,10 +15,10 @@ namespace InmobiliariaAPI.Controllers
     {
         [HttpGet]
         [Route("ConsultarXCodigo")]
-        public TRANSACCION Consultar(int Condigo_transacion)
+        public TRANSACCION Consultar(int Codigo)
         {
             clsTransacion clsTransacion = new clsTransacion();
-            return clsTransacion.ConsultarXCodigo(Condigo_transacion);
+            return clsTransacion.ConsultarXCodigo(Codigo);
         }
         [HttpGet]
         [Route("ConsultarTodos")]
