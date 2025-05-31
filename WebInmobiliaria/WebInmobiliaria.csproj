@@ -167,12 +167,17 @@
     <Content Include="Paginas\Estilos\select2.css" />
     <Content Include="Paginas\Estilos\select2.min.css" />
     <Content Include="Paginas\Estilos\styles.css" />
+    <Content Include="Paginas\Estilos\Stylesheet\LandPage.css" />
+    <Content Include="Paginas\Estilos\Stylesheet\Login.css" />
+    <Content Include="Paginas\Estilos\Stylesheet\Menu.css" />
     <Content Include="Paginas\Estilos\tempusdominus-bootstrap-4.css" />
     <Content Include="Paginas\Estilos\tempusdominus-bootstrap-4.min.css" />
     <Content Include="Paginas\Estilos\webfonts\fa-brands-400.svg" />
     <Content Include="Paginas\Estilos\webfonts\fa-regular-400.svg" />
     <Content Include="Paginas\Estilos\webfonts\fa-solid-900.svg" />
+    <Content Include="Paginas\LandPage.html" />
     <Content Include="Paginas\Login.html" />
+    <Content Include="Paginas\Menu-Landpage.html" />
     <Content Include="Paginas\Menu.html" />
     <Content Include="Paginas\MenuLateral.html" />
     <Content Include="Paginas\Pagina1.html" />
@@ -210,6 +215,9 @@
     <Content Include="Paginas\Estilos\webfonts\fa-solid-900.ttf" />
     <Content Include="Paginas\Estilos\webfonts\fa-solid-900.woff" />
     <Content Include="Paginas\Estilos\webfonts\fa-solid-900.woff2" />
+    <Content Include="wwwroot\pages\images\extendedLogo.png" />
+    <Content Include="wwwroot\pages\images\LANDPAGE-BACKGROUND-IMAGE.png" />
+    <Content Include="wwwroot\pages\images\minimalLogo.png" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -299,12 +307,14 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
