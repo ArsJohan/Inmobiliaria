@@ -425,6 +425,9 @@ CREATE TABLE PERFIL (
     PaginaNavegar   NVARCHAR(200)    NOT NULL
 );
 GO
+INSERT INTO PERFIL (Descripcion, PaginaNavegar) VALUES
+('Administrador','Panel.html'), ('Empleado','Index.html');
+GO
 
 -- 30. Asociación Perfil–Usuario
 CREATE TABLE PERFIL_USUARIO (
@@ -436,3 +439,13 @@ CREATE TABLE PERFIL_USUARIO (
     FOREIGN KEY (Codigo_Perfil) REFERENCES PERFIL(Codigo_Perfil)
 );
 GO
+-- 31. IMAGEN_INMUEBLE
+CREATE TABLE IMAGEN_INMUEBLE (
+    Codigo_Imagen       INT IDENTITY(1,1) PRIMARY KEY,
+    Codigo_Inmueble     INT NOT NULL,
+    Url_Imagen          VARCHAR(500) NOT NULL,
+    Descripcion         VARCHAR(255) NULL,
+    Es_Principal        BIT DEFAULT 0, -- 1 si es la imagen destacada
+    Fecha_Subida        DATETIME DEFAULT GETDATE(),
+    FOREIGN KEY (Codigo_Inmueble) REFERENCES INMUEBLE(Codigo_Inmueble)
+);
