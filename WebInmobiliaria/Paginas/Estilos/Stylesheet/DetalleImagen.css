@@ -1,0 +1,205 @@
+﻿/* GLOBAL STYLES (Manteniendo los estilos generales de la página) */
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e9ecef;
+    color: #343a40;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    color: #212529;
+    margin-top: 1.5em;
+    margin-bottom: 0.8em;
+}
+
+h1 {
+    font-size: 4em;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+h3 {
+    font-size: 1.75em;
+}
+
+h5 {
+    font-size: 1.15em;
+}
+
+h6 {
+    font-size: 1em;
+}
+
+p {
+    margin-bottom: 1em;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+/* MAIN CONTENT CONTAINER (Manteniendo el wrapper principal, si lo usas) */
+.main-content-wrapper {
+    max-width: 100%; /* Permitir que el contenido principal ocupe todo el ancho disponible */
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* --- DETALLE COMPONENT STYLES (Modificados para ocupar todo el espacio blanco) --- */
+
+.Detalle-image-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 50px; /* Padding aumentado para un espacio más generoso */
+    background-color: #f8f9fa;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada para un componente más grande */
+    border-radius: 15px; /* Bordes ligeramente más redondeados */
+    max-width: 95%; /* Ocupa el 95% del ancho de la ventana para "todo el espacio blanco" */
+    margin: 40px auto; /* Centrado horizontal */
+    gap: 50px; /* Aumento significativo de la separación entre imagen y texto */
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+/* Estilos para el bloque de información de texto */
+.Detalle-info {
+    flex-grow: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+    .Detalle-info h4 {
+        font-size: 2.2em; /* Título más grande */
+        color: #343a40;
+        margin-top: 0;
+        margin-bottom: 30px; /* Más espacio debajo del título */
+        border-bottom: 2px solid #dee2e6; /* Línea separadora más gruesa */
+        padding-bottom: 20px;
+        font-weight: 700;
+    }
+
+    .Detalle-info p {
+        margin-bottom: 18px; /* Más espacio entre párrafos */
+        font-size: 1.3em; /* Texto más grande */
+        color: #495057;
+        line-height: 1.8; /* Mayor interlineado para mejor legibilidad */
+    }
+
+        .Detalle-info p strong {
+            color: #007bff;
+            margin-right: 15px; /* Más espacio después de la etiqueta */
+            font-weight: 600;
+        }
+
+    .Detalle-info .detalle-valor {
+        color: #212529;
+        font-weight: 500; /* Hace que el valor sea un poco más prominente */
+    }
+
+.Detalle-image-container img {
+    max-width: 600px; /* Aumento significativo del ancho máximo de la imagen para que sea grande */
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+    flex-shrink: 0;
+}
+
+/* --- RESPONSIVE ADJUSTMENTS --- */
+
+@media (max-width: 992px) { /* Ajuste para pantallas medianas (tabletas y laptops pequeñas) */
+    .Detalle-image-container {
+        padding: 40px;
+        gap: 40px;
+        max-width: 90%;
+    }
+
+        .Detalle-image-container img {
+            max-width: 500px;
+        }
+
+    .Detalle-info h4 {
+        font-size: 2em;
+    }
+
+    .Detalle-info p {
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 768px) { /* Ajuste para tabletas y móviles */
+    .main-content-wrapper {
+        margin: 20px auto;
+        padding: 0 15px;
+    }
+
+    .Detalle-image-container {
+        flex-direction: column; /* Apila imagen e info verticalmente */
+        align-items: center; /* Centra los items cuando están apilados */
+        gap: 30px; /* Ajusta el espacio para el layout apilado */
+        padding: 25px; /* Padding estándar para móviles */
+        max-width: 95%; /* Usa más del ancho disponible en pantallas pequeñas */
+    }
+
+    .Detalle-info {
+        width: 100%; /* El bloque de info ocupa todo el ancho */
+        order: 1; /* La info aparece primero en el orden visual */
+        text-align: center; /* Centra el texto de info cuando está apilado */
+    }
+
+        .Detalle-info h4 {
+            font-size: 1.6em; /* Ajusta tamaño de título para móviles */
+        }
+
+        .Detalle-info p {
+            text-align: left; /* Alinea a la izquierda los párrafos para legibilidad */
+            font-size: 1.1em; /* Ajusta tamaño de texto para móviles */
+        }
+
+    .Detalle-image-container img {
+        width: 100%; /* La imagen puede ocupar más ancho del contenedor interno */
+        max-width: 90%; /* Máximo del 90% del contenedor padre para no tocar los bordes */
+        order: 2; /* La imagen aparece segunda en el orden visual */
+        margin-top: 20px; /* Espacio arriba de la imagen cuando está apilada */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.75em;
+    }
+
+    h3 {
+        font-size: 1.5em;
+    }
+
+    .Detalle-info h4 {
+        font-size: 1.4em;
+    }
+
+    .Detalle-info p {
+        font-size: 1.0em;
+    }
+
+    .Detalle-image-container img {
+        max-width: 100%;
+    }
+}

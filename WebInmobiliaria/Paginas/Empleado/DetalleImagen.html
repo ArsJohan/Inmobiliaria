@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Inmobiliaria</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link href="../Estilos/css/all.min.css" rel="stylesheet" />
+    <link href="../Estilos/adminlte.min.css" rel="stylesheet" />
+    <link href="../Estilos/Stylesheet/Menu.css" rel="stylesheet" />
+    <link href="../Estilos/Stylesheet/LandPage.css" rel="stylesheet" />
+    <link href="../Estilos/Stylesheet/DetalleImagen.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="col-md-12" id="dvMenu">
+    </div>
+
+    <div class="Detalle-image-container">
+        <div class="Detalle-info">
+            <h4>Información Destacada</h4>
+            <p><strong>Tipo producto:</strong> <span class="detalle-valor" id="detalleTipoProducto"></span></p>
+            <p><strong>Producto:</strong> <span class="detalle-valor" id="detalleProducto"></span></p>
+            <p><strong>Cantidad:</strong> <span class="detalle-valor" id="detalleCantidad"></span></p>
+            <p><strong>Valor Unitario:</strong> <span class="detalle-valor" id="detalleValorUnitario"></span></p>
+            <p><strong>Subtotal:</strong> <span class="detalle-valor" id="detalleSubtotal"></span></p>
+        </div>
+        <img src="../../wwwroot/pages/images/imagen de prueba.png" alt="Imagen de la propiedad" id="detalleImagen" />
+    </div>
+
+    <div class="row" style="padding: 0 15px;">
+        <div class="col-md-12">
+            <table id="tblFactura" class="display table table-bordered table-striped" style="width:100%">
+                <tbody id="tblFacturaBody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="../../Scripts/jquery-3.4.1.min.js"></script>
+    <script src="../../Scripts/bootstrap.bundle.min.js"></script>
+    <script>
+        $(function () {
+            $("#dvMenu").load("Menu-Landpage.html", function (response, status, xhr) {
+                if (status == "error") {
+                    console.error("Error loading Menu-Landpage.html: " + xhr.status + " " + xhr.statusText);
+                }
+            });
+
+            // La lógica para cargar datos de la propiedad (cargarDatosPropiedad)
+            // y poblar los campos y la tabla se moverá a tu archivo JavaScript externo.
+        });
+    </script>
+</body>
+</html>
