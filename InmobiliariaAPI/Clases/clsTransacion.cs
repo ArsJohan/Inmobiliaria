@@ -9,15 +9,15 @@ namespace InmobiliariaAPI.Clases
 {
     public class clsTransacion
     {
-        private DBINMOBILIARIAEntities DBinmovi = new DBINMOBILIARIAEntities();
+        private DBINMOBILIARIAEntities DBInmobiliaria = new DBINMOBILIARIAEntities();
         public TRANSACCION transacion { get; set; }
 
         public string Insertar()
         {
             try
             {
-                DBinmovi.TRANSACCIONs.Add(transacion);
-                DBinmovi.SaveChanges();
+                DBInmobiliaria.TRANSACCIONs.Add(transacion);
+                DBInmobiliaria.SaveChanges();
                 return "Transacción registrada correctamente";
             }
             catch (Exception ex)
@@ -28,12 +28,12 @@ namespace InmobiliariaAPI.Clases
 
         public TRANSACCION ConsultarXCodigo (int codigo)
         {
-            TRANSACCION tran = DBinmovi.TRANSACCIONs.FirstOrDefault(t => t.Codigo_Transaccion == codigo);
+            TRANSACCION tran = DBInmobiliaria.TRANSACCIONs.FirstOrDefault(t => t.Codigo_Transaccion == codigo);
             return tran;
         }
         public List<TRANSACCION> ConsultarTodo()
         {
-            return DBinmovi.TRANSACCIONs
+            return DBInmobiliaria.TRANSACCIONs
                 .ToList(); //Retorna una lista de empleados
         }
         
@@ -46,8 +46,8 @@ namespace InmobiliariaAPI.Clases
                 {
                     return "Transacción no encontrada";
                 }
-                DBinmovi.TRANSACCIONs.AddOrUpdate(transacion);
-                DBinmovi.SaveChanges();
+                DBInmobiliaria.TRANSACCIONs.AddOrUpdate(transacion);
+                DBInmobiliaria.SaveChanges();
                 return "Transacción con código " + transacion.Codigo_Transaccion + " actualizada correctamente";
             }
             catch (Exception ex)
@@ -64,8 +64,8 @@ namespace InmobiliariaAPI.Clases
                 {
                     return "Transacción no encontrada";
                 }
-                DBinmovi.TRANSACCIONs.Remove(tran);
-                DBinmovi.SaveChanges();
+                DBInmobiliaria.TRANSACCIONs.Remove(tran);
+                DBInmobiliaria.SaveChanges();
                 return "Transacción con código " + codigo + " eliminada correctamente";
             }
             catch (Exception ex)

@@ -10,14 +10,14 @@ namespace InmobiliariaAPI.Clases
 {
     public class clsEmpleado
     {
-        private DBINMOBILIARIAEntities DBinmovi = new DBINMOBILIARIAEntities();
+        private DBINMOBILIARIAEntities DBInmobiliaria = new DBINMOBILIARIAEntities();
         public EMPLEADO empleado { get; set; }
         public string Insertar()
         {
             try
             {
-                DBinmovi.EMPLEADOes.Add(empleado); //Agrega un empleado a la lista del entity framework, se debe invocar el metodo SaveChanges para guardar los cambios en la base de datos
-                DBinmovi.SaveChanges(); //Guarda los cambios en la base de datos
+                DBInmobiliaria.EMPLEADOes.Add(empleado); //Agrega un empleado a la lista del entity framework, se debe invocar el metodo SaveChanges para guardar los cambios en la base de datos
+                DBInmobiliaria.SaveChanges(); //Guarda los cambios en la base de datos
                 return "Empleado insertado correctamente"; //Retorna un mensaje de confirmación
             }
             catch (Exception ex)
@@ -29,11 +29,11 @@ namespace InmobiliariaAPI.Clases
         {
             //Expresiones lambda se convierte en objetos del tipo que se esta consultando
             //El método FirstOrDefault retorna el primer objeto que cumpla con la condición que se escribe en la consulta
-            return DBinmovi.EMPLEADOes.FirstOrDefault(e => e.Nro_Documento == documento);
+            return DBInmobiliaria.EMPLEADOes.FirstOrDefault(e => e.Nro_Documento == documento);
         }
         public List<EMPLEADO> ConsultarTodo()
         {
-            return DBinmovi.EMPLEADOes
+            return DBInmobiliaria.EMPLEADOes
                 .ToList(); //Retorna una lista de empleados
         }
         public string Actualizar()
@@ -47,8 +47,8 @@ namespace InmobiliariaAPI.Clases
                 {
                     return "Empleado no existe"; //Retorna un mensaje de error
                 }
-                DBinmovi.EMPLEADOes.AddOrUpdate(empleado); //Actualiza el empleado en la lista del entity framework, se debe invocar el metodo SaveChanges para guardar los cambios en la base de datos
-                DBinmovi.SaveChanges(); //Guarda los cambios en la base de datos
+                DBInmobiliaria.EMPLEADOes.AddOrUpdate(empleado); //Actualiza el empleado en la lista del entity framework, se debe invocar el metodo SaveChanges para guardar los cambios en la base de datos
+                DBInmobiliaria.SaveChanges(); //Guarda los cambios en la base de datos
                 return "Empleado actualizado correctamente"; //Retorna un mensaje de confirmación
             }
             catch (Exception ex)
@@ -67,8 +67,8 @@ namespace InmobiliariaAPI.Clases
                 {
                     return "Empleado no existe"; //Retorna un mensaje de error
                 }
-                DBinmovi.EMPLEADOes.Remove(eMPLEADO); //Actualiza el empleado en la lista del entity framework, se debe invocar el metodo SaveChanges para guardar los cambios en la base de datos
-                DBinmovi.SaveChanges(); //Guarda los cambios en la base de datos
+                DBInmobiliaria.EMPLEADOes.Remove(eMPLEADO); //Actualiza el empleado en la lista del entity framework, se debe invocar el metodo SaveChanges para guardar los cambios en la base de datos
+                DBInmobiliaria.SaveChanges(); //Guarda los cambios en la base de datos
                 return "Empleado Eliminar correctamente"; //Retorna un mensaje de confirmación
             }
             catch (Exception ex)

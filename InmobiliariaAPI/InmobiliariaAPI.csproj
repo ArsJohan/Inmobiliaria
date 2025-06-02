@@ -216,7 +216,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="Clases\Class.cs" />
+    <Compile Include="Clases\clsImagenInmueble.cs" />
     <Compile Include="Clases\clsArriendo.cs" />
     <Compile Include="Clases\clsCypher.cs" />
     <Compile Include="Clases\clsLogin.cs" />
@@ -225,6 +225,7 @@
     <Compile Include="Clases\TokenValidatorHandler.cs" />
     <Compile Include="Controllers\ArriendoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ImaganesInmuebleController.cs" />
     <Compile Include="Controllers\TransaccionController.cs" />
     <Compile Include="Clases\TokenGenerator.cs" />
     <Compile Include="Clases\clsCliente.cs" />
@@ -284,6 +285,9 @@
     <Compile Include="Models\GENERO.cs">
       <DependentUpon>DBInmobiliaria.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\IMAGEN_INMUEBLE.cs">
+      <DependentUpon>DBInmobiliaria.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\INMUEBLE.cs">
       <DependentUpon>DBInmobiliaria.tt</DependentUpon>
     </Compile>
@@ -306,6 +310,9 @@
       <DependentUpon>DBInmobiliaria.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SEDE.cs">
+      <DependentUpon>DBInmobiliaria.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>DBInmobiliaria.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TIPO_DOCUMENTO.cs">
@@ -395,6 +402,7 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <Content Include="wwwroot\uploads\images\casa-balcon.jpg" />
     <EntityDeploy Include="Models\DBInmobiliaria.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DBInmobiliaria.Designer.cs</LastGenOutput>
