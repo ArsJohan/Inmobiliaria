@@ -38,7 +38,7 @@ async function cargarInmuebles() {
     });
 
     try {
-        const respuesta = await fetch(`${api_url}/api/inmueble/Todos?${params.toString()}`);
+        const respuesta = await fetch(`${api_url}/api/inmueble/buscar?${params}`);
         const data = await respuesta.json();
 
         if (data.length === 0) {
@@ -98,3 +98,7 @@ async function cargarInmuebles() {
         document.getElementById("loading").style.display = "none";
     }
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    cargarInmuebles(); // Cargar todos los inmuebles apenas la página esté lista
+});
