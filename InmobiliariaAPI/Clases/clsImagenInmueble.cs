@@ -76,13 +76,6 @@ namespace InmobiliariaAPI.Clases
 
                     File.Move(file.LocalFileName, fullPath);
 
-                    // Si la imagen será principal, desmarcar las demás
-                    var imagenesInmueble = DBInmobiliaria.IMAGEN_INMUEBLE
-                        .Where(i => i.Codigo_Inmueble == codigoInmueble && i.Es_Principal == true)
-                        .ToList();
-
-                    foreach (var img in imagenesInmueble)
-                        img.Es_Principal = false;
 
                     if (esPrincipal)
                     {
