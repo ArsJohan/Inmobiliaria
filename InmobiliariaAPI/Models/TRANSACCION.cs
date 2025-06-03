@@ -30,7 +30,7 @@ namespace InmobiliariaAPI.Models
         public decimal Precio_Acordado { get; set; }
         public decimal Comision_Agente { get; set; }
         public string Notas_Transaccion { get; set; }
-
+    
         [JsonIgnore]
         public virtual ARRIENDO ARRIENDO { get; set; }
         [JsonIgnore]

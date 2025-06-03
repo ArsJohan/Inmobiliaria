@@ -20,7 +20,7 @@ namespace InmobiliariaAPI.Models
         public int Codigo_Producto { get; set; }
         public int Cantidad { get; set; }
         public decimal Precio_Unitario { get; set; }
-
+    
         [JsonIgnore]
         public virtual COMPRA_PROVEEDOR COMPRA_PROVEEDOR { get; set; }
         [JsonIgnore]

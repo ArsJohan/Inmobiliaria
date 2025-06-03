@@ -30,7 +30,7 @@ namespace InmobiliariaAPI.Models
         public string Email { get; set; }
         public string Direccion { get; set; }
         [JsonIgnore]
-
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<COMPRA_PROVEEDOR> COMPRA_PROVEEDOR { get; set; }
         [JsonIgnore]

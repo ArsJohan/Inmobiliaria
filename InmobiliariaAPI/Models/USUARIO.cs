@@ -26,7 +26,7 @@ namespace InmobiliariaAPI.Models
         public string Username { get; set; }
         public string Clave { get; set; }
         public string Salt { get; set; }
-
+    
         [JsonIgnore]
         public virtual EMPLEADO EMPLEADO { get; set; }
         [JsonIgnore]
