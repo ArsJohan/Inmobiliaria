@@ -130,7 +130,7 @@
 
     /* Efecto hover del botón */
     .btn-hero:hover {
-        background: rgba(0, 0, 0, 0.18); /* Amarillo más claro */
-        color: rgba(0, 0, 0, 0.7); /* Color de texto se mantiene */
+        background: #ffe066; /* Amarillo más claro */
+        color: #00005a; /* Color de texto se mantiene */
         box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18); /* Sombra más pronunciada */
     }
