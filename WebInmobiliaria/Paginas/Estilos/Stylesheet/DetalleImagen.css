@@ -1,0 +1,232 @@
+﻿/* === ESTILOS GLOBALES === */
+/* Estilo base para todo el cuerpo del documento */
+body {
+    font-family: 'Source Sans Pro', sans-serif; /* Fuente moderna y legible */
+    margin: 0;
+    padding: 0;
+    background-color: #e9ecef; /* Fondo gris claro para toda la página */
+    color: #343a40; /* Color de texto predeterminado (gris oscuro) */
+    line-height: 1.6; /* Espaciado entre líneas */
+    -webkit-font-smoothing: antialiased; /* Suavizado de fuente en WebKit */
+    -moz-osx-font-smoothing: grayscale; /* Suavizado de fuente en Firefox */
+}
+
+/* Estilo general para todos los encabezados */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    color: #212529;
+    margin-top: 1.5em;
+    margin-bottom: 0.8em;
+}
+
+/* Tamaños específicos por nivel de encabezado */
+h1 {
+    font-size: 4em;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+h3 {
+    font-size: 1.75em;
+}
+
+h5 {
+    font-size: 1.15em;
+}
+
+h6 {
+    font-size: 1em;
+}
+
+/* Estilo para párrafos */
+p {
+    margin-bottom: 1em;
+}
+
+/* Estilo para enlaces */
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+/* === CONTENEDOR PRINCIPAL === */
+/* Wrapper opcional para centrar el contenido */
+.main-content-wrapper {
+    max-width: 100%; /* Ocupar todo el ancho disponible */
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* === COMPONENTE DE DETALLE (BLOQUE PRINCIPAL) === */
+.Detalle-image-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 50px; /* Espaciado interno generoso */
+    background-color: #f8f9fa; /* Fondo blanco grisáceo */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Sombra para resaltar el componente */
+    border-radius: 15px;
+    max-width: 95%; /* Que ocupe casi toda la pantalla */
+    margin: 40px auto; /* Centrado con espacio vertical */
+    gap: 50px; /* Separación entre imagen e info */
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+/* === INFORMACIÓN DEL DETALLE === */
+.Detalle-info {
+    flex-grow: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+    .Detalle-info h4 {
+        font-size: 2.2em;
+        color: #343a40;
+        margin-top: 0;
+        margin-bottom: 30px;
+        border-bottom: 2px solid #dee2e6; /* Línea debajo del título */
+        padding-bottom: 20px;
+        font-weight: 700;
+    }
+
+    .Detalle-info p {
+        margin-bottom: 18px;
+        font-size: 1.3em;
+        color: #495057;
+        line-height: 1.8;
+    }
+
+        /* Etiquetas destacadas */
+        .Detalle-info p strong {
+            color: #343a40; /* Color neutro más profesional */
+            margin-right: 15px;
+            font-weight: 600;
+        }
+
+    /* Valores en los párrafos (como nombre o cantidad) */
+    .Detalle-info .detalle-valor {
+        color: #212529;
+        font-weight: 500;
+    }
+
+/* === IMAGEN DEL DETALLE === */
+.Detalle-image-container img {
+    max-width: 600px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+    flex-shrink: 0; /* No se encoge al reducir el tamaño del contenedor */
+}
+
+/* === BOTÓN PERSONALIZADO === */
+.btn-primary {
+    display: inline-block;
+    padding: 0.9rem 2.2rem !important;
+    font-size: 1.1rem !important;
+    font-weight: 600;
+    color: #00005a; /* Texto oscuro */
+    background: #ffc700 !important; /* Amarillo vibrante */
+    border: none !important;
+    border-radius: 4px;
+    text-decoration: none;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.10);
+    margin: 5vh;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+/* === DISEÑO RESPONSIVO === */
+
+/* Ajustes para pantallas medianas */
+@media (max-width: 992px) {
+    .Detalle-image-container {
+        padding: 40px;
+        gap: 40px;
+        max-width: 90%;
+    }
+
+        .Detalle-image-container img {
+            max-width: 500px;
+        }
+
+    .Detalle-info h4 {
+        font-size: 2em;
+    }
+
+    .Detalle-info p {
+        font-size: 1.2em;
+    }
+}
+
+/* Ajustes para tablets y móviles */
+@media (max-width: 768px) {
+    .main-content-wrapper {
+        margin: 20px auto;
+        padding: 0 15px;
+    }
+
+    .Detalle-image-container {
+        flex-direction: column; /* Elementos apilados */
+        align-items: center;
+        gap: 30px;
+        padding: 25px;
+        max-width: 95%;
+    }
+
+    .Detalle-info {
+        width: 100%;
+        order: 1;
+        text-align: center;
+    }
+
+        .Detalle-info h4 {
+            font-size: 1.6em;
+        }
+
+        .Detalle-info p {
+            text-align: left;
+            font-size: 1.1em;
+        }
+
+    .Detalle-image-container img {
+        width: 100%;
+        max-width: 90%;
+        order: 2;
+        margin-top: 20px;
+    }
+}
+
+/* Ajustes adicionales para móviles pequeños */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.75em;
+    }
+
+    h3 {
+        font-size: 1.5em;
+    }
+
+    .Detalle-info h4 {
+        font-size: 1.4em;
+    }
+
+    .Detalle-info p {
+        font-size: 1em;
+    }
+
+    .Detalle-image-container img {
+        max-width: 100%;
+    }
+}
