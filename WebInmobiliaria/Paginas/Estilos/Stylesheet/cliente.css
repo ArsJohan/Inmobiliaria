@@ -5,6 +5,7 @@
     max-width: 100%; /* No excede el 100% del contenedor padre */
     height: 100vh; /* Altura igual a la altura de la ventana del navegador */
     animation: imageZoomIn 1.4s cubic-bezier(0.77, 0, 0.175, 1) 0.4s both; /* Aplica animación de zoom */
+    overflow: hidden; /* Important to hide overflow from image zoom */
 }
 
     /* Imagen de fondo */
@@ -45,7 +46,7 @@
 }
 
 /* Aplicación de la animación a la navbar */
-.navbar {
+.navbar-custom { /* Changed to navbar-custom to avoid conflicts with AdminLTE .navbar */
     animation: navbarSlideDown 1s cubic-bezier(0.77, 0, 0.175, 1) 0.2s both;
     /* both: mantiene los estilos inicial y final después de la animación */
 }
@@ -130,7 +131,59 @@
 
     /* Efecto hover del botón */
     .btn-hero:hover {
-        background: rgba(0, 0, 0, 0.18); /* Amarillo más claro */
-        color: rgba(0, 0, 0, 0.7); /* Color de texto se mantiene */
+        background: #ffe066; /* Amarillo más claro */
+        color: #00005a; /* Color de texto se mantiene */
         box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18); /* Sombra más pronunciada */
     }
+
+/* Specific adjustments to make the form more visible within the landpage context */
+.card.card-primary {
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white for the card */
+    color: #333; /* Darker text for readability on a light card */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Stronger shadow for the card */
+    border-radius: 8px;
+}
+
+.card-header, .card-footer {
+    background-color: rgba(0, 0, 0, 0.7); /* Darker header/footer for contrast */
+    color: #fff;
+}
+
+label {
+    color: #333; /* Ensure labels are readable */
+}
+
+/* Apply btn-hero style to relevant buttons */
+#bntInsertar, #btnActualizar, #btnEliminar, #btnTelefonos,
+#bntInsertarTel, #btnActualizarTel, #btnEliminarTel, #btnCerrarModal {
+    /* Override AdminLTE button styles with btn-hero */
+    display: inline-block;
+    padding: 0.9rem 2.2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #00005a;
+    background: #ffc700;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.10);
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+    #bntInsertar:hover, #btnActualizar:hover, #btnEliminar:hover, #btnTelefonos:hover,
+    #bntInsertarTel:hover, #btnActualizarTel:hover, #btnEliminarTel:hover, #btnCerrarModal:hover {
+        background: #ffe066;
+        color: #00005a;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
+    }
+
+/* Adjustments for the modal content if it appears within the landpage style */
+.modal-content {
+    background-color: rgba(255, 255, 255, 0.95);
+    color: #333;
+}
+
+.modal-header, .modal-footer {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+}
