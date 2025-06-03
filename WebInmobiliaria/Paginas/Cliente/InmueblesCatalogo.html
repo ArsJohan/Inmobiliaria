@@ -8,8 +8,12 @@
     <link href="../Estilos/css/all.min.css" rel="stylesheet" />
     <link href="../Estilos/adminlte.min.css" rel="stylesheet" />
     <link href="../Estilos/Stylesheet/InmueblesCatalogo.css" rel="stylesheet" />
+    <link href="../Estilos/Stylesheet/Menu.css" rel="stylesheet" />
 </head>
+
 <body>
+    <div class="col-md-12" id="dvMenu">
+    </div>
     <div class="container-fluid">
         <div class="row">
             <!-- Sidebar de filtros -->
@@ -44,5 +48,10 @@
     <script src="../../Scripts/jquery-3.4.1.min.js"></script>
     <script src="../../Scripts/bootstrap.bundle.min.js"></script>
     <script src="../Scripts/InmueblesCatalogo.js"></script>
+    <script>
+        $(function () {
+            $("#dvMenu").load("Menu-Landpage.html");
+        });
+    </script>
 </body>
 </html>
