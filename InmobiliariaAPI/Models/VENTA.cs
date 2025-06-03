@@ -20,7 +20,7 @@ namespace InmobiliariaAPI.Models
         public decimal Monto_Pagado { get; set; }
         public string Estado_Pago { get; set; }
         public string Notas_Venta { get; set; }
-
+    
         [JsonIgnore]
         public virtual TRANSACCION TRANSACCION { get; set; }
     }

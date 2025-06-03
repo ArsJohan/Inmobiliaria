@@ -76,8 +76,9 @@
         <AssociationConnector Association="DBINMOBILIARIAModel.INMUEBLE_MODELO_DECORACION" ManuallyRouted="false" />
         <AssociationConnector Association="DBINMOBILIARIAModel.INMUEBLE_PROYECTO" ManuallyRouted="false" />
         <EntityTypeShape EntityType="DBINMOBILIARIAModel.IMAGEN_INMUEBLE" Width="1.5" PointX="8.625" PointY="8.875" />
-        <EntityTypeShape EntityType="DBINMOBILIARIAModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" />
         <AssociationConnector Association="DBINMOBILIARIAModel.FK__IMAGEN_IN__Codig__3E1D39E1" />
+        <EntityTypeShape EntityType="DBINMOBILIARIAModel.DEPARTAMENTO" Width="1.5" PointX="0.75" PointY="9.375" />
+        <AssociationConnector Association="DBINMOBILIARIAModel.FK__CIUDAD__Codigo_D__398D8EEE" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

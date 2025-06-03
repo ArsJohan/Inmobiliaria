@@ -270,6 +270,9 @@
     <Compile Include="Models\DECORACION_MODELO.cs">
       <DependentUpon>DBInmobiliaria.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DEPARTAMENTO.cs">
+      <DependentUpon>DBInmobiliaria.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\DETALLE_COMPRA_PROVEEDOR.cs">
       <DependentUpon>DBInmobiliaria.tt</DependentUpon>
     </Compile>
@@ -310,9 +313,6 @@
       <DependentUpon>DBInmobiliaria.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SEDE.cs">
-      <DependentUpon>DBInmobiliaria.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>DBInmobiliaria.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TIPO_DOCUMENTO.cs">

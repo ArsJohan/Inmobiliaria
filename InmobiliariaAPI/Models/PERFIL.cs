@@ -25,7 +25,7 @@ namespace InmobiliariaAPI.Models
         public string Descripcion { get; set; }
         public string PaginaNavegar { get; set; }
         [JsonIgnore]
-
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PERFIL_USUARIO> PERFIL_USUARIO { get; set; }
     }

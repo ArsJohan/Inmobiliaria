@@ -54,6 +54,6 @@ namespace InmobiliariaAPI.Models
         public virtual DbSet<VENTA> VENTAs { get; set; }
         public virtual DbSet<VISITA> VISITAs { get; set; }
         public virtual DbSet<IMAGEN_INMUEBLE> IMAGEN_INMUEBLE { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<DEPARTAMENTO> DEPARTAMENTOes { get; set; }
     }
 }

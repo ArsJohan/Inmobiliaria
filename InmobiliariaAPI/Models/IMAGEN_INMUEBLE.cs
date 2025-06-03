@@ -9,6 +9,7 @@
 
 namespace InmobiliariaAPI.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -20,7 +21,8 @@ namespace InmobiliariaAPI.Models
         public string Descripcion { get; set; }
         public Nullable<bool> Es_Principal { get; set; }
         public Nullable<System.DateTime> Fecha_Subida { get; set; }
-    
+
+        [JsonIgnore]
         public virtual INMUEBLE INMUEBLE { get; set; }
     }
 }

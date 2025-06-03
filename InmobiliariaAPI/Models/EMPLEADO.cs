@@ -40,9 +40,8 @@ namespace InmobiliariaAPI.Models
         public int Codigo_TipoEmpleado { get; set; }
         public int Codigo_Sede { get; set; }
         public int Codigo_Genero { get; set; }
-
+    
         [JsonIgnore]
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<COMPRA_PROVEEDOR> COMPRA_PROVEEDOR { get; set; }
         [JsonIgnore]

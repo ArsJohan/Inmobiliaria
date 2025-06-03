@@ -9,6 +9,7 @@
 
 namespace InmobiliariaAPI.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -36,21 +37,40 @@ namespace InmobiliariaAPI.Models
         public int Codigo_Empleado_Captacion { get; set; }
         public Nullable<decimal> Precio_Venta { get; set; }
         public Nullable<decimal> Canon_Mensual { get; set; }
-    
+        public Nullable<decimal> Metros_Cuadrados { get; set; }
+        public Nullable<int> Numero_Habitaciones { get; set; }
+        public Nullable<int> Numero_Banos { get; set; }
+        public Nullable<int> Estrato { get; set; }
+        public Nullable<bool> Tiene_Parqueadero { get; set; }
+        public Nullable<int> Numero_Pisos { get; set; }
+        public string Estado { get; set; }
+        public Nullable<int> Anio_Construccion { get; set; }
+
+        [JsonIgnore]
         public virtual CIUDAD CIUDAD { get; set; }
+        [JsonIgnore]
         public virtual EMPLEADO EMPLEADO { get; set; }
+        [JsonIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<FACTURA> FACTURAs { get; set; }
+        [JsonIgnore]
         public virtual INMUEBLE_CONSIGNACION INMUEBLE_CONSIGNACION { get; set; }
+        [JsonIgnore]
         public virtual TIPO_INMUEBLE TIPO_INMUEBLE { get; set; }
+        [JsonIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TRANSACCION> TRANSACCIONs { get; set; }
+        [JsonIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        
         public virtual ICollection<VISITA> VISITAs { get; set; }
+        [JsonIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DECORACION_MODELO> DECORACION_MODELO { get; set; }
+        [JsonIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PROYECTO_NUEVO> PROYECTO_NUEVO { get; set; }
+        [JsonIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<IMAGEN_INMUEBLE> IMAGEN_INMUEBLE { get; set; }
     }

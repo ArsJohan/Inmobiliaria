@@ -24,7 +24,7 @@ namespace InmobiliariaAPI.Models
         public int Codigo_TipoEmpleado { get; set; }
         public string Descripcion { get; set; }
         [JsonIgnore]
-
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EMPLEADO> EMPLEADOes { get; set; }
     }

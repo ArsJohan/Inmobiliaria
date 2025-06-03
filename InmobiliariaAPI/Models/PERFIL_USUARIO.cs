@@ -19,7 +19,7 @@ namespace InmobiliariaAPI.Models
         public int Codigo_Usuario { get; set; }
         public int Codigo_Perfil { get; set; }
         public bool Activo { get; set; }
-
+    
         [JsonIgnore]
         public virtual PERFIL PERFIL { get; set; }
         [JsonIgnore]
