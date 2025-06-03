@@ -26,14 +26,22 @@
         </div>
         <img src="../../wwwroot/pages/images/imagen de prueba.png" alt="Imagen de la propiedad" id="detalleImagen" />
     </div>
-   
+
     <div class="Detalle-image-container">
-      
+
         <div class="row">
-            <div class="Detalle-info col-md-12" >
+
+            <div class="Detalle-info col-md-12">
                 <h4>Ingreso de datos</h4>
             </div>
-            <div class="col-md-3">
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="txtNroDocumento">NRO.DOCUMENTO</label>
+                    <input type="text" class="form-control" id="txtNroDocumento" placeholder="Nro. de documento del cliente">
+                </div>
+            </div>
+            <div class="col-md-4">
                 <div class="form-group">
                     <label for="txtNombre">NOMBRE</label>
                     <input type="text" class="form-control" id="txtNombre" placeholder="Nombre del cliente">
@@ -45,12 +53,7 @@
                     <input type="text" class="form-control" id="txtApellido" placeholder="Apellido del cliente">
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="form-group">
-                    <label for="txtNroDocumento">NRO.DOCUMENTO</label>
-                    <input type="text" class="form-control" id="txtNroDocumento" placeholder="Nro. de documento del cliente">
-                </div>
-            </div>
+
             <div class="col-md-4">
                 <div class="form-group">
                     <label for="txtDireccion">DIRECCIÓN</label>
@@ -65,13 +68,20 @@
                     </select>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="txtTelefono">TELEFONO</label>
+                    <input type="text" class="form-control" id="txtTelefono" placeholder="telefono">
+                </div>
+            </div>
+
+            <div class="col-md-4">
                 <div class="form-group">
                     <label for="txtFechaVisita">FECHA DE VISITA</label>
                     <input type="date" class="form-control" id="txtFechaVisita" placeholder="Valor Unitario">
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="form-group">
                     <label for="cboHora">HORA DE VISITA</label>
                     <select id="cboHora" class="form-control select2" style="width: 100%;">
@@ -79,31 +89,19 @@
                     </select>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="form-group">
                     <label for="txtEmail">EMAIL</label>
                     <input type="text" class="form-control" id="txtEmail" placeholder="Correo electrónico">
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="form-group">
-                    <label for="txtTelefono">TELEFONO</label>
-                    <input type="text" class="form-control" id="txtTelefono" placeholder="telefono">
-                </div>
-            </div>
+
+
         </div>
     </div>
 
     <script src="../../Scripts/jquery-3.4.1.min.js"></script>
     <script src="../../Scripts/bootstrap.bundle.min.js"></script>
-    <script>
-        $(function () {
-            $("#dvMenu").load("Menu-Landpage.html", function (response, status, xhr) {
-                if (status == "error") {
-                    console.error("Error loading Menu-Landpage.html: " + xhr.status + " " + xhr.statusText);
-                }
-            });
-        });
-    </script>
+    <script src="../Scripts/Cliente/MenuCliente.js"></script>
 </body>
 </html>

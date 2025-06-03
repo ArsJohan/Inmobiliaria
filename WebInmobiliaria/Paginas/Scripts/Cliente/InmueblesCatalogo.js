@@ -8,6 +8,10 @@ let sinMasDatos = false;
 let filtroTipo = "";
 let filtroPrecio = "";
 
+$(function () {
+    $("#dvMenu").load("Menu-Landpage.html");
+});
+
 window.addEventListener("scroll", async () => {
     if (cargando || sinMasDatos) return;
 

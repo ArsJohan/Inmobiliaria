@@ -1,0 +1,239 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>MAESTRO VISITA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link href="../Estilos/css/all.min.css" rel="stylesheet" />
+    <link href="../Estilos/adminlte.min.css" rel="stylesheet" />
+    <link href="../Estilos/Stylesheet/Menu.css" rel="stylesheet" />
+    <link href="../Estilos/Stylesheet/LandPage.css" rel="stylesheet" />
+    <link href="../Estilos/Stylesheet/DetalleImagen.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="col-md-12" id="dvMenu"></div>
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12" id="dvMenu"></div>
+                <div class="col-md-12">
+
+                    <div class="card card-primary">
+
+                        <div class="card-header">
+                            <h3 class="card-title">ADMINISTRACIÓN DE VISITA</h3>
+                        </div>
+
+                        <form id="frmRegistraCliente">
+                            <div class="card-body">
+                                <div class="row">
+
+                                    <!-- 1ra linea -->
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtNroDocumento">NRO.DOCUMENTO</label>
+                                            <input type="text" class="form-control" id="txtNroDocumento" placeholder="Nro. de documento del cliente">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtIdVisita">ID VISITA</label>
+                                            <input type="text" class="form-control" id="txtIdVisita" placeholder="ID visita">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtIdPropiedad">ID PROPIEDAD</label>
+                                            <input type="text" class="form-control" id="txtIdPropiedad" placeholder="ID propiedad">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtNombre">NOMBRE</label>
+                                            <input type="text" class="form-control" id="txtNombre" placeholder="Nombre del cliente" readonly>
+                                        </div>
+                                    </div>
+
+                                    <!-- 2da linea -->
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtApellido">APELLIDO</label>
+                                            <input type="text" class="form-control" id="txtApellido" placeholder="Apellido del cliente" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtDireccion">DIRECCIÓN</label>
+                                            <input type="text" class="form-control" id="txtDireccion" placeholder="Dirección" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="cboTipoTelefono">TIPO TELEFONO</label>
+                                            <select id="cboTipoTelefono" class="form-control select2" style="width: 100%;" readonly>
+                                                <option selected="selected" value="0">Seleccione un tipo de telefono</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtTelefono">TELEFONO</label>
+                                            <input type="text" class="form-control" id="txtTelefono" placeholder="Telefono" readonly>
+                                        </div>
+                                    </div>
+
+                                    <!-- 3ra linea -->
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtFechaVisita">FECHA_VISITA</label>
+                                            <input type="date" class="form-control" id="txtFechaVisita" placeholder="Valor Unitario">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtEmail">EMAIL</label>
+                                            <input type="text" class="form-control" id="txtEmail" placeholder="Correo electrónico" readonly>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="txtDescripcion">DESCRIPCIÓN</label>
+                                            <textarea class="form-control" id="txtDescripcion" rows="3" placeholder="Ingrese una descripción detallada"></textarea>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <button id="bntInsertar" class="btn-block btn-lg btn-primary">INSERTAR</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <button id="btnActualizar" class="btn-block btn-lg btn-primary">ACTUALIZAR</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <button id="btnEliminar" class="btn-block btn-lg btn-primary">ELIMINAR</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <button id="btnEliminar" class="btn-block btn-lg btn-primary">CONSULTAR</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="modTelefonos" tabindex="-1" role="dialog" aria-labelledby="modTelefonosLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="modTelefonosLabel">GESTIÓN DE TELÉFONOS</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="LlenarTablaClientes()">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control" id="txtCodigo" placeholder="Código teléfono" hidden>
+                                                            <label for="cboTipoTelefono">Tipo teléfono</label>
+                                                            <select id="cboTipoTelefono" class="form-control select2" style="width: 100%;">
+                                                                <option selected="selected" value="0">Seleccione el tipo de teléfono</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="txtNumero">NÚMERO</label>
+                                                            <input type="text" class="form-control" id="txtNumero" placeholder="Número de teléfono">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <div class="form-group">
+                                                            <button id="bntInsertarTel" class="btn-block btn-lg btn-secondary" onclick="EjecutarComando('POST', 'Insertar')">INSERTAR</button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-group">
+                                                            <button id="btnActualizarTel" class="btn-block btn-lg btn-secondary" onclick="EjecutarComando('PUT', 'Actualizar')">ACTUALIZAR</button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <br />
+                                                        <button type="button" id="btnConsultar" class="btn-block btn-lg btn-primary" onclick="Consultar()">CONSULTAR</button>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-group">
+                                                            <button id="btnEliminarTel" class="btn-block btn-lg btn-secondary" onclick="EjecutarComando('DELETE', 'Eliminar')">ELIMINAR</button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-group">
+                                                            <button id="btnCerrarModal" class="btn-block btn-lg btn-secondary" data-dismiss="modal" onclick="LlenarTablaClientes()">CERRAR</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <table id="tblClientes" class="table table-bordered table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>Edit</th>
+                                                    <th>Id Visita</th>
+                                                    <th>Id Propiedad</th>
+                                                    <th>Nombre</th>
+                                                    <th>Apellido</th>
+                                                    <th>tipo Documento</th>
+                                                    <th>Nro.Documento</th>
+                                                    <th>Dirección</th>
+                                                    <th>Telefono</th>
+                                                    <th>Fecha Visita</th>
+                                                    <th>Email</th>
+                                                    <th>Descripcion</th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div id="dvMensaje" class=""></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="../../Scripts/jquery.min.js"></script>
+    <script src="../../Scripts/bootstrap.bundle.min.js"></script>
+    <script src="../../Scripts/jquery.dataTables.min.js"></script>
+    <script src="../../Scripts/dataTables.bootstrap4.min.js"></script>
+    <script src="../Scripts/Menu.js"></script>
+    <script src="../Scripts/Comunes/CRUD.js"></script>
+    <script src="../Scripts/Comunes/Comunes.js"></script>
+    <script src="../Scripts/Clientes.js"></script>
+    <script src="../../Scripts/jquery-3.4.1.min.js"></script>
+    <script src="../../Scripts/bootstrap.bundle.min.js"></script>
+
+    <script src="../Scripts/Empleado/MenuEmpleado.js"></script>
+</body>
+
+</html>
