@@ -79,6 +79,10 @@
         <AssociationConnector Association="DBINMOBILIARIAModel.FK__IMAGEN_IN__Codig__3E1D39E1" />
         <EntityTypeShape EntityType="DBINMOBILIARIAModel.DEPARTAMENTO" Width="1.5" PointX="0.75" PointY="9.375" />
         <AssociationConnector Association="DBINMOBILIARIAModel.FK__CIUDAD__Codigo_D__398D8EEE" />
+        <EntityTypeShape EntityType="DBINMOBILIARIAModel.ESTADO" Width="1.5" PointX="4.125" PointY="9.25" />
+        <EntityTypeShape EntityType="DBINMOBILIARIAModel.ESTADO_PAGO" Width="1.5" PointX="0.75" PointY="0.875" />
+        <AssociationConnector Association="DBINMOBILIARIAModel.FK__INMUEBLE__Codigo__619B8048" />
+        <AssociationConnector Association="DBINMOBILIARIAModel.FK__FACTURA__Codigo___1DB06A4F" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
