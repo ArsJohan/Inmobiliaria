@@ -28,7 +28,7 @@ namespace InmobiliariaAPI.Models
         public string Estado { get; set; }
         public Nullable<System.DateTime> Fecha_Pago { get; set; }
         public string Notas_Factura { get; set; }
-
+    
         [JsonIgnore]
         public virtual CLIENTE CLIENTE { get; set; }
         [JsonIgnore]

@@ -15,7 +15,7 @@ namespace InmobiliariaAPI.Clases
         {
             loginRespuesta = new DtoLoginResponse();
         }
-        public DBINMOBILIARIAEntities DBINMOBILIARIA = new DBINMOBILIARIAEntities();
+        public DBINMOBILIARIAEntities DBInmobiliaria = new DBINMOBILIARIAEntities();
         public DtoLogin login { get; set; }
         public DtoLoginResponse loginRespuesta { get; set; }
         private bool ValidarUsuario()
@@ -25,7 +25,7 @@ namespace InmobiliariaAPI.Clases
                 //Se instancia un objeto de la clase Cypher
                 clsCypher cifrar = new clsCypher();
                 //Se consulta el usuario, sólo con el nombre, para obtener la información básica del usuario: Salt y clave encriptada
-                USUARIO usuario = DBINMOBILIARIA.USUARIOs.FirstOrDefault(u => u.Username == login.Usuario);
+                USUARIO usuario = DBInmobiliaria.USUARIOs.FirstOrDefault(u => u.Username == login.Usuario);
                 if (usuario == null)
                 {
                     //El usuario no existe, se retorna un error
@@ -53,7 +53,7 @@ namespace InmobiliariaAPI.Clases
             try
             {
                 //Se consulta el usuario con la clave encriptada y el usuario para validar si existe
-                USUARIO usuario = DBINMOBILIARIA.USUARIOs.FirstOrDefault(u => u.Username == login.Usuario && u.Clave == login.Clave);
+                USUARIO usuario = DBInmobiliaria.USUARIOs.FirstOrDefault(u => u.Username == login.Usuario && u.Clave == login.Clave);
                 if (usuario == null)
                 {
                     //Si no existe la clave es incorrecta
@@ -79,10 +79,10 @@ namespace InmobiliariaAPI.Clases
                 //Si el usuario y la clave son correctas, se genera el token
                 string token = TokenGenerator.GenerateTokenJwt(login.Usuario);
                 //Consulta la información del usuario y el perfil
-                return from U in DBINMOBILIARIA.Set<USUARIO>()
-                       join UP in DBINMOBILIARIA.Set<PERFIL_USUARIO>()
+                return from U in DBInmobiliaria.Set<USUARIO>()
+                       join UP in DBInmobiliaria.Set<PERFIL_USUARIO>()
                        on U.Codigo_Usuario equals UP.Codigo_Usuario
-                       join P in DBINMOBILIARIA.Set<PERFIL>()
+                       join P in DBInmobiliaria.Set<PERFIL>()
                        on UP.Codigo_Perfil equals P.Codigo_Perfil
                        where U.Username == login.Usuario &&
                                U.Clave == login.Clave

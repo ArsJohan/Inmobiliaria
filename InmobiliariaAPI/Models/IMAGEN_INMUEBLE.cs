@@ -13,19 +13,16 @@ namespace InmobiliariaAPI.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class TIPO_INMUEBLE
+    public partial class IMAGEN_INMUEBLE
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TIPO_INMUEBLE()
-        {
-            this.INMUEBLEs = new HashSet<INMUEBLE>();
-        }
-    
-        public int Codigo_TipoInmueble { get; set; }
+        public int Codigo_Imagen { get; set; }
+        public int Codigo_Inmueble { get; set; }
+        public string Url_Imagen { get; set; }
         public string Descripcion { get; set; }
-    
+        public Nullable<bool> Es_Principal { get; set; }
+        public Nullable<System.DateTime> Fecha_Subida { get; set; }
+
         [JsonIgnore]
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<INMUEBLE> INMUEBLEs { get; set; }
+        public virtual INMUEBLE INMUEBLE { get; set; }
     }
 }

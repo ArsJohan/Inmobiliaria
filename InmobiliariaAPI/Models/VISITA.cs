@@ -21,7 +21,7 @@ namespace InmobiliariaAPI.Models
         public System.DateTime Fecha_Visita { get; set; }
         public string Comentarios { get; set; }
         public Nullable<int> Codigo_Empleado { get; set; }
-
+    
         [JsonIgnore]
         public virtual CLIENTE CLIENTE { get; set; }
         [JsonIgnore]

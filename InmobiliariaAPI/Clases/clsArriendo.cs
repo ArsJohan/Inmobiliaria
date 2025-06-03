@@ -10,15 +10,15 @@ namespace InmobiliariaAPI.Clases
     public class clsArriendo
     {
 
-        private DBINMOBILIARIAEntities DBinmovi = new DBINMOBILIARIAEntities();
+        private DBINMOBILIARIAEntities DBInmobiliaria = new DBINMOBILIARIAEntities();
         public ARRIENDO arriendo { get; set; }
 
         public string Insertar()
         {
             try
             {
-                DBinmovi.ARRIENDOes.Add(arriendo);
-                DBinmovi.SaveChanges();
+                DBInmobiliaria.ARRIENDOes.Add(arriendo);
+                DBInmobiliaria.SaveChanges();
                 return "Arriendo registrado correctamente";
             }
             catch (Exception ex)
@@ -28,12 +28,12 @@ namespace InmobiliariaAPI.Clases
         }
         public List<ARRIENDO> ConsultarTodo()
         {
-            return DBinmovi.ARRIENDOes
+            return DBInmobiliaria.ARRIENDOes
                 .ToList(); //Retorna una lista de empleados
         }
         public ARRIENDO ConsultarXCodigo(int codigo)
         {
-            ARRIENDO arri = DBinmovi.ARRIENDOes.FirstOrDefault(a => a.Codigo_Transaccion == codigo);
+            ARRIENDO arri = DBInmobiliaria.ARRIENDOes.FirstOrDefault(a => a.Codigo_Transaccion == codigo);
             return arri;
         }
 
@@ -46,8 +46,8 @@ namespace InmobiliariaAPI.Clases
                 {
                     return "Arriendo no encontrado";
                 }
-                DBinmovi.ARRIENDOes.AddOrUpdate(arriendo);
-                DBinmovi.SaveChanges();
+                DBInmobiliaria.ARRIENDOes.AddOrUpdate(arriendo);
+                DBInmobiliaria.SaveChanges();
                 return "Arriendo con codigo" + arriendo.Codigo_Transaccion + " actualizado correctamente";
             }
             catch (Exception ex)
@@ -65,8 +65,8 @@ namespace InmobiliariaAPI.Clases
                 {
                     return "Arriendo no encontrado";
                 }
-                DBinmovi.ARRIENDOes.Remove(arriendo);
-                DBinmovi.SaveChanges();
+                DBInmobiliaria.ARRIENDOes.Remove(arriendo);
+                DBInmobiliaria.SaveChanges();
                 return "Arriendo con codigo " + codigo + " eliminado correctamente";
             }
             catch (Exception ex)

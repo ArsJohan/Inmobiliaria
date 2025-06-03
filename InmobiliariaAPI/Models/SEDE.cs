@@ -25,7 +25,7 @@ namespace InmobiliariaAPI.Models
         public string Nombre_Sede { get; set; }
         public string Direccion { get; set; }
         public int Codigo_Ciudad { get; set; }
-
+    
         [JsonIgnore]
         public virtual CIUDAD CIUDAD { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

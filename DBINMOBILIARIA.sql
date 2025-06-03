@@ -3,15 +3,167 @@ GO
 USE DBINMOBILIARIA;
 GO
 
--- 1. Ciudades
-CREATE TABLE CIUDAD (
-    Codigo_Ciudad     INT IDENTITY(1,1) PRIMARY KEY,
-    Nombre_Ciudad     VARCHAR(100)   NOT NULL
+CREATE TABLE DEPARTAMENTO (
+    Codigo_Departamento INT IDENTITY(1,1) PRIMARY KEY,
+    Nombre              VARCHAR(100) NOT NULL
 );
 GO
-INSERT INTO CIUDAD (Nombre_Ciudad) VALUES 
-('Medellín'), ('Bogotá'), ('Cali');
+INSERT INTO DEPARTAMENTO (Nombre) VALUES 
+('Amazonas'),
+('Antioquia'),
+('Arauca'),
+('Atlántico'),
+('Bolívar'),
+('Boyacá'),
+('Caldas'),
+('Caquetá'),
+('Casanare'),
+('Cauca'),
+('Cesar'),
+('Chocó'),
+('Córdoba'),
+('Cundinamarca'),
+('Guainía'),
+('Guaviare'),
+('Huila'),
+('La Guajira'),
+('Magdalena'),
+('Meta'),
+('Nariño'),
+('Norte de Santander'),
+('Putumayo'),
+('Quindío'),
+('Risaralda'),
+('San Andrés y Providencia'),
+('Santander'),
+('Sucre'),
+('Tolima'),
+('Valle del Cauca'),
+('Vaupés'),
+('Vichada');
+CREATE TABLE CIUDAD (
+    Codigo_Ciudad       INT IDENTITY(1,1) PRIMARY KEY,
+    Nombre_Ciudad              VARCHAR(100) NOT NULL,
+    Codigo_Departamento INT NOT NULL,
+    FOREIGN KEY (Codigo_Departamento) REFERENCES DEPARTAMENTO(Codigo_Departamento)
+);
 GO
+INSERT INTO CIUDAD (Nombre_Ciudad, Codigo_Departamento) VALUES 
+-- Amazonas
+('Leticia', 1),
+
+-- Antioquia
+('Medellín', 2),
+('Envigado', 2),
+('Bello', 2),
+('Itagüí', 2),
+('Rionegro', 2),
+
+-- Arauca
+('Arauca', 3),
+
+-- Atlántico
+('Barranquilla', 4),
+('Soledad', 4),
+('Malambo', 4),
+
+-- Bolívar
+('Cartagena', 5),
+('Turbaco', 5),
+
+-- Boyacá
+('Tunja', 6),
+('Duitama', 6),
+('Sogamoso', 6),
+
+-- Caldas
+('Manizales', 7),
+('Villamaría', 7),
+
+-- Caquetá
+('Florencia', 8),
+
+-- Casanare
+('Yopal', 9),
+
+-- Cauca
+('Popayán', 10),
+
+-- Cesar
+('Valledupar', 11),
+
+-- Chocó
+('Quibdó', 12),
+
+-- Córdoba
+('Montería', 13),
+
+-- Cundinamarca
+('Soacha', 14),
+('Zipaquirá', 14),
+('Girardot', 14),
+('Fusagasugá', 14),
+
+-- Guainía
+('Inírida', 15),
+
+-- Guaviare
+('San José del Guaviare', 16),
+
+-- Huila
+('Neiva', 17),
+('Pitalito', 17),
+
+-- La Guajira
+('Riohacha', 18),
+
+-- Magdalena
+('Santa Marta', 19),
+
+-- Meta
+('Villavicencio', 20),
+
+-- Nariño
+('Pasto', 21),
+('Ipiales', 21),
+
+-- Norte de Santander
+('Cúcuta', 22),
+
+-- Putumayo
+('Mocoa', 23),
+
+-- Quindío
+('Armenia', 24),
+
+-- Risaralda
+('Pereira', 25),
+('Dosquebradas', 25),
+
+-- San Andrés y Providencia
+('San Andrés', 26),
+
+-- Santander
+('Bucaramanga', 27),
+('Floridablanca', 27),
+('Girón', 27),
+
+-- Sucre
+('Sincelejo', 28),
+
+-- Tolima
+('Ibagué', 29),
+
+-- Valle del Cauca
+('Cali', 30),
+('Palmira', 30),
+('Tuluá', 30),
+
+-- Vaupés
+('Mitú', 31),
+
+-- Vichada
+('Puerto Carreño', 32);
 -- 2. Sedes
 CREATE TABLE SEDE (
     Codigo_Sede       INT IDENTITY(1,1) PRIMARY KEY,
@@ -102,6 +254,7 @@ CREATE TABLE CLIENTE (
     Telefono             VARCHAR(100),
     Email                VARCHAR(100),
     Direccion            VARCHAR(255),
+	Fecha_Nacimiento	 DATE,
     Codigo_Ciudad        INT              NULL,
     Codigo_Genero        INT              NOT NULL,
     FOREIGN KEY (Tipo_Doc) REFERENCES TIPO_DOCUMENTO(Codigo_doc),
@@ -110,10 +263,10 @@ CREATE TABLE CLIENTE (
     FOREIGN KEY (Codigo_Genero) REFERENCES GENERO(Codigo_Genero)
 );
 GO
-INSERT INTO CLIENTE (Nombre, Apellido, Tipo_Doc, Nro_Documento, Tipo_Telefono, Telefono, Email, Direccion, Codigo_Ciudad, Codigo_Genero)
+INSERT INTO CLIENTE (Nombre, Apellido, Tipo_Doc, Nro_Documento, Tipo_Telefono, Telefono, Email, Direccion, Codigo_Ciudad, Codigo_Genero, Fecha_Nacimiento)
 VALUES 
-('Juan', 'Torres', 1, '1010101010', 1, '3012345678', 'juan@mail.com', 'Calle 10 #20-30', 1, 1),
-('Ana', 'Martínez', 2, '2020202020', 2, '6047654321', 'ana@mail.com', 'Carrera 50 #30-15', 2, 2);
+('Juan', 'Torres', 1, '1010101010', 1, '3012345678', 'juan@mail.com', 'Calle 10 #20-30', 1, 1, '1990-05-15'),
+('Ana', 'Martínez', 2, '2020202020', 2, '6047654321', 'ana@mail.com', 'Carrera 50 #30-15', 2, 2, '1992-08-22');
 GO
 -- 9. Tipos de Inmueble
 CREATE TABLE TIPO_INMUEBLE (
@@ -127,28 +280,45 @@ GO
 
 -- 10. Inmuebles
 CREATE TABLE INMUEBLE (
-    Codigo_Inmueble      INT IDENTITY(1,1) PRIMARY KEY,
-    Activo               BIT              DEFAULT 1,
-    Direccion            VARCHAR(255)     NOT NULL,
-    Codigo_Ciudad        INT              NOT NULL,
-    Codigo_TipoInmueble  INT              NOT NULL,
-    Es_Nuevo             BIT              NOT NULL,
-    Fecha_Alta           DATE             NOT NULL,
-    Descripcion          TEXT,
-    Codigo_Empleado_Captacion INT         NOT NULL,
-    Precio_Venta         DECIMAL(18,2)    NULL,
-    Canon_Mensual        DECIMAL(18,2)    NULL,
+    Codigo_Inmueble           INT IDENTITY(1,1) PRIMARY KEY,
+    Activo                    BIT              DEFAULT 1,
+    Direccion                 VARCHAR(255)     NOT NULL,
+    Codigo_Ciudad             INT              NOT NULL,
+    Codigo_TipoInmueble       INT              NOT NULL,
+    Es_Nuevo                  BIT              NOT NULL,
+    Fecha_Alta                DATE             NOT NULL,
+    Descripcion               TEXT,
+    Codigo_Empleado_Captacion INT              NOT NULL,
+    Precio_Venta              DECIMAL(18,2)    NULL,
+    Canon_Mensual             DECIMAL(18,2)    NULL,
+    Metros_Cuadrados          DECIMAL(6,2)     NULL,
+    Numero_Habitaciones       INT              NULL,
+    Numero_Banos              INT              NULL,
+    Estrato                   INT              NULL,
+    Tiene_Parqueadero         BIT              DEFAULT 0,
+    Numero_Pisos              INT              NULL,
+    Estado                    VARCHAR(50)      DEFAULT 'Disponible',
+    Anio_Construccion         INT              NULL,
     FOREIGN KEY (Codigo_Ciudad) REFERENCES CIUDAD(Codigo_Ciudad),
     FOREIGN KEY (Codigo_TipoInmueble) REFERENCES TIPO_INMUEBLE(Codigo_TipoInmueble),
     FOREIGN KEY (Codigo_Empleado_Captacion) REFERENCES EMPLEADO(Codigo_Empleado)
 );
 GO
-INSERT INTO INMUEBLE (Direccion, Codigo_Ciudad, Codigo_TipoInmueble, Es_Nuevo, Fecha_Alta, Descripcion, Codigo_Empleado_Captacion, Precio_Venta, Canon_Mensual)
+
+INSERT INTO INMUEBLE 
+(Direccion, Codigo_Ciudad, Codigo_TipoInmueble, Es_Nuevo, Fecha_Alta, Descripcion, Codigo_Empleado_Captacion, 
+ Precio_Venta, Canon_Mensual, Metros_Cuadrados, Numero_Habitaciones, Numero_Banos, Estrato, Tiene_Parqueadero, Numero_Pisos, Estado, Anio_Construccion)
 VALUES 
-('Calle 100 #20-30', 1, 1, 1, '2024-01-15', 'Apartamento nuevo con balcón', 2, 250000000, NULL),
-('Cra 50 #40-10', 2, 2, 0, '2023-11-20', 'Casa usada con patio', 1, 350000000, NULL),
-('Av. 30 #10-50', 3, 3, 0, '2023-10-05', 'Local comercial en arriendo', 2, NULL, 2000000);
+('Calle 100 #20-30', 1, 1, 1, '2024-01-15', 'Apartamento nuevo con balcón', 2, 
+ 250000000, NULL, 80.5, 3, 2, 4, 1, 1, 'Disponible', 2023),
+
+('Cra 50 #40-10', 2, 2, 0, '2023-11-20', 'Casa usada con patio', 1, 
+ 350000000, NULL, 120.0, 4, 3, 3, 1, 2, 'Disponible', 2010),
+
+('Av. 30 #10-50', 3, 3, 0, '2023-10-05', 'Local comercial en arriendo', 2, 
+ NULL, 2000000, 60.0, 0, 1, 5, 0, 1, 'Arrendado', 2015);
 GO
+
 -- 11. Inmuebles en Consignación
 CREATE TABLE INMUEBLE_CONSIGNACION (
     Codigo_Inmueble      INT PRIMARY KEY,

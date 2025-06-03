@@ -13,22 +13,20 @@ namespace InmobiliariaAPI.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class FORMA_PAGO
+    public partial class DEPARTAMENTO
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public FORMA_PAGO()
+        public DEPARTAMENTO()
         {
-            this.FACTURAs = new HashSet<FACTURA>();
+            this.CIUDADs = new HashSet<CIUDAD>();
         }
     
-        public int Codigo_Forma { get; set; }
-        public int Codigo_TipoPago { get; set; }
-        public decimal Valor { get; set; }
+        public int Codigo_Departamento { get; set; }
+        public string Nombre { get; set; }
+
+
         [JsonIgnore]
-    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<FACTURA> FACTURAs { get; set; }
-        [JsonIgnore]
-        public virtual TIPO_PAGO TIPO_PAGO { get; set; }
+        public virtual ICollection<CIUDAD> CIUDADs { get; set; }
     }
 }

@@ -9,14 +9,14 @@ namespace InmobiliariaAPI.Clases
 {
     public class clsVenta
     {
-        private DBINMOBILIARIAEntities DBinmovi = new DBINMOBILIARIAEntities();
+        private DBINMOBILIARIAEntities DBInmobiliaria = new DBINMOBILIARIAEntities();
         public VENTA venta { get; set; }
         public string Insertar()
         {
             try
             {
-                DBinmovi.VENTAs.Add(venta); //Agrega un venta a la lista del entity framework, se debe invocar el metodo SaveChanges para guardar los cambios en la base de datos
-                DBinmovi.SaveChanges(); //Guarda los cambios en la base de datos
+                DBInmobiliaria.VENTAs.Add(venta); //Agrega un venta a la lista del entity framework, se debe invocar el metodo SaveChanges para guardar los cambios en la base de datos
+                DBInmobiliaria.SaveChanges(); //Guarda los cambios en la base de datos
                 return "venta insertado correctamente"; //Retorna un mensaje de confirmación
             }
             catch (Exception ex)
@@ -28,11 +28,11 @@ namespace InmobiliariaAPI.Clases
         {
             //Expresiones lambda se convierte en objetos del tipo que se esta consultando
             //El método FirstOrDefault retorna el primer objeto que cumpla con la condición que se escribe en la consulta
-            return DBinmovi.VENTAs.FirstOrDefault(v => v.Codigo_Transaccion == codigo);
+            return DBInmobiliaria.VENTAs.FirstOrDefault(v => v.Codigo_Transaccion == codigo);
         }
         public List<VENTA> ConsultarTodo()
         {
-            return DBinmovi.VENTAs
+            return DBInmobiliaria.VENTAs
                 .ToList(); //Retorna una lista de venta
         }
         public string Actualizar()
@@ -46,8 +46,8 @@ namespace InmobiliariaAPI.Clases
                 {
                     return "venta no existe"; //Retorna un mensaje de error
                 }
-                DBinmovi.VENTAs.AddOrUpdate(venta); //Actualiza el venta en la lista del entity framework, se debe invocar el metodo SaveChanges para guardar los cambios en la base de datos
-                DBinmovi.SaveChanges(); //Guarda los cambios en la base de datos
+                DBInmobiliaria.VENTAs.AddOrUpdate(venta); //Actualiza el venta en la lista del entity framework, se debe invocar el metodo SaveChanges para guardar los cambios en la base de datos
+                DBInmobiliaria.SaveChanges(); //Guarda los cambios en la base de datos
                 return "venta actualizado correctamente"; //Retorna un mensaje de confirmación
             }
             catch (Exception ex)
@@ -66,8 +66,8 @@ namespace InmobiliariaAPI.Clases
                 {
                     return "venta no existe"; //Retorna un mensaje de error
                 }
-                DBinmovi.VENTAs.Remove(vENTA); //Actualiza el venta en la lista del entity framework, se debe invocar el metodo SaveChanges para guardar los cambios en la base de datos
-                DBinmovi.SaveChanges(); //Guarda los cambios en la base de datos
+                DBInmobiliaria.VENTAs.Remove(vENTA); //Actualiza el venta en la lista del entity framework, se debe invocar el metodo SaveChanges para guardar los cambios en la base de datos
+                DBInmobiliaria.SaveChanges(); //Guarda los cambios en la base de datos
                 return "venta Eliminar correctamente"; //Retorna un mensaje de confirmación
             }
             catch (Exception ex)

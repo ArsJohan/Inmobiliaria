@@ -26,9 +26,9 @@ namespace InmobiliariaAPI.Models
     
         public int Codigo_Ciudad { get; set; }
         public string Nombre_Ciudad { get; set; }
-
+        public int Codigo_Departamento { get; set; }
         [JsonIgnore]
-
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CLIENTE> CLIENTEs { get; set; }
         [JsonIgnore]
@@ -40,5 +40,7 @@ namespace InmobiliariaAPI.Models
         [JsonIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SEDE> SEDEs { get; set; }
+        [JsonIgnore]
+        public virtual DEPARTAMENTO DEPARTAMENTO { get; set; }
     }
 }

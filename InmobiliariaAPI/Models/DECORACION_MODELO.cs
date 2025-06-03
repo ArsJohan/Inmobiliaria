@@ -28,7 +28,7 @@ namespace InmobiliariaAPI.Models
         public Nullable<System.DateTime> Fecha_Inicio { get; set; }
         public Nullable<System.DateTime> Fecha_Fin { get; set; }
         public Nullable<int> Codigo_Empleado { get; set; }
-
+    
         [JsonIgnore]
         public virtual EMPLEADO EMPLEADO { get; set; }
         [JsonIgnore]
