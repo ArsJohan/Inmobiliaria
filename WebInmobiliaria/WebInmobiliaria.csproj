@@ -184,6 +184,7 @@
     <Content Include="Paginas\Estilos\webfonts\fa-brands-400.svg" />
     <Content Include="Paginas\Estilos\webfonts\fa-regular-400.svg" />
     <Content Include="Paginas\Estilos\webfonts\fa-solid-900.svg" />
+    <Content Include="Paginas\GestionInmuebles.html" />
     <Content Include="Paginas\Login.html" />
     <Content Include="Paginas\Menu.html" />
     <Content Include="Paginas\MenuLateral.html" />
