@@ -12,8 +12,7 @@
     <link href="../Estilos/Stylesheet/DetalleImagen.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="col-md-12" id="dvMenu">
-    </div>
+    <div class="col-md-12" id="dvMenu"></div>
 
     <div class="Detalle-image-container">
         <div class="Detalle-info">
@@ -26,15 +25,13 @@
             <button id="btnAGENDAR" class="btn btn-primary" style="margin-left: inherit;">AGENDAR</button>
         </div>
         <img src="../../wwwroot/pages/images/imagen de prueba.png" alt="Imagen de la propiedad" id="detalleImagen" />
-        
     </div>
+   
     <div class="Detalle-image-container">
+      
         <div class="row">
-            <div class="col-md-3">
-                <div class="form-group">
-                    <label for="txtDocumento">DOCUMENTO</label>
-                    <input type="text" class="form-control" id="txtDocumento" placeholder="Documento del cliente">
-                </div>
+            <div class="Detalle-info col-md-12" >
+                <h4>Ingreso de datos</h4>
             </div>
             <div class="col-md-3">
                 <div class="form-group">
@@ -42,19 +39,10 @@
                     <input type="text" class="form-control" id="txtNombre" placeholder="Nombre del cliente">
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="form-group">
                     <label for="txtApellido">APELLIDO</label>
                     <input type="text" class="form-control" id="txtApellido" placeholder="Apellido del cliente">
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="form-group">
-                    <label for="cboTipoDocumento">TIPO DOCUEMENTO</label>
-                    <!-- Se levanta el evento onchange cuando se elige un tipo de producto -->
-                    <select id="cboTipoDocumento" class="form-control select2" style="width: 100%;">
-                        <option selected="selected" value="0">Seleccione un tipo de documento</option>
-                    </select>
                 </div>
             </div>
             <div class="col-md-3">
@@ -69,15 +57,13 @@
                     <input type="text" class="form-control" id="txtDireccion" placeholder="Dirección">
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="form-group">
                     <label for="cboTipoTelefono">TIPO TELEFONO</label>
-                    <!-- Se levanta el evento onchange cuando se elige un tipo de producto -->
                     <select id="cboTipoTelefono" class="form-control select2" style="width: 100%;">
                         <option selected="selected" value="0">Seleccione un tipo de telefono</option>
                     </select>
                 </div>
-
             </div>
             <div class="col-md-3">
                 <div class="form-group">
@@ -88,7 +74,6 @@
             <div class="col-md-3">
                 <div class="form-group">
                     <label for="cboHora">HORA DE VISITA</label>
-                    <!-- Se levanta el evento onchange cuando se elige un tipo de producto -->
                     <select id="cboHora" class="form-control select2" style="width: 100%;">
                         <option selected="selected" value="0">Seleccione la hora</option>
                     </select>
@@ -106,9 +91,9 @@
                     <input type="text" class="form-control" id="txtTelefono" placeholder="telefono">
                 </div>
             </div>
-
         </div>
     </div>
+
     <script src="../../Scripts/jquery-3.4.1.min.js"></script>
     <script src="../../Scripts/bootstrap.bundle.min.js"></script>
     <script>

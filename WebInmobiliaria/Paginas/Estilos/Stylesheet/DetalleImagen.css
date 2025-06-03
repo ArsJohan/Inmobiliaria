@@ -139,7 +139,7 @@ a {
     border-radius: 4px;
     text-decoration: none;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.10);
-    margin: 5vh;
+
     transition: background 0.2s, color 0.2s, box-shadow 0.2s;
 }
 
@@ -229,4 +229,10 @@ a {
     .Detalle-image-container img {
         max-width: 100%;
     }
+}
+.card-primary:not(.card-outline) > .card-header {
+    background-color:#00005A !important;
+}
+.card-title {
+    color: #FFFFFF !important;
 }
