@@ -7,50 +7,29 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
+
 namespace InmobiliariaAPI.Controllers
 {
     [RoutePrefix("api/Inmueble")]
     public class InmuebleController : ApiController
     {
-       
-        
-        // GET: api/Inmueble/Todos
-        [HttpGet]
-        [Route("Todos")]
-        public IHttpActionResult ConsultarTodos()
-        {
-            var servicio = new clsInmueble();
-            return Ok(servicio.ConsultarTodo());
-        }
 
-        // GET: api/Inmueble/PorCodigo/5
+        // GET: api/Inmueble/Buscar
         [HttpGet]
-        [Route("PorCodigo/{codigo:int}")]
-        public IHttpActionResult ConsultarPorCodigo(int codigo)
+        [Route("Buscar")]
+        public IHttpActionResult BuscarInmuebles(string tipo = null, decimal? precioMin = null, decimal? precioMax = null, int pagina = 1, int tamanioPagina = 6)
         {
             var servicio = new clsInmueble();
-            var result = servicio.ConsultarInmueble(codigo);
-            return Ok(result);
-        }
 
-        // GET: api/Inmueble/PorTipo/Casa
-        [HttpGet]
-        [Route("PorTipo/{tipo}")]
-        public IHttpActionResult ConsultarPorTipo(string tipo)
-        {
-            var servicio = new clsInmueble();
-            var result = servicio.ConsultarPorTipo(tipo);
-            return Ok(result);
-        }
+            var consulta = servicio.ConsultarInmuebles(tipo, precioMin, precioMax);
 
-        // GET: api/Inmueble/PorPrecios?min=100000&max=500000
-        [HttpGet]
-        [Route("PorPrecios")]
-        public IHttpActionResult ConsultarPorPrecios(decimal min, decimal max)
-        {
-            var servicio = new clsInmueble();
-            var result = servicio.ConsultarPorPrecios(max, min);
-            return Ok(result);
+            // Si 'consulta' no es IQueryable<T>, intenta convertir:
+            var resultado = consulta.AsQueryable()
+                                   .Skip((pagina - 1) * tamanioPagina)
+                                   .Take(tamanioPagina)
+                                   .ToList();
+
+            return Ok(resultado);
         }
 
         // POST: api/Inmueble/Insertar
