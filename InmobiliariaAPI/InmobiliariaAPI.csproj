@@ -284,6 +284,12 @@
     <Compile Include="Models\EMPLEADO.cs">
       <DependentUpon>DBInmobiliaria.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ESTADO.cs">
+      <DependentUpon>DBInmobiliaria.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ESTADO_PAGO.cs">
+      <DependentUpon>DBInmobiliaria.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\FACTURA.cs">
       <DependentUpon>DBInmobiliaria.tt</DependentUpon>
     </Compile>
@@ -388,7 +394,6 @@
     <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="wwwroot\uploads\images\casa-balcon.jpg" />
     <EntityDeploy Include="Models\DBInmobiliaria.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DBInmobiliaria.Designer.cs</LastGenOutput>
@@ -415,6 +420,7 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <None Include="Properties\PublishProfiles\site27764-WebDeploy.pubxml" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
@@ -438,6 +444,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="wwwroot\uploads\images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\bootstrap.min.js.map" />

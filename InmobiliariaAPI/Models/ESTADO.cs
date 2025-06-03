@@ -12,18 +12,18 @@ namespace InmobiliariaAPI.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class TIPO_TRANSACCION
+    public partial class ESTADO
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TIPO_TRANSACCION()
+        public ESTADO()
         {
-            this.TRANSACCIONs = new HashSet<TRANSACCION>();
+            this.INMUEBLEs = new HashSet<INMUEBLE>();
         }
     
-        public int Codigo_TipoTransaccion { get; set; }
-        public string Descripcion { get; set; }
+        public int Codigo_Estado { get; set; }
+        public string Nombre_Estado { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TRANSACCION> TRANSACCIONs { get; set; }
+        public virtual ICollection<INMUEBLE> INMUEBLEs { get; set; }
     }
 }

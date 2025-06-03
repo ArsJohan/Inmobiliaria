@@ -10,7 +10,7 @@ namespace InmobiliariaAPI.Clases
 	public class clsInmueble
 	{
         private DBINMOBILIARIAEntities DBInmobiliaria = new DBINMOBILIARIAEntities();
-        private readonly string _baseUrl = "http://localhost:53901/wwwroot/uploads/images/";
+        private readonly string _baseUrl = "http://inmobiliaria-ysja.runasp.net/wwwroot/uploads/images/";
         public INMUEBLE inmueble { get; set; }
 
 
@@ -59,11 +59,12 @@ namespace InmobiliariaAPI.Clases
         public IEnumerable<object> ConsultarInmuebles(string tipo = null, decimal? precioMin = null, decimal? precioMax = null)
         {
             var query = from I in DBInmobiliaria.Set<INMUEBLE>()
+                        join Est in  DBInmobiliaria.Set<ESTADO>() on I.Codigo_Estado equals Est.Codigo_Estado
                         join TI in DBInmobiliaria.Set<TIPO_INMUEBLE>() on I.Codigo_TipoInmueble equals TI.Codigo_TipoInmueble
                         join C in DBInmobiliaria.Set<CIUDAD>() on I.Codigo_Ciudad equals C.Codigo_Ciudad
                         join D in DBInmobiliaria.Set<DEPARTAMENTO>() on C.Codigo_Departamento equals D.Codigo_Departamento
                         join Img in DBInmobiliaria.Set<IMAGEN_INMUEBLE>() on I.Codigo_Inmueble equals Img.Codigo_Inmueble
-                        where Img.Es_Principal == true
+                        where Img.Es_Principal == true && Est.Nombre_Estado == "Disponible"
                         select new
                         {
                             Codigo = I.Codigo_Inmueble,
@@ -76,7 +77,7 @@ namespace InmobiliariaAPI.Clases
                             Departamento = D.Nombre,
                             Ciudad = C.Nombre_Ciudad,
                             Tipo = TI.Descripcion,
-                            Estado = I.Estado,
+                            Estado = Est.Nombre_Estado,
                             url = _baseUrl + Img.Url_Imagen,
                         };
 
