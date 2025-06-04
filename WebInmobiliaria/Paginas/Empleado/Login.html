@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Inmobiliaria Login</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <!-- Font Awesome -->
+    <link href="../Estilos/css/all.min.css" rel="stylesheet" />
+    <!-- Theme style -->
+    <link href="../Estilos/adminlte.min.css" rel="stylesheet" />
+    <!-- Stylesheet Page-->
+    <link href="../Estilos/Stylesheet/Login.css" rel="stylesheet" />
+</head>
+<body class="hold-transition login-page">
+    <div class="login-box">
+
+        <div class="card anim-card">
+            <div class="login-logo">
+                <img src="../../wwwroot/pages/images/minimalLogo.png" />
+            </div>
+            <div class="card-body login-card-body">
+                <form>
+                    <div class="input-group mb-3 anim-field">
+                        <input type="text" id="txtUsuario" class="form-control" placeholder="Usuario" autocomplete="current-password" required>
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-user"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3 anim-field">
+                        <input type="password" id="txtClave" class="form-control" placeholder="Clave" autocomplete="current-password" required>
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row anim-field">
+                        <div class="col-12">
+                            <button type="button" class="btn btn-primary btn-block" onclick="Ingresar();">INGRESAR</button>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer">
+                <div id="dvMensaje" class=""></div>
+            </div>
+            <!-- /.login-card-body -->
+        </div>
+    </div>
+    <!-- /.login-box -->
+    <script src="../../Scripts/jquery-3.4.1.min.js"></script>
+    <script src="../../Scripts/bootstrap.bundle.min.js"></script>
+    <script src="../Scripts/Comunes/CRUD.js"></script>
+    <script src="../Scripts/Login.js"></script>
+</body>
+</html>

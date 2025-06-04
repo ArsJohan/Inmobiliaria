@@ -1,0 +1,182 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>MAESTRO VISITA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link href="../Estilos/css/all.min.css" rel="stylesheet" />
+    <link href="../Estilos/adminlte.min.css" rel="stylesheet" />
+    <link href="../Estilos/Stylesheet/Menu.css" rel="stylesheet" />
+    <link href="../Estilos/Stylesheet/LandPage.css" rel="stylesheet" />
+    <link href="../Estilos/Stylesheet/DetalleImagen.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="col-md-12" id="dvMenu"></div>
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12" id="dvMenu"></div>
+                <div class="col-md-12">
+
+                    <div class="card card-primary">
+
+                        <div class="card-header">
+                            <h3 class="card-title">ADMINISTRACIÓN DE VISITA</h3>
+                        </div>
+
+                        <form id="frmRegistraVisita">
+                            <div class="card-body">
+                                <div class="row">
+
+                                    <!-- 1ra linea -->
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtCodigoCliente">CODIGO CLIENTE</label>
+                                            <input type="text" class="form-control" id="txtCodigoCliente" placeholder="Codigo del cliente"readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtNroDocumento">NRO.DOCUMENTO</label>
+                                            <input type="text" class="form-control" id="txtNroDocumento" placeholder="Nro. de documento del cliente">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtIdVisita">ID VISITA</label>
+                                            <input type="text" class="form-control" id="txtIdVisita" placeholder="ID visita"readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtIdPropiedad">ID PROPIEDAD</label>
+                                            <input type="text" class="form-control" id="txtIdPropiedad" placeholder="ID propiedad">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtNombre">NOMBRE</label>
+                                            <input type="text" class="form-control" id="txtNombre" placeholder="Nombre del cliente" readonly>
+                                        </div>
+                                    </div>
+
+                                    <!-- 2da linea -->
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtApellido">APELLIDO</label>
+                                            <input type="text" class="form-control" id="txtApellido" placeholder="Apellido del cliente" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtDireccion">DIRECCIÓN</label>
+                                            <input type="text" class="form-control" id="txtDireccion" placeholder="Dirección" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtTipoTelefono">TIPO TELEFONO</label>
+                                            <input type="text" class="form-control" id="txtTipoTelefono" placeholder="Tipo de Telefono" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtTelefono">TELEFONO</label>
+                                            <input type="text" class="form-control" id="txtTelefono" placeholder="Telefono" readonly>
+                                        </div>
+                                    </div>
+
+                                    <!-- 3ra linea -->
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtFechaVisita">FECHA_VISITA</label>
+                                            <input type="date" class="form-control" id="txtFechaVisita" placeholder="Valor Unitario"readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtEmail">EMAIL</label>
+                                            <input type="text" class="form-control" id="txtEmail" placeholder="Correo electrónico" readonly>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="txtDescripcion">DESCRIPCIÓN</label>
+                                            <textarea class="form-control" id="txtDescripcion" rows="3" placeholder="Ingrese una descripción detallada"></textarea>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+                                  
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <button id="btnActualizar" class="btn-block btn-lg btn-primary">ACTUALIZAR</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <button id="btnEliminar" class="btn-block btn-lg btn-primary">ELIMINAR</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <button id="btnConsultar" class="btn-block btn-lg btn-primary">CONSULTAR</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <table id="tblVisita" class="table table-bordered table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                   
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div id="dvMensaje" class=""></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="../../Scripts/jquery-3.4.1.min.js"></script>
+    <script src="../../Scripts/jquery.min.js"></script>
+    <script src="../../Scripts/bootstrap.bundle.min.js"></script>
+    <script src="../../Scripts/jquery.dataTables.min.js"></script>
+    <script src="../../Scripts/dataTables.bootstrap4.min.js"></script>
+    <script src="../Scripts/Menu.js"></script>
+    <script src="../Scripts/Comunes/CRUD.js"></script>
+    <script src="../Scripts/Comunes/Comunes.js"></script>
+    <script src="../../Scripts/bootstrap.bundle.min.js"></script>
+
+    <script src="../Scripts/Empleado/MenuEmpleado.js"></script>
+    <script src="../Scripts/Empleado/GestionVisita.js"></script>
+</body>
+
+</html>

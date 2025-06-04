@@ -1,0 +1,291 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>GESTION INMUEBLE</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link href="../Estilos/css/all.min.css" rel="stylesheet" />
+    <link href="../Estilos/adminlte.min.css" rel="stylesheet" />
+    <link href="../Estilos/Stylesheet/Menu.css" rel="stylesheet" />
+    <link href="../Estilos/Stylesheet/LandPage.css" rel="stylesheet" />
+    <link href="../Estilos/Stylesheet/DetalleImagen.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="col-md-12" id="dvMenu"></div>
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                
+                <div class="col-md-12">
+
+                    <div class="card card-primary">
+
+                        <div class="card-header">
+                            <h3 class="card-title">ADMINISTRACIÓN DE INMUEBLES</h3>
+                        </div>
+
+                        <form id="frmRegistraInmuebles">
+                            <div class="card-body">
+                                <div class="row">
+
+                                    <!-- 1ra linea -->
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtCodInmueble">CODIGO INMUEBLE</label>
+                                            <input type="text" class="form-control" id="txtCodInmueble" placeholder="Cod. de inmueble">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <div class="form-group">
+                                            <label for="chkActivoInmueble">ACTIVO</label>
+                                            <input type="checkbox" class="form-control" id="chkActivoInmueble" placeholder="CHECKBOX">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label for="cboTipoInmueble">TIPO DE INMUEBLE</label>
+                                            <select id="cboTipoInmueble" class="form-control select2" style="width: 100%;">
+                                                <option selected="selected" value="0">Seleccione tipo de inmueble</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="cboDepartamentos">DEPARTAMENTO</label>
+                                            <select id="cboDepartamentos" class="form-control select2" style="width: 100%;">
+                                                <option selected="selected" value="0">Seleccione un departamento</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="cboCiudad">CIUDAD</label>
+                                            <select id="cboCiudad" class="form-control select2" style="width: 100%;">
+                                                <option selected="selected" value="0">Seleccione una ciudad</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+
+
+                                    <!-- 2da linea -->
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtDireccion">DIRECCIÓN</label>
+                                            <input type="text" class="form-control" id="txtDireccion" placeholder="Ingrese la dirección">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtPrecio">PRECIO DE VENTA</label>
+                                            <input type="text" class="form-control" id="txtPrecio" placeholder="Precio de venta">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtCanon">CANON DE ARRENDAMIENTO</label>
+                                            <input type="text" class="form-control" id="txtCanon" placeholder="Canon de arrendamiento">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtFechaActualizacion">ULTIMA ACTUALIZACIÓN</label>
+                                            <input type="date" class="form-control" id="txtFechaActualizacion" placeholder="Fecha de ultima actualizacion">
+                                        </div>
+                                    </div>
+
+                                    <!-- 3ra linea -->
+                                    <div class="col-md-1">
+                                        <div class="form-group">
+                                            <label for="chkNuevo">NUEVO</label>
+                                            <input type="checkbox" class="form-control" id="chkNuevo" placeholder="CHECKBOX">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label for="chkParqueadero">PARQUEADERO</label>
+                                            <input type="checkbox" class="form-control" id="chkParqueadero" placeholder="CHECKBOX">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtMetros">METROS CUADRADOS</label>
+                                            <input type="number" class="form-control" id="txtMetros" placeholder="Ingrese los metros cuadrados">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtHabitaciones">CANTIDAD DE HABITACIONES</label>
+                                            <input type="number" class="form-control" id="txtHabitaciones" placeholder="Ingrese la cantidad de habitaciones">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtBanos">CANTIDAD DE BAÑOS</label>
+                                            <input type="number" class="form-control" id="txtBanos" placeholder="Ingrese la cantidad de baños">
+                                        </div>
+                                    </div>
+
+                                    <!-- 4ta linea -->
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtPisos">CANTIDAD DE PISOS</label>
+                                            <input type="number" class="form-control" id="txtPisos" placeholder="Ingrese la cantidad de pisos">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtEstrato">ESTRATO</label>
+                                            <input type="number" class="form-control" id="txtEstrato" placeholder="Ingrese estrato">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtAnoContruccion">AÑO DE CONSTRUCCION</label>
+                                            <input type="number" class="form-control" id="txtAnoContruccion" placeholder="Ingrese año de construcción">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtEstado">ESTADO</label>
+                                            <input type="text" class="form-control" id="txtEstado" placeholder="Ingrese estado del apartamento">
+                                        </div>
+                                    </div>
+
+                                    <!-- 5ta linea -->
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="txtDescripcion">DESCRIPCIÓN</label>
+                                            <textarea class="form-control" id="txtDescripcion" rows="1" placeholder="Ingrese una descripción detallada"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtCodEmpleado">CODIGO EMPLEADO CAPTACION</label>
+                                            <input type="text" class="form-control" id="txtCodEmpleado" placeholder="Ingrese codigo de empleado que realizó la captacion">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtNombreEmpleado">NOMBRE DEL EMPLEADO</label>
+                                            <input type="text" class="form-control" id="txtNombreEmpleado" placeholder="Nombre del empleado" readonly>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <!--TABLA INMUEBLE CONSIGNACION-->
+                                <div class="card card-primary mt-4">
+                                    <div class="card-header">
+                                        <h3 class="card-title">PROPIETARIO</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="txtNombreProp">NOMBRE DEL PROPIETARIO</label>
+                                                    <input type="text" class="form-control" id="txtNombreProp" placeholder="Ingrese nombre completo">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="txtTelefonoProp">TELEFONO</label>
+                                                    <input type="text" class="form-control" id="txtTelefonoProp" placeholder="Ingrese telefono celular">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="txtEmailProp">EMAIL</label>
+                                                    <input type="text" class="form-control" id="txtEmailProp" placeholder="Ingrese correo electrónico">
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <button id="bntInsertar" class="btn-block btn-lg btn-primary">INSERTAR</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <button id="btnActualizar" class="btn-block btn-lg btn-primary">ACTUALIZAR</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <button id="btnEliminar" class="btn-block btn-lg btn-primary">ELIMINAR</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <button id="btnConsultar" class="btn-block btn-lg btn-primary">CONSULTAR</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-24">
+                                        <table id="tblInmueble" class="table table-bordered table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>Edit</th>
+                                                    <th>Código</th>
+                                                    <th>Activo</th>
+                                                    <th>Tipo</th>
+                                                    <th>Departamento</th>
+                                                    <th>Ciudad</th>
+                                                    <th>Dirección</th>
+                                                    <th>Precio Venta</th>
+                                                    <th>Canon</th>
+                                                    <th>Fecha Actualización</th>
+                                                    <th>Nuevo</th>
+                                                    <th>Parqueadero</th>
+                                                    <th>Metros</th>
+                                                    <th>Habitaciones</th>
+                                                    <th>Baños</th>
+                                                    <th>Pisos</th>
+                                                    <th>Estrato</th>
+                                                    <th>Año Construcción</th>
+                                                    <th>Estado</th>
+                                                    <th>Descripción</th>
+                                                    <th>Empleado Captador</th>
+                                                    <th>Propietario</th>
+                                                    <th>Teléfono Propietario</th>
+                                                    <th>Email Propietario</th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div id="dvMensaje" class=""></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="../../Scripts/jquery.min.js"></script>
+    <script src="../../Scripts/bootstrap.bundle.min.js"></script>
+    <script src="../../Scripts/jquery.dataTables.min.js"></script>
+    <script src="../../Scripts/dataTables.bootstrap4.min.js"></script>
+    <script src="../Scripts/Menu.js"></script>
+    <script src="../Scripts/Comunes/CRUD.js"></script>
+    <script src="../Scripts/Comunes/Comunes.js"></script>
+    <script src="../../Scripts/jquery-3.4.1.min.js"></script>
+    <script src="../../Scripts/bootstrap.bundle.min.js"></script>
+
+    <script src="../Scripts/Empleado/MenuEmpleado.js"></script>
+</body>
+
+</html>

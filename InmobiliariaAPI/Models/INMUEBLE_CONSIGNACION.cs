@@ -19,7 +19,7 @@ namespace InmobiliariaAPI.Models
         public string Nombre_Propietario { get; set; }
         public string Telefono_Propietario { get; set; }
         public string Email_Propietario { get; set; }
-
+    
         [JsonIgnore]
         public virtual INMUEBLE INMUEBLE { get; set; }
     }

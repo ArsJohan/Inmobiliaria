@@ -3,15 +3,167 @@ GO
 USE DBINMOBILIARIA;
 GO
 
--- 1. Ciudades
-CREATE TABLE CIUDAD (
-    Codigo_Ciudad     INT IDENTITY(1,1) PRIMARY KEY,
-    Nombre_Ciudad     VARCHAR(100)   NOT NULL
+CREATE TABLE DEPARTAMENTO (
+    Codigo_Departamento INT IDENTITY(1,1) PRIMARY KEY,
+    Nombre              VARCHAR(100) NOT NULL
 );
 GO
-INSERT INTO CIUDAD (Nombre_Ciudad) VALUES 
-('Medellín'), ('Bogotá'), ('Cali');
+INSERT INTO DEPARTAMENTO (Nombre) VALUES 
+('Amazonas'),
+('Antioquia'),
+('Arauca'),
+('Atlï¿½ntico'),
+('Bolï¿½var'),
+('Boyacï¿½'),
+('Caldas'),
+('Caquetï¿½'),
+('Casanare'),
+('Cauca'),
+('Cesar'),
+('Chocï¿½'),
+('Cï¿½rdoba'),
+('Cundinamarca'),
+('Guainï¿½a'),
+('Guaviare'),
+('Huila'),
+('La Guajira'),
+('Magdalena'),
+('Meta'),
+('Nariï¿½o'),
+('Norte de Santander'),
+('Putumayo'),
+('Quindï¿½o'),
+('Risaralda'),
+('San Andrï¿½s y Providencia'),
+('Santander'),
+('Sucre'),
+('Tolima'),
+('Valle del Cauca'),
+('Vaupï¿½s'),
+('Vichada');
+CREATE TABLE CIUDAD (
+    Codigo_Ciudad       INT IDENTITY(1,1) PRIMARY KEY,
+    Nombre_Ciudad              VARCHAR(100) NOT NULL,
+    Codigo_Departamento INT NOT NULL,
+    FOREIGN KEY (Codigo_Departamento) REFERENCES DEPARTAMENTO(Codigo_Departamento)
+);
 GO
+INSERT INTO CIUDAD (Nombre_Ciudad, Codigo_Departamento) VALUES 
+-- Amazonas
+('Leticia', 1),
+
+-- Antioquia
+('Medellï¿½n', 2),
+('Envigado', 2),
+('Bello', 2),
+('Itagï¿½ï¿½', 2),
+('Rionegro', 2),
+
+-- Arauca
+('Arauca', 3),
+
+-- Atlï¿½ntico
+('Barranquilla', 4),
+('Soledad', 4),
+('Malambo', 4),
+
+-- Bolï¿½var
+('Cartagena', 5),
+('Turbaco', 5),
+
+-- Boyacï¿½
+('Tunja', 6),
+('Duitama', 6),
+('Sogamoso', 6),
+
+-- Caldas
+('Manizales', 7),
+('Villamarï¿½a', 7),
+
+-- Caquetï¿½
+('Florencia', 8),
+
+-- Casanare
+('Yopal', 9),
+
+-- Cauca
+('Popayï¿½n', 10),
+
+-- Cesar
+('Valledupar', 11),
+
+-- Chocï¿½
+('Quibdï¿½', 12),
+
+-- Cï¿½rdoba
+('Monterï¿½a', 13),
+
+-- Cundinamarca
+('Soacha', 14),
+('Zipaquirï¿½', 14),
+('Girardot', 14),
+('Fusagasugï¿½', 14),
+
+-- Guainï¿½a
+('Inï¿½rida', 15),
+
+-- Guaviare
+('San Josï¿½ del Guaviare', 16),
+
+-- Huila
+('Neiva', 17),
+('Pitalito', 17),
+
+-- La Guajira
+('Riohacha', 18),
+
+-- Magdalena
+('Santa Marta', 19),
+
+-- Meta
+('Villavicencio', 20),
+
+-- Nariï¿½o
+('Pasto', 21),
+('Ipiales', 21),
+
+-- Norte de Santander
+('Cï¿½cuta', 22),
+
+-- Putumayo
+('Mocoa', 23),
+
+-- Quindï¿½o
+('Armenia', 24),
+
+-- Risaralda
+('Pereira', 25),
+('Dosquebradas', 25),
+
+-- San Andrï¿½s y Providencia
+('San Andrï¿½s', 26),
+
+-- Santander
+('Bucaramanga', 27),
+('Floridablanca', 27),
+('Girï¿½n', 27),
+
+-- Sucre
+('Sincelejo', 28),
+
+-- Tolima
+('Ibaguï¿½', 29),
+
+-- Valle del Cauca
+('Cali', 30),
+('Palmira', 30),
+('Tuluï¿½', 30),
+
+-- Vaupï¿½s
+('Mitï¿½', 31),
+
+-- Vichada
+('Puerto Carreï¿½o', 32);
 -- 2. Sedes
 CREATE TABLE SEDE (
     Codigo_Sede       INT IDENTITY(1,1) PRIMARY KEY,
@@ -25,6 +177,33 @@ INSERT INTO SEDE (Nombre_Sede, Direccion, Codigo_Ciudad) VALUES
 ('Sede Centro', 'Cra 45 #54-20', 1),
 ('Sede Norte', 'Av. 80 #40-10', 2);
 GO
+CREATE TABLE ESTADO (
+    Codigo_Estado INT IDENTITY(1,1) PRIMARY KEY,
+    Nombre_Estado VARCHAR(50) NOT NULL
+);
+INSERT INTO ESTADO (Nombre_Estado) VALUES
+('Disponible'),
+('Vendido'),
+('Arrendado'),
+('En mantenimiento'),
+('Inactivo');
+
+-- Tabla de Estados de Pago
+CREATE TABLE ESTADO_PAGO (
+    Codigo_EstadoPago INT IDENTITY(1,1) PRIMARY KEY,
+    Nombre_EstadoPago VARCHAR(50) NOT NULL
+);
+GO
+
+-- Inserciï¿½n de estados de pago
+INSERT INTO ESTADO_PAGO (Nombre_EstadoPago) VALUES
+('Pendiente'),
+('Pagado'),
+('Vencido'),
+('Anulado');
+GO
+
+
 
 -- 3. Tipos de Empleado
 CREATE TABLE TIPO_EMPLEADO (
@@ -42,19 +221,19 @@ CREATE TABLE TIPO_DOCUMENTO (
 );
 GO
 INSERT INTO TIPO_DOCUMENTO (Descripcion) VALUES 
-('Cédula de Ciudadanía'), ('Cédula de Extranjería'), ('Pasaporte');
+('Cï¿½dula de Ciudadanï¿½a'), ('Cï¿½dula de Extranjerï¿½a'), ('Pasaporte');
 GO
 
--- 5. Tipos de Teléfono
+-- 5. Tipos de Telï¿½fono
 CREATE TABLE TIPO_TELEFONO (
     Codigo_TipoTelefono INT IDENTITY(1,1) PRIMARY KEY,
     Descripcion         VARCHAR(100)     NOT NULL
 );
 GO
 INSERT INTO TIPO_TELEFONO (Descripcion) VALUES 
-('Móvil'), ('Fijo'), ('WhatsApp');
+('Mï¿½vil'), ('Fijo'), ('WhatsApp');
 GO
--- 6. Género
+-- 6. Gï¿½nero
 CREATE TABLE GENERO (
     Codigo_Genero INT IDENTITY(1,1) PRIMARY KEY,
     Descripcion        VARCHAR(50)     NOT NULL
@@ -87,8 +266,8 @@ CREATE TABLE EMPLEADO (
 GO
 INSERT INTO EMPLEADO (Nombre, Apellido, Tipo_Doc, Nro_Documento, Tipo_Telefono, Telefono, Email, Fecha_Contratacion, Codigo_TipoEmpleado, Codigo_Sede, Codigo_Genero) 
 VALUES
-('Carlos', 'Pérez', 1, '1000123456', 1, '3001234567', 'carlos@empresa.com', '2023-01-10', 1, 1, 1),
-('Laura', 'Gómez', 1, '1000789012', 2, '6041234567', 'laura@empresa.com', '2022-11-15', 3, 2, 2);
+('Carlos', 'Pï¿½rez', 1, '1000123456', 1, '3001234567', 'carlos@empresa.com', '2023-01-10', 1, 1, 1),
+('Laura', 'Gï¿½mez', 1, '1000789012', 2, '6041234567', 'laura@empresa.com', '2022-11-15', 3, 2, 2);
 GO
 -- 8. Clientes
 CREATE TABLE CLIENTE (
@@ -102,6 +281,7 @@ CREATE TABLE CLIENTE (
     Telefono             VARCHAR(100),
     Email                VARCHAR(100),
     Direccion            VARCHAR(255),
+	Fecha_Nacimiento	 DATE,
     Codigo_Ciudad        INT              NULL,
     Codigo_Genero        INT              NOT NULL,
     FOREIGN KEY (Tipo_Doc) REFERENCES TIPO_DOCUMENTO(Codigo_doc),
@@ -110,10 +290,10 @@ CREATE TABLE CLIENTE (
     FOREIGN KEY (Codigo_Genero) REFERENCES GENERO(Codigo_Genero)
 );
 GO
-INSERT INTO CLIENTE (Nombre, Apellido, Tipo_Doc, Nro_Documento, Tipo_Telefono, Telefono, Email, Direccion, Codigo_Ciudad, Codigo_Genero)
+INSERT INTO CLIENTE (Nombre, Apellido, Tipo_Doc, Nro_Documento, Tipo_Telefono, Telefono, Email, Direccion, Codigo_Ciudad, Codigo_Genero, Fecha_Nacimiento)
 VALUES 
-('Juan', 'Torres', 1, '1010101010', 1, '3012345678', 'juan@mail.com', 'Calle 10 #20-30', 1, 1),
-('Ana', 'Martínez', 2, '2020202020', 2, '6047654321', 'ana@mail.com', 'Carrera 50 #30-15', 2, 2);
+('Juan', 'Torres', 1, '1010101010', 1, '3012345678', 'juan@mail.com', 'Calle 10 #20-30', 1, 1, '1990-05-15'),
+('Ana', 'Martï¿½nez', 2, '2020202020', 2, '6047654321', 'ana@mail.com', 'Carrera 50 #30-15', 2, 2, '1992-08-22');
 GO
 -- 9. Tipos de Inmueble
 CREATE TABLE TIPO_INMUEBLE (
@@ -127,29 +307,47 @@ GO
 
 -- 10. Inmuebles
 CREATE TABLE INMUEBLE (
-    Codigo_Inmueble      INT IDENTITY(1,1) PRIMARY KEY,
-    Activo               BIT              DEFAULT 1,
-    Direccion            VARCHAR(255)     NOT NULL,
-    Codigo_Ciudad        INT              NOT NULL,
-    Codigo_TipoInmueble  INT              NOT NULL,
-    Es_Nuevo             BIT              NOT NULL,
-    Fecha_Alta           DATE             NOT NULL,
-    Descripcion          TEXT,
-    Codigo_Empleado_Captacion INT         NOT NULL,
-    Precio_Venta         DECIMAL(18,2)    NULL,
-    Canon_Mensual        DECIMAL(18,2)    NULL,
+    Codigo_Inmueble           INT IDENTITY(1,1) PRIMARY KEY,
+    Activo                    BIT              DEFAULT 1,
+    Direccion                 VARCHAR(255)     NOT NULL,
+    Codigo_Ciudad             INT              NOT NULL,
+    Codigo_TipoInmueble       INT              NOT NULL,
+    Es_Nuevo                  BIT              NOT NULL,
+    Fecha_Alta                DATE             NOT NULL,
+    Descripcion               TEXT,
+    Codigo_Empleado_Captacion INT              NOT NULL,
+    Precio_Venta              DECIMAL(18,2)    NULL,
+    Canon_Mensual             DECIMAL(18,2)    NULL,
+    Metros_Cuadrados          DECIMAL(6,2)     NULL,
+    Numero_Habitaciones       INT              NULL,
+    Numero_Banos              INT              NULL,
+    Estrato                   INT              NULL,
+    Tiene_Parqueadero         BIT              DEFAULT 0,
+    Numero_Pisos              INT              NULL,
+    Codigo_Estado INT NOT NUll,
+    Anio_Construccion         INT              NULL,
     FOREIGN KEY (Codigo_Ciudad) REFERENCES CIUDAD(Codigo_Ciudad),
     FOREIGN KEY (Codigo_TipoInmueble) REFERENCES TIPO_INMUEBLE(Codigo_TipoInmueble),
-    FOREIGN KEY (Codigo_Empleado_Captacion) REFERENCES EMPLEADO(Codigo_Empleado)
+    FOREIGN KEY (Codigo_Empleado_Captacion) REFERENCES EMPLEADO(Codigo_Empleado),
+	FOREIGN KEY (Codigo_Estado) REFERENCES ESTADO(Codigo_Estado)
 );
 GO
-INSERT INTO INMUEBLE (Direccion, Codigo_Ciudad, Codigo_TipoInmueble, Es_Nuevo, Fecha_Alta, Descripcion, Codigo_Empleado_Captacion, Precio_Venta, Canon_Mensual)
+
+INSERT INTO INMUEBLE 
+(Direccion, Codigo_Ciudad, Codigo_TipoInmueble, Es_Nuevo, Fecha_Alta, Descripcion, Codigo_Empleado_Captacion, 
+ Precio_Venta, Canon_Mensual, Metros_Cuadrados, Numero_Habitaciones, Numero_Banos, Estrato, Tiene_Parqueadero, Numero_Pisos, Codigo_Estado, Anio_Construccion)
 VALUES 
-('Calle 100 #20-30', 1, 1, 1, '2024-01-15', 'Apartamento nuevo con balcón', 2, 250000000, NULL),
-('Cra 50 #40-10', 2, 2, 0, '2023-11-20', 'Casa usada con patio', 1, 350000000, NULL),
-('Av. 30 #10-50', 3, 3, 0, '2023-10-05', 'Local comercial en arriendo', 2, NULL, 2000000);
+('Calle 100 #20-30', 1, 1, 1, '2024-01-15', 'Apartamento nuevo con balcï¿½n', 2, 
+ 250000000, NULL, 80.5, 3, 2, 4, 1, 1, 1, 2023),
+
+('Cra 50 #40-10', 2, 2, 0, '2023-11-20', 'Casa usada con patio', 1, 
+ 350000000, NULL, 120.0, 4, 3, 3, 1, 2, 1, 2010),
+
+('Av. 30 #10-50', 3, 3, 0, '2023-10-05', 'Local comercial en arriendo', 2, 
+ NULL, 2000000, 60.0, 0, 1, 5, 0, 1, 1, 2015);
 GO
--- 11. Inmuebles en Consignación
+
+-- 11. Inmuebles en Consignaciï¿½n
 CREATE TABLE INMUEBLE_CONSIGNACION (
     Codigo_Inmueble      INT PRIMARY KEY,
     Nombre_Propietario   VARCHAR(100) NOT NULL,
@@ -160,7 +358,7 @@ CREATE TABLE INMUEBLE_CONSIGNACION (
 GO
 INSERT INTO INMUEBLE_CONSIGNACION (Codigo_Inmueble, Nombre_Propietario, Telefono_Propietario, Email_Propietario)
 VALUES 
-(2, 'Mario Gómez', '3023456789', 'mario@mail.com');
+(2, 'Mario Gï¿½mez', '3023456789', 'mario@mail.com');
 GO
 
 -- 12. Proyectos Nuevos
@@ -176,7 +374,7 @@ INSERT INTO PROYECTO_NUEVO (Nombre_Proyecto, Direccion, Codigo_Ciudad)
 VALUES 
 ('Conjunto El Bosque', 'Carrera 80 #55-12', 1);
 GO
--- 13. Relación Inmueble–Proyecto
+-- 13. Relaciï¿½n Inmuebleï¿½Proyecto
 CREATE TABLE INMUEBLE_PROYECTO (
     Codigo_Inmueble      INT NOT NULL,
     Codigo_Proyecto      INT NOT NULL,
@@ -203,8 +401,8 @@ CREATE TABLE VISITA (
 GO
 INSERT INTO VISITA (Codigo_Inmueble, Codigo_Cliente, Fecha_Visita, Comentarios, Codigo_Empleado)
 VALUES 
-(1, 1, '2025-05-01 10:00', 'El cliente mostró interés.', 1),
-(2, 2, '2025-05-02 14:00', 'Solicitó cotización.', NULL);
+(1, 1, '2025-05-01 10:00', 'El cliente mostrï¿½ interï¿½s.', 1),
+(2, 2, '2025-05-02 14:00', 'Solicitï¿½ cotizaciï¿½n.', NULL);
 GO
 -- 15. Proveedores
 CREATE TABLE PROVEEDOR (
@@ -220,7 +418,7 @@ CREATE TABLE PROVEEDOR (
 GO
 INSERT INTO PROVEEDOR (Nombre_Proveedor, Nombre_Contacto, Tipo_Telefono, Telefono, Email, Direccion)
 VALUES 
-('Muebles del Sur', 'Andrés Peña', 1, '3129876543', 'ventas@muebles.com', 'Calle 90 #50-20');
+('Muebles del Sur', 'Andrï¿½s Peï¿½a', 1, '3129876543', 'ventas@muebles.com', 'Calle 90 #50-20');
 GO
 -- 16. Productos/Servicios de Proveedor
 CREATE TABLE PRODUCTO_SERVICIO_PROVEEDOR (
@@ -234,7 +432,7 @@ CREATE TABLE PRODUCTO_SERVICIO_PROVEEDOR (
 GO
 INSERT INTO PRODUCTO_SERVICIO_PROVEEDOR (Codigo_Proveedor, Nombre_Producto, Unidad_Medida, Precio_Unitario)
 VALUES 
-(1, 'Sofá 3 puestos', 'unidad', 1800000),
+(1, 'Sofï¿½ 3 puestos', 'unidad', 1800000),
 (1, 'Mesa de comedor', 'unidad', 1200000);
 GO
 -- 17. Compras a Proveedor (cabecera)
@@ -269,7 +467,7 @@ VALUES
 (1, 1, 1, 1800000),
 (1, 2, 1, 1200000);
 GO
--- 19. Decoración de Viviendas Modelo
+-- 19. Decoraciï¿½n de Viviendas Modelo
 CREATE TABLE DECORACION_MODELO (
     Codigo_Decoracion    INT IDENTITY(1,1) PRIMARY KEY,
     Nombre_Estilo        VARCHAR(100),
@@ -283,9 +481,9 @@ CREATE TABLE DECORACION_MODELO (
 GO
 INSERT INTO DECORACION_MODELO (Nombre_Estilo, Descripcion, Costo, Fecha_Inicio, Fecha_Fin, Codigo_Empleado)
 VALUES 
-('Estilo Nórdico', 'Decoración con tonos claros y madera', 2500000, '2025-03-01', '2025-04-01', 2);
+('Estilo Nï¿½rdico', 'Decoraciï¿½n con tonos claros y madera', 2500000, '2025-03-01', '2025-04-01', 2);
 GO
--- 20. Vinculación Inmueble–Decoración
+-- 20. Vinculaciï¿½n Inmuebleï¿½Decoraciï¿½n
 CREATE TABLE INMUEBLE_MODELO_DECORACION (
     Codigo_Inmueble      INT NOT NULL,
     Codigo_Decoracion    INT NOT NULL,
@@ -297,15 +495,14 @@ GO
 INSERT INTO INMUEBLE_MODELO_DECORACION (Codigo_Inmueble, Codigo_Decoracion)
 VALUES (1, 1);
 GO
--- 21. Tipos de Transacción (con % Comisión)
+-- 21. Tipos de Transacciï¿½n (con % Comisiï¿½n)
 CREATE TABLE TIPO_TRANSACCION (
     Codigo_TipoTransaccion INT IDENTITY(1,1) PRIMARY KEY,
     Descripcion            VARCHAR(50)     NOT NULL,
-    Porcentaje_Comision    DECIMAL(5,2)   NOT NULL
 );
 GO
-INSERT INTO TIPO_TRANSACCION (Descripcion, Porcentaje_Comision)
-VALUES ('Venta', 3.00), ('Arriendo', 1.50);
+INSERT INTO TIPO_TRANSACCION (Descripcion)
+VALUES ('Venta'), ('Arriendo');
 GO
 -- 22. Tipos de Pago
 CREATE TABLE TIPO_PAGO (
@@ -314,7 +511,7 @@ CREATE TABLE TIPO_PAGO (
 );
 GO
 INSERT INTO TIPO_PAGO (Descripcion)
-VALUES ('Transferencia'), ('Efectivo'), ('Tarjeta de Crédito');
+VALUES ('Transferencia'), ('Efectivo'), ('Tarjeta de Crï¿½dito');
 GO
 -- 23. Formas de Pago
 CREATE TABLE FORMA_PAGO (
@@ -327,7 +524,7 @@ GO
 INSERT INTO FORMA_PAGO (Codigo_TipoPago, Valor)
 VALUES (1, 200000000), (2, 50000000);
 GO
--- 24. Transacciones (base común)
+-- 24. Transacciones (base comï¿½n)
 CREATE TABLE TRANSACCION (
     Codigo_Transaccion     INT IDENTITY(1,1) PRIMARY KEY,
     Codigo_Inmueble        INT               NOT NULL,
@@ -336,7 +533,6 @@ CREATE TABLE TRANSACCION (
     Codigo_TipoTransaccion INT               NOT NULL,
     Fecha_Transaccion      DATE              NOT NULL,
     Precio_Acordado        DECIMAL(18,2)     NOT NULL,
-    Comision_Agente        DECIMAL(18,2)     NOT NULL,
     Notas_Transaccion      TEXT,
     FOREIGN KEY (Codigo_Inmueble) REFERENCES INMUEBLE(Codigo_Inmueble),
     FOREIGN KEY (Codigo_Cliente) REFERENCES CLIENTE(Codigo_Cliente),
@@ -344,27 +540,25 @@ CREATE TABLE TRANSACCION (
     FOREIGN KEY (Codigo_TipoTransaccion) REFERENCES TIPO_TRANSACCION(Codigo_TipoTransaccion)
 );
 GO
-INSERT INTO TRANSACCION (Codigo_Inmueble, Codigo_Cliente, Codigo_Empleado_Cierre, Codigo_TipoTransaccion, Fecha_Transaccion, Precio_Acordado, Comision_Agente, Notas_Transaccion)
+INSERT INTO TRANSACCION (Codigo_Inmueble, Codigo_Cliente, Codigo_Empleado_Cierre, Codigo_TipoTransaccion, Fecha_Transaccion, Precio_Acordado, Notas_Transaccion)
 VALUES 
-(1, 1, 1, 1, '2025-05-12', 250000000, 7500000, 'Cierre exitoso. Cliente satisfecho.'),
-(3, 2, 2, 2, '2025-05-15', 2000000, 30000, 'Contrato de arriendo por 12 meses.');
+(1, 1, 1, 1, '2025-05-12', 250000000, 'Cierre exitoso. Cliente satisfecho.'),
+(3, 2, 2, 2, '2025-05-15', 2000000, 'Contrato de arriendo por 12 meses.');
 
 GO
 
--- 25. Venta (subtabla específica)
+-- 25. Venta (subtabla especï¿½fica)
 CREATE TABLE VENTA (
     Codigo_Transaccion INT PRIMARY KEY,
     Fecha_Pago         DATE               NOT NULL,
     Monto_Pagado       DECIMAL(18,2)      NOT NULL,
-    Estado_Pago        VARCHAR(50)        NOT NULL DEFAULT 'Pendiente',
-    Notas_Venta        TEXT               NULL,
     FOREIGN KEY (Codigo_Transaccion) REFERENCES TRANSACCION(Codigo_Transaccion)
 );
 GO
-INSERT INTO VENTA (Codigo_Transaccion, Fecha_Pago, Monto_Pagado, Estado_Pago, Notas_Venta)
-VALUES (1, '2025-05-13', 250000000, 'Pagado', 'Pago completo de la propiedad.');
+INSERT INTO VENTA (Codigo_Transaccion, Fecha_Pago, Monto_Pagado)
+VALUES (1, '2025-05-13', 250000000);
 GO
--- 26. Arriendo (subtabla específica)
+-- 26. Arriendo (subtabla especï¿½fica)
 CREATE TABLE ARRIENDO (
     Codigo_Transaccion      INT PRIMARY KEY,
     Fecha_Inicio_Contrato   DATE              NOT NULL,
@@ -388,23 +582,24 @@ CREATE TABLE FACTURA (
     Fecha_Vencimiento      DATE              NULL,
     Monto_Total            DECIMAL(18,2)     NOT NULL,
     Concepto               VARCHAR(255)      NOT NULL,
-    Estado                 VARCHAR(50)       DEFAULT 'Pendiente',
+    Codigo_EstadoPago      INT               NOT NULL,
     Fecha_Pago             DATE              NULL,
     Notas_Factura          TEXT,
     FOREIGN KEY (Codigo_Transaccion) REFERENCES TRANSACCION(Codigo_Transaccion),
     FOREIGN KEY (Codigo_Cliente) REFERENCES CLIENTE(Codigo_Cliente),
     FOREIGN KEY (Codigo_Inmueble) REFERENCES INMUEBLE(Codigo_Inmueble),
     FOREIGN KEY (Codigo_Empleado_Genera) REFERENCES EMPLEADO(Codigo_Empleado),
-    FOREIGN KEY (Codigo_Forma) REFERENCES FORMA_PAGO(Codigo_Forma)
+    FOREIGN KEY (Codigo_Forma) REFERENCES FORMA_PAGO(Codigo_Forma),
+	FOREIGN KEY (Codigo_EstadoPago) REFERENCES ESTADO_PAGO(Codigo_EstadoPago)
 );
 GO
 INSERT INTO FACTURA (
     Codigo_Transaccion, Codigo_Cliente, Codigo_Inmueble, Codigo_Empleado_Genera, Codigo_Forma,
-    Fecha_Emision, Fecha_Vencimiento, Monto_Total, Concepto, Estado, Fecha_Pago, Notas_Factura
+    Fecha_Emision, Fecha_Vencimiento, Monto_Total, Concepto, Codigo_EstadoPago, Fecha_Pago, Notas_Factura
 )
 VALUES (
     2, 2, 3, 2, 2,  -- forma de pago = efectivo
-    '2025-05-16', '2025-06-01', 2000000, 'Canon de arriendo mensual', 'Completado', '2025-06-01', 'Pago en proceso'
+    '2025-05-16', '2025-06-01', 2000000, 'Canon de arriendo mensual', 1, '2025-06-01', 'Pago en proceso'
 );
 GO
 -- 28. Usuarios
@@ -425,8 +620,11 @@ CREATE TABLE PERFIL (
     PaginaNavegar   NVARCHAR(200)    NOT NULL
 );
 GO
+INSERT INTO PERFIL (Descripcion, PaginaNavegar) VALUES
+('Administrador','Panel.html'), ('Empleado','Index.html');
+GO
 
--- 30. Asociación Perfil–Usuario
+-- 30. Asociaciï¿½n Perfilï¿½Usuario
 CREATE TABLE PERFIL_USUARIO (
     Codigo              INT IDENTITY(1,1) PRIMARY KEY,
     Codigo_Usuario      INT               NOT NULL,
@@ -436,3 +634,13 @@ CREATE TABLE PERFIL_USUARIO (
     FOREIGN KEY (Codigo_Perfil) REFERENCES PERFIL(Codigo_Perfil)
 );
 GO
+-- 31. IMAGEN_INMUEBLE
+CREATE TABLE IMAGEN_INMUEBLE (
+    Codigo_Imagen       INT IDENTITY(1,1) PRIMARY KEY,
+    Codigo_Inmueble     INT NOT NULL,
+    Url_Imagen          VARCHAR(500) NOT NULL,
+    Descripcion         VARCHAR(255) NULL,
+    Es_Principal        BIT DEFAULT 0, -- 1 si es la imagen destacada
+    Fecha_Subida        DATETIME DEFAULT GETDATE(),
+    FOREIGN KEY (Codigo_Inmueble) REFERENCES INMUEBLE(Codigo_Inmueble)
+);

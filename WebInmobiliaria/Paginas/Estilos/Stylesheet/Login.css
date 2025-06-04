@@ -1,0 +1,110 @@
+﻿/*Background Login*/
+
+.login-page {
+    background-color: #00005a;
+}
+
+
+/* Logo pequeño, centrado y responsivo */
+.login-logo img {
+    max-width: 120px;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Contenedor del login responsivo */
+.login-box {
+    width: 100%;
+    max-width: 370px;
+    margin: 40px auto 0 auto;
+    padding: 0 16px;
+    box-sizing: border-box;
+}
+
+/* Tarjeta animada responsiva */
+.anim-card {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    transform: scaleY(0);
+    transform-origin: top center;
+    animation: desplegarContenedor 0.7s cubic-bezier(0.4,0,0.2,1) forwards;
+    animation-delay: 0.4s;
+    opacity: 0;
+}
+
+/* Cambia el color del botón INGRESAR */
+.btn.btn-primary.btn-block {
+    background-color: #ffc700 !important;
+    border-color: #ffc700 !important;
+    color: #333333 !important; /* Texto oscuro para mejor contraste */
+}
+
+    .btn.btn-primary.btn-block:hover,
+    .btn.btn-primary.btn-block:focus {
+        background-color: #3a5ba0 !important;
+        border-color: #3a5ba0 !important;
+        color: #fff !important;
+    }
+
+
+
+
+@keyframes desplegarContenedor {
+    to {
+        transform: scaleY(1);
+        opacity: 1;
+    }
+}
+
+/* Animación de aparición secuencial de los campos */
+.anim-field {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: aparecerField 0.5s ease forwards;
+}
+
+.anim-field:nth-of-type(1) { animation-delay: 1.1s; }
+.anim-field:nth-of-type(2) { animation-delay: 1.3s; }
+.anim-field:nth-of-type(3) { animation-delay: 1.5s; }
+
+@keyframes aparecerField {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Media queries para pantallas pequeñas */
+@media (max-width: 480px) {
+    .login-box {
+        max-width: 100%;
+        margin-top: 20px;
+        padding: 0 8px;
+    }
+    .login-logo img {
+        max-width: 70px;
+    }
+    .anim-card {
+        padding: 10px;
+    }
+}
+
+/* Media queries para pantallas pequeñas */
+@media (max-width: 480px) {
+    .login-box {
+        max-width: 100%;
+        margin-top: 20px;
+        padding: 0 8px;
+    }
+
+    .anim-logo img {
+        max-width: 80px;
+    }
+
+    .anim-card {
+        padding: 10px;
+    }
+}

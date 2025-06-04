@@ -9,7 +9,6 @@
 
 namespace InmobiliariaAPI.Models
 {
-    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -28,23 +27,15 @@ namespace InmobiliariaAPI.Models
         public int Codigo_TipoTransaccion { get; set; }
         public System.DateTime Fecha_Transaccion { get; set; }
         public decimal Precio_Acordado { get; set; }
-        public decimal Comision_Agente { get; set; }
         public string Notas_Transaccion { get; set; }
-
-        [JsonIgnore]
+    
         public virtual ARRIENDO ARRIENDO { get; set; }
-        [JsonIgnore]
         public virtual CLIENTE CLIENTE { get; set; }
-        [JsonIgnore]
         public virtual EMPLEADO EMPLEADO { get; set; }
-        [JsonIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<FACTURA> FACTURAs { get; set; }
-        [JsonIgnore]
         public virtual INMUEBLE INMUEBLE { get; set; }
-        [JsonIgnore]
         public virtual TIPO_TRANSACCION TIPO_TRANSACCION { get; set; }
-        [JsonIgnore]
         public virtual VENTA VENTA { get; set; }
     }
 }

@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Inmobiliaria</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link href="../Estilos/css/all.min.css" rel="stylesheet" />
+    <link href="../Estilos/adminlte.min.css" rel="stylesheet" />
+    <link href="../Estilos/Stylesheet/Menu.css" rel="stylesheet" />
+    <link href="../Estilos/Stylesheet/LandPage.css" rel="stylesheet" />
+    <link href="../Estilos/Stylesheet/DetalleImagen.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="col-md-12" id="dvMenu"></div>
+
+    <div class="Detalle-image-container">
+        <div class="Detalle-info">
+            <h4>Información Destacada</h4>
+
+            <p><strong>Descripción:</strong> <span class="detalle-valor" id="txtDescripcion"></span></p>
+            <p><strong>Dirección:</strong> <span class="detalle-valor" id="txtDireccion"></span></p>
+            <p><strong>Estrato:</strong> <span class="detalle-valor" id="txtEstrato"></span></p>
+            <p><strong>Anio:</strong> <span class="detalle-valor" id="txtAnio"></span></p>
+            <p><strong>PrecioVenta:</strong> <span class="detalle-valor" id="txtPrecioVenta"></span></p>
+            <p><strong>Departamento:</strong> <span class="detalle-valor" id="xtDepartamento"></span></p>
+            <p><strong>Ciudad:</strong> <span class="detalle-valor" id="txtCiudad"></span></p>
+            <p><strong>Tipo:</strong> <span class="detalle-valor" id="txtTipo"></span></p>
+            <p><strong>Estado:</strong> <span class="detalle-valor" id="txtEstado"></span></p>
+            <button id="btnAGENDAR" class="btn btn-primary" style="margin-left: inherit;" onclick="MostrarFormulario()">AGENDAR</button>
+        </div>
+        <img src="" alt="Imagen de la propiedad" id="detalleImagen" />
+    </div>
+
+    <div class="Detalle-image-container" id="formularioIngreso" style="display:none;">
+
+        <div class="row">
+
+            <div class="Detalle-info col-md-12">
+                <h4>Ingreso de datos</h4>
+            </div>
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="txtNroDocumento">NRO.DOCUMENTO</label>
+                    <input type="text" class="form-control" id="txtNroDocumento" placeholder="Nro. de documento del cliente">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="txtNombre">NOMBRE</label>
+                    <input type="text" class="form-control" id="txtNombre" placeholder="Nombre del cliente">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="txtApellido">APELLIDO</label>
+                    <input type="text" class="form-control" id="txtApellido" placeholder="Apellido del cliente">
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="txtDireccion">DIRECCIÓN</label>
+                    <input type="text" class="form-control" id="txtDireccion" placeholder="Dirección">
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="txtTelefono">TELEFONO</label>
+                    <input type="text" class="form-control" id="txtTelefono" placeholder="telefono">
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="txtFechaVisita">FECHA DE VISITA</label>
+                    <input type="date" class="form-control" id="txtFechaVisita" placeholder="Valor Unitario">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="txtEmail">EMAIL</label>
+                    <input type="text" class="form-control" id="txtEmail" placeholder="Correo electrónico">
+                </div>
+            </div>
+
+            <div class="col-md-12 text-start">
+                <div class="form-group">
+                    <button id="btnEnviar" class="btn btn-primary" onclick="AsignarVisita()">ENVIAR</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="../../Scripts/jquery-3.4.1.min.js"></script>
+    <script src="../../Scripts/bootstrap.bundle.min.js"></script>
+    <script src="../Scripts/Cliente/MenuCliente.js"></script>
+    <script src="../Scripts/Cliente/visita.js"></script>
+</body>
+</html>

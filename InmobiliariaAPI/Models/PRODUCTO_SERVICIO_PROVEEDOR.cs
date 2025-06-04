@@ -26,7 +26,7 @@ namespace InmobiliariaAPI.Models
         public string Nombre_Producto { get; set; }
         public string Unidad_Medida { get; set; }
         public decimal Precio_Unitario { get; set; }
-
+    
         [JsonIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DETALLE_COMPRA_PROVEEDOR> DETALLE_COMPRA_PROVEEDOR { get; set; }

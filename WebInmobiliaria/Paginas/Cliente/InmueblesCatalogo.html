@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>CATALOGO</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link href="../Estilos/css/all.min.css" rel="stylesheet" />
+    <link href="../Estilos/adminlte.min.css" rel="stylesheet" />
+    <link href="../Estilos/Stylesheet/InmueblesCatalogo.css" rel="stylesheet" />
+    <link href="../Estilos/Stylesheet/Menu.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="col-md-12" id="dvMenu">
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar de filtros -->
+            <aside class="col-md-3 p-3 border-end">
+                <h5>Filtros</h5>
+
+                <div class="mb-3">
+                    <label for="tipoInmueble" class="form-label">Tipo de Inmueble</label>
+                    <select id="tipoInmueble" class="form-select">
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="precioMax" class="form-label">Precio Máximo</label>
+                    <input type="number" class="form-control" id="precioMax" placeholder="Ej: 500000000">
+                </div>
+
+                <button class="btn btn-primary w-100" onclick="aplicarFiltros()">Aplicar Filtros</button>
+            </aside>
+
+            <!-- Contenido principal -->
+            <main class="col-md-9">
+                <div class="row" id="contenedorInmuebles"></div>
+                <div class="text-center p-3" id="loading">Cargando más propiedades...</div>
+            </main>
+        </div>
+    </div>
+    <script src="../../Scripts/jquery-3.4.1.min.js"></script>
+    <script src="../../Scripts/bootstrap.bundle.min.js"></script>
+    <script src="../Scripts/Comunes/Comunes.js"></script>
+    <script src="../Scripts/Comunes/CRUD.js"></script>
+    <script src="../Scripts/Cliente/InmueblesCatalogo.js"></script>
+</body>
+</html>

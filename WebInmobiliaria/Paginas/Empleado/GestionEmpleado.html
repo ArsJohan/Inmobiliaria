@@ -1,0 +1,199 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>MAESTRO EMPLEADO</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link href="../Estilos/css/all.min.css" rel="stylesheet" />
+    <link href="../Estilos/adminlte.min.css" rel="stylesheet" />
+    <link href="../Estilos/Stylesheet/Menu.css" rel="stylesheet" />
+    <link href="../Estilos/Stylesheet/LandPage.css" rel="stylesheet" />
+    <link href="../Estilos/Stylesheet/DetalleImagen.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="col-md-12" id="dvMenu"></div>
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12" id="dvMenu"></div>
+                <div class="col-md-12">
+
+                    <div class="card card-primary">
+
+                        <div class="card-header">
+                            <h3 class="card-title">ADMINISTRACIÓN DE EMPLEADOS</h3>
+                        </div>
+
+                        <form id="frmRegistraEmpleado">
+                            <div class="card-body">
+                                <div class="row">
+
+                                    <!-- 1ra linea -->
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtCodEmpleado">CODIGO EMPLEADO</label>
+                                            <input type="text" class="form-control" id="txtCodEmpleado" placeholder="Cod. de empleado" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="cboTipoDocumento">TIPO DE DOCUMENTO</label>
+                                            <select id="cboTipoDocumento" class="form-control select2" style="width: 100%;">
+                                                <option selected="selected" value="0">Seleccione un tipo de documento</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtNroDocumento">NRO.DOCUMENTO</label>
+                                            <input type="text" class="form-control" id="txtNroDocumento" placeholder="Nro. de documento del empleado">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <div class="form-group">
+                                            <label for="chkActivoEmpleado">ACTIVO</label>
+                                            <input type="checkbox" class="form-control" id="chkActivoEmpleado" placeholder="CHECKBOX">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label for="cboSede">SEDE</label>
+                                            <select id="cboSede" class="form-control select2" style="width: 100%;">
+                                                <option selected="selected" value="0">Seleccione una sede</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <!-- 2da linea -->
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtNombre">NOMBRE</label>
+                                            <input type="text" class="form-control" id="txtNombre" placeholder="Nombre del empleado">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtApellido">APELLIDO</label>
+                                            <input type="text" class="form-control" id="txtApellido" placeholder="Apellido del empleado">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="cboGenero">GENERO</label>
+                                            <select id="cboGenero" class="form-control select2" style="width: 100%;">
+                                                <option selected="selected" value="0">Seleccione un genero</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtEmail">EMAIL</label>
+                                            <input type="text" class="form-control" id="txtEmail" placeholder="Correo electrónico">
+                                        </div>
+                                    </div>
+
+                                    <!-- 3ra linea -->
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="cboTipoTelefono">TIPO TELEFONO</label>
+                                            <select id="cboTipoTelefono" class="form-control select2" style="width: 100%;">
+                                                <option selected="selected" value="0">Seleccione un tipo de telefono</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtTelefono">TELEFONO</label>
+                                            <input type="text" class="form-control" id="txtTelefono" placeholder="Telefono">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtFechaContratacion">FECHA CONTRATACION</label>
+                                            <input type="date" class="form-control" id="txtFechaContratacion" placeholder="Fecha de contratacion">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="cboTipoEmpleado">TIPO EMPLEADO</label>
+                                            <select id="cboTipoEmpleado" class="form-control select2" style="width: 100%;">
+                                                <option selected="selected" value="0">Seleccione un tipo de empleado</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <div id="dvMensaje" class="badge-danger" ></div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <button type="button" id="bntInsertar" class="btn-block btn-lg btn-primary" onclick="insertarEmpleado()">INSERTAR</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <button type="button" id="btnActualizar" class="btn-block btn-lg btn-primary" onclick="actualizarEmpleado()">ACTUALIZAR</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <button type="button" id="btnEliminar" class="btn-block btn-lg btn-primary" onclick="eliminarEmpleado()">ELIMINAR</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <button type="button" id="btnConsultar" class="btn-block btn-lg btn-primary" onclick="ConsultarEmpleado()">CONSULTAR</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <table id="tblEmpleados" class="table table-bordered table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="../../Scripts/jquery-3.4.1.min.js"></script>
+    <script src="../../Scripts/bootstrap.bundle.min.js"></script>
+    <script src="../../Scripts/jquery.dataTables.min.js"></script>
+    <script src="../../Scripts/dataTables.bootstrap4.min.js"></script>
+    <script src="../Scripts/Menu.js"></script>
+    <script src="../Scripts/Comunes/CRUD.js"></script>
+    <script src="../Scripts/Comunes/Comunes.js"></script>
+    <script src="../Scripts/Empleado/Empleado.js"></script>
+    <script src="../Scripts/Empleado/MenuEmpleado.js"></script>
+</body>
+
+</html>

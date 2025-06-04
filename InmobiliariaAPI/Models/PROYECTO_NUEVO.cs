@@ -25,7 +25,7 @@ namespace InmobiliariaAPI.Models
         public string Nombre_Proyecto { get; set; }
         public string Direccion { get; set; }
         public int Codigo_Ciudad { get; set; }
-
+    
         [JsonIgnore]
         public virtual CIUDAD CIUDAD { get; set; }
         [JsonIgnore]

@@ -9,7 +9,6 @@
 
 namespace InmobiliariaAPI.Models
 {
-    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -25,19 +24,15 @@ namespace InmobiliariaAPI.Models
         public Nullable<System.DateTime> Fecha_Vencimiento { get; set; }
         public decimal Monto_Total { get; set; }
         public string Concepto { get; set; }
-        public string Estado { get; set; }
         public Nullable<System.DateTime> Fecha_Pago { get; set; }
         public string Notas_Factura { get; set; }
-
-        [JsonIgnore]
+        public int Codigo_EstadoPago { get; set; }
+    
         public virtual CLIENTE CLIENTE { get; set; }
-        [JsonIgnore]
         public virtual EMPLEADO EMPLEADO { get; set; }
-        [JsonIgnore]
         public virtual TRANSACCION TRANSACCION { get; set; }
-        [JsonIgnore]
         public virtual INMUEBLE INMUEBLE { get; set; }
-        [JsonIgnore]
         public virtual FORMA_PAGO FORMA_PAGO { get; set; }
+        public virtual ESTADO_PAGO ESTADO_PAGO { get; set; }
     }
 }

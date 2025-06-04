@@ -1,0 +1,329 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>MAESTRO TRANSACCION</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link href="../Estilos/css/all.min.css" rel="stylesheet" />
+    <link href="../Estilos/adminlte.min.css" rel="stylesheet" />
+    <link href="../Estilos/Stylesheet/Menu.css" rel="stylesheet" />
+    <link href="../Estilos/Stylesheet/LandPage.css" rel="stylesheet" />
+    <link href="../Estilos/Stylesheet/DetalleImagen.css" rel="stylesheet" />
+</head>
+<body>
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="container-fluid" id="dvMenu"></div>
+
+                <div class="col-md-12">
+
+                    <div class="card card-primary">
+
+                        <div class="card-header">
+                            <h3 class="card-title">ADMINISTRACIÓN DE TRANSACCIONES</h3>
+                        </div>
+
+                        <form id="frmRegistraTransacciones">
+                            <div class="card-body">
+
+                                <div class="row">
+
+                                    <!-- 1ra linea -->
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtCodTransaccion">CODIGO TRANSACCIÓN</label>
+                                            <input type="text" class="form-control" id="txtCodTransaccion" placeholder="Codigo Transaccion">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtFechaTransaccion">FECHA DE TRANSACCIÓN</label>
+                                            <input type="date" class="form-control" id="txtFechaTransaccion" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtIdPropiedad">ID PROPIEDAD</label>
+                                            <input type="text" class="form-control" id="txtIdPropiedad" placeholder="ID propiedad">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtNombrePropiedad">NOMBRE DE LA PROPIEDAD</label>
+                                            <input type="text" class="form-control" id="txtNombrePropiedad" placeholder="Nombre de la propiedad" readonly>
+                                        </div>
+                                    </div>
+
+                                    <!-- 2da linea -->
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtNroDocumentoCliente">NRO. DOCUMENTO CLIENTE</label>
+                                            <input type="text" class="form-control" id="txtNroDocumentoCliente" placeholder="Documento cliente">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtNombreCliente">NOMBRE DEL CLIENTE</label>
+                                            <input type="text" class="form-control" id="txtNombreCliente" placeholder="Nombre del cliente" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtNroDocumentoVendedor">NRO. DOCUMENTO VENDEDOR</label>
+                                            <input type="text" class="form-control" id="txtNroDocumentoVendedor" placeholder="Documento vendedor" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtNombreVendedor">NOMBRE DEL VENDEDOR</label>
+                                            <input type="text" class="form-control" id="txtNombreVendedor" placeholder="Nombre del vendedor" readonly>
+                                        </div>
+                                    </div>
+
+                                    <!-- 3ra linea -->
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtPrecio">PRECIO ACORDADO</label>
+                                            <input type="number" class="form-control" id="txtPrecio" placeholder="Precio acordado">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="cboTipoTransaccion">TIPO DE TRANSACCIÓN</label>
+                                            <select id="cboTipoTransaccion" class="form-control select2" style="width: 100%;">
+                                                <option selected="selected" value="0">Seleccione un tipo</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtDescripcion">NOTAS</label>
+                                            <textarea class="form-control" id="txtDescripcion" rows="1" placeholder="Ingrese una descripción detallada"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <!--Editar Medios de pago-->
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+
+                                            <label></label>
+                                            <button type="button" id="btnFormaPago" class="btn-block btn-lg btn-primary" data-toggle="modal" data-target="#modFormaPago" onclick="LlenarTablaFormaPago()">EDITAR FORMA DE PAGO</button>
+
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="modFormaPago" tabindex="-1" role="dialog" aria-labelledby="modFormaPagoLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                                                    <div class="modal-content">
+
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="modFormaPagoLabel">GESTIÓN FORMAS DE PAGO</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="LlenarTablaTransaccion()">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+
+                                                        <div class="modal-body">
+
+                                                            <div class="row">
+
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group">
+                                                                        <label for="cboTipoPago">MEDIO DE PAGO</label>
+                                                                        <select id="cboTipoPago" class="form-control select2" style="width: 100%;">
+                                                                            <option selected="selected" value="0">Seleccione el tipo de pago</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group">
+                                                                        <label for="txtValor">VALOR A PAGAR</label>
+                                                                        <input type="text" class="form-control" id="txtValor" placeholder="Valor a pagar">
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+
+                                                            <div class="row">
+
+                                                                <div class="col-md-3">
+                                                                    <div class="form-group">
+                                                                        <button id="bntInsertarMedioP" class="btn-block btn-lg btn-secondary" onclick="EjecutarComando('POST', 'Insertar')">INSERTAR</button>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div class="form-group">
+                                                                        <button id="btnActualizarMedioP" class="btn-block btn-lg btn-secondary" onclick="EjecutarComando('PUT', 'Actualizar')">ACTUALIZAR</button>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div class="form-group">
+                                                                        <button id="btnEliminarMedioP" class="btn-block btn-lg btn-secondary" onclick="EjecutarComando('DELETE', 'Eliminar')">ELIMINAR</button>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div class="form-group">
+                                                                        <button id="btnCerrarModal" class="btn-block btn-lg btn-secondary" data-dismiss="modal" onclick="LlenarTablaClientes()">CERRAR</button>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <table id="tblFormaPago" class="table table-bordered table-striped">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th>Editar</th>
+                                                                                <th>Medio de pago</th>
+                                                                                <th>Valor</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <div id="dvMensajeTel" class=""></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <!--TABLA ARRIENDO-->
+                                <div class="card card-primary mt-4">
+                                    <div class="card-header">
+                                        <h3 class="card-title">INFORMACIÓN DE CONTRATO DE ARRENDAMIENTO</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="txtFechaInicio">FECHA DE INICIO CONTRATO</label>
+                                                    <input type="date" class="form-control" id="txtFechaInicio">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="txtFechaFin">FECHA DE FIN DE CONTRATO</label>
+                                                    <input type="date" class="form-control" id="txtFechaFin">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="txtDuracion">DURACIÓN EN MESES</label>
+                                                    <input type="text" class="form-control" id="txtDuracion" readonly>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--TABLA DE VENTA-->
+                                <div class="card card-primary mt-4">
+                                    <div class="card-header">
+                                        <h3 class="card-title">DETALLES DE PAGO</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="txtFechaPago">FECHA PAGO</label>
+                                                    <input type="date" class="form-control" id="txtFechaPago">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="txtPago">MONTO A PAGAR</label>
+                                                    <input type="number" class="form-control" id="txtPago" readonly>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="cboEstadoPago">ESTADO DE PAGO</label>
+                                                    <select id="cboEstadoPago" class="form-control select2" style="width: 100%;">
+                                                        <option selected="selected" value="0">Seleccione estado de pago</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <button id="bntInsertar" class="btn-block btn-lg btn-primary">INSERTAR</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <button id="btnActualizar" class="btn-block btn-lg btn-primary">ACTUALIZAR</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <button id="btnEliminar" class="btn-block btn-lg btn-primary">ELIMINAR</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <button id="btnConsultar" class="btn-block btn-lg btn-primary">CONSULTAR</button>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <table id="tblTransacciones" class="table table-bordered table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>Editar</th>
+                                                    <th>Código</th>
+                                                    <th>Fecha</th>
+                                                    <th>ID Propiedad</th>
+                                                    <th>Nombre Propiedad</th>
+                                                    <th>Cliente</th>
+                                                    <th>Vendedor</th>
+                                                    <th>Tipo Transacción</th>
+                                                    <th>Precio</th>                       
+                                                    <th>Notas</th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div id="dvMensaje" class=""></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="../../Scripts/jquery.min.js"></script>
+    <script src="../../Scripts/bootstrap.bundle.min.js"></script>
+    <script src="../../Scripts/jquery.dataTables.min.js"></script>
+    <script src="../../Scripts/dataTables.bootstrap4.min.js"></script>
+    <script src="../Scripts/Menu.js"></script>
+    <script src="../Scripts/Comunes/CRUD.js"></script>
+    <script src="../Scripts/Comunes/Comunes.js"></script>
+    <script src="../Scripts/Clientes.js"></script>
+    <script src="../../Scripts/jquery-3.4.1.min.js"></script>
+    <script src="../../Scripts/bootstrap.bundle.min.js"></script>
+
+    <script src="../Scripts/Empleado/MenuEmpleado.js"></script>
+</body>
+
+</html>

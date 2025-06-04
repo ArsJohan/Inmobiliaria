@@ -35,7 +35,8 @@ namespace InmobiliariaAPI.Models
         public string Direccion { get; set; }
         public Nullable<int> Codigo_Ciudad { get; set; }
         public int Codigo_Genero { get; set; }
-
+        public Nullable<System.DateTime> Fecha_Nacimiento { get; set; }
+    
         [JsonIgnore]
         public virtual CIUDAD CIUDAD { get; set; }
         [JsonIgnore]

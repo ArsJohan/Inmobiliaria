@@ -19,7 +19,7 @@ namespace InmobiliariaAPI.Models
         public System.DateTime Fecha_Inicio_Contrato { get; set; }
         public System.DateTime Fecha_Fin_Contrato { get; set; }
         public int Duracion_Contrato_Meses { get; set; }
-
+    
         [JsonIgnore]
         public virtual TRANSACCION TRANSACCION { get; set; }
     }

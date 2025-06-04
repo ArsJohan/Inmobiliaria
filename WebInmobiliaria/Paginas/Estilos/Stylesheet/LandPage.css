@@ -1,0 +1,136 @@
+﻿/* Contenedor principal de la imagen */
+.landpage-image-container {
+    position: relative; /* Permite posicionar elementos hijos absolutamente dentro */
+    width: 100vw; /* Ancho igual al ancho de la ventana del navegador */
+    max-width: 100%; /* No excede el 100% del contenedor padre */
+    height: 100vh; /* Altura igual a la altura de la ventana del navegador */
+    animation: imageZoomIn 1.4s cubic-bezier(0.77, 0, 0.175, 1) 0.4s both; /* Aplica animación de zoom */
+}
+
+    /* Imagen de fondo */
+    .landpage-image-container img {
+        width: 100%; /* Ocupar todo el ancho */
+        height: 100%; /* Ocupar toda la altura */
+        object-fit: cover; /* Cubre todo el contenedor sin deformarse */
+        display: block; /* Elimina espacio blanco bajo la imagen */
+    }
+
+    /* Capa superpuesta con degradado oscuro para mejorar la legibilidad del texto */
+    .landpage-image-container::before {
+        content: ""; /* Requiere contenido para mostrar el pseudoelemento */
+        position: absolute; /* Se posiciona encima de la imagen */
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none; /* Permite hacer clic a través de la capa */
+        background: linear-gradient( to bottom, rgba(0, 0, 0, 0.7) 0%, /* Oscuro arriba */
+        rgba(0, 0, 0, 0.0) 20%, /* Transparente en el medio */
+        rgba(0, 0, 0, 0.0) 80%, rgba(0, 0, 0, 0.7) 100% /* Oscuro abajo */
+        );
+        z-index: 2; /* Se coloca encima de la imagen */
+    }
+
+/* Animación: navbar desliza hacia abajo */
+@keyframes navbarSlideDown {
+    0% {
+        opacity: 0; /* Oculto */
+        transform: translateY(-40px); /* Mueve hacia arriba */
+    }
+
+    100% {
+        opacity: 1; /* Visible */
+        transform: translateY(0); /* Posición original */
+    }
+}
+
+/* Aplicación de la animación a la navbar */
+.navbar {
+    animation: navbarSlideDown 1s cubic-bezier(0.77, 0, 0.175, 1) 0.2s both;
+    /* both: mantiene los estilos inicial y final después de la animación */
+}
+
+/* Animación de zoom para la imagen */
+@keyframes imageZoomIn {
+    0% {
+        opacity: 0; /* Oculto */
+        transform: scale(1.08); /* Imagen ligeramente ampliada */
+    }
+
+    100% {
+        opacity: 1; /* Visible */
+        transform: scale(1); /* Escala normal */
+    }
+}
+
+/* Contenedor del texto centrado sobre la imagen */
+.landpage-hero-content {
+    position: absolute; /* Posicionamiento sobre la imagen */
+    z-index: 3; /* Por encima de la imagen y el degradado */
+    top: 50%; /* Centro vertical */
+    left: 50%; /* Centro horizontal */
+    transform: translate(-50%, -50%); /* Ajusta el punto central real */
+    text-align: center; /* Centra el texto */
+    color: #fff;
+    width: 90vw; /* 90% del ancho de la ventana */
+    max-width: 600px; /* No excede los 600px */
+    animation: heroFadeInUp 1.2s cubic-bezier(0.77, 0, 0.175, 1) 1s both; /* Aparece con animación */
+}
+
+/* Animación: fade + blur hacia arriba */
+@keyframes heroFadeInUp {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -40%); /* Un poco más arriba */
+        filter: blur(8px); /* Desenfocado */
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%); /* Centro exacto */
+        filter: blur(0); /* Nítido */
+    }
+}
+
+/* Título dentro del contenido */
+.landpage-hero-content h1 {
+    font-size: 2.8rem; /* Tamaño grande */
+    font-weight: 700; /* Negrita */
+    margin-bottom: 1rem; /* Espacio inferior */
+    color: #fff;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7); /* Sombra para mejor visibilidad */
+}
+
+/* Párrafo dentro del contenido */
+.landpage-hero-content p {
+    font-size: 1.3rem;
+    font-weight: 300; /* Ligero */
+    margin-bottom: 2rem;
+    color: #fff;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7); /* Sombra */
+    background: rgba(0, 0, 0, 0.4); /* Fondo semitransparente para mejor legibilidad */
+    padding: 0.5em 1em;
+    border-radius: 6px;
+}
+
+/* Botón principal */
+.btn-hero {
+    display: inline-block;
+    padding: 0.9rem 2.2rem; /* Espaciado interior */
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #00005a; /* Texto azul oscuro */
+    background: #ffc700; /* Amarillo */
+    border: none;
+    border-radius: 4px;
+    text-decoration: none; /* Elimina subrayado */
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.10); /* Sombra sutil */
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s; /* Efecto suave */
+}
+
+    /* Efecto hover del botón */
+    .btn-hero:hover {
+        background: #ffe066; /* Amarillo más claro */
+        color: #00005a; /* Color de texto se mantiene */
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18); /* Sombra más pronunciada */
+    }

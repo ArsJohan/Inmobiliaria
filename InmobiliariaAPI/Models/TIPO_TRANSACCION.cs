@@ -9,7 +9,6 @@
 
 namespace InmobiliariaAPI.Models
 {
-    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -23,9 +22,7 @@ namespace InmobiliariaAPI.Models
     
         public int Codigo_TipoTransaccion { get; set; }
         public string Descripcion { get; set; }
-        public decimal Porcentaje_Comision { get; set; }
-        [JsonIgnore]
-
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TRANSACCION> TRANSACCIONs { get; set; }
     }

@@ -9,10 +9,10 @@
 
 namespace InmobiliariaAPI.Models
 {
-    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+    using System.Text.Json.Serialization;
+
     public partial class INMUEBLE
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -23,6 +23,7 @@ namespace InmobiliariaAPI.Models
             this.VISITAs = new HashSet<VISITA>();
             this.DECORACION_MODELO = new HashSet<DECORACION_MODELO>();
             this.PROYECTO_NUEVO = new HashSet<PROYECTO_NUEVO>();
+            this.IMAGEN_INMUEBLE = new HashSet<IMAGEN_INMUEBLE>();
         }
     
         public int Codigo_Inmueble { get; set; }
@@ -36,6 +37,14 @@ namespace InmobiliariaAPI.Models
         public int Codigo_Empleado_Captacion { get; set; }
         public Nullable<decimal> Precio_Venta { get; set; }
         public Nullable<decimal> Canon_Mensual { get; set; }
+        public Nullable<decimal> Metros_Cuadrados { get; set; }
+        public Nullable<int> Numero_Habitaciones { get; set; }
+        public Nullable<int> Numero_Banos { get; set; }
+        public Nullable<int> Estrato { get; set; }
+        public Nullable<bool> Tiene_Parqueadero { get; set; }
+        public Nullable<int> Numero_Pisos { get; set; }
+        public Nullable<int> Anio_Construccion { get; set; }
+        public int Codigo_Estado { get; set; }
 
         [JsonIgnore]
         public virtual CIUDAD CIUDAD { get; set; }
@@ -60,5 +69,10 @@ namespace InmobiliariaAPI.Models
         [JsonIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PROYECTO_NUEVO> PROYECTO_NUEVO { get; set; }
+        [JsonIgnore]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<IMAGEN_INMUEBLE> IMAGEN_INMUEBLE { get; set; }
+        [JsonIgnore]
+        public virtual ESTADO ESTADO { get; set; }
     }
 }
