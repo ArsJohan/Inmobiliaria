@@ -13,6 +13,7 @@ namespace InmobiliariaAPI.Controllers
     public class ImaganesInmuebleController : ApiController
     {
         [RoutePrefix("api/ImagenesInmueble")]
+        [Authorize]
         public class ImagenesInmuebleController : ApiController
         {
             private readonly clsImagenInmueble _servicio = new clsImagenInmueble();

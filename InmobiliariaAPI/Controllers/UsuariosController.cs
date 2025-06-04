@@ -10,11 +10,12 @@ using System.Web.Http;
 namespace InmobiliariaAPI.Controllers
 {
     [RoutePrefix("api/Usuarios")]
+    [AllowAnonymous]
     public class UsuariosController : ApiController
     {
         [HttpPost]
         [Route("CrearUsuarios")]
-        [AllowAnonymous]
+        
         public string CrearUsuarios([FromBody] USUARIO usuario, int idPerfil)
         {
             clsUsuario _usuario = new clsUsuario();
