@@ -40,6 +40,29 @@ namespace InmobiliariaAPI.Clases
             return DBInmobiliaria.VISITAs.Where(v => v.Codigo_Inmueble == codigoInmueble).ToList();
         }
 
+        public IQueryable ConsultarVisitaCliente(string codigoCliente)
+        {
+            return from v in DBInmobiliaria.Set<VISITA>()
+                   join c in DBInmobiliaria.Set<CLIENTE>()
+                     on v.Codigo_Cliente equals c.Codigo_Cliente
+                   where c.Nro_Documento == codigoCliente
+                   select new
+                   {
+                       v.Codigo_Visita,
+                       v.Codigo_Inmueble,
+                       Codigo_Cliente = c.Codigo_Cliente,
+                       Nro_Documento = c.Nro_Documento,
+                       c.Nombre,
+                       c.Apellido,
+                       Direccion = c.Direccion,
+                       TipoTelefono = c.Tipo_Telefono,
+                       Telefono = c.Telefono,
+                       Email = c.Email,
+                       v.Fecha_Visita,
+                       v.Comentarios
+                   };
+        }
+
         public IQueryable<DateTime> FechasDisponibles(int codigoInmueble)
         {
             var visitas = DBInmobiliaria.VISITAs

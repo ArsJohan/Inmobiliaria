@@ -56,7 +56,35 @@ namespace InmobiliariaAPI.Clases
 
         }
 
-        public IEnumerable<object> ConsultarInmuebles(string tipo = null, decimal? precioMin = null, decimal? precioMax = null)
+        public IEnumerable<object> ConsultarInmueblesId(int id)
+        {
+            var query = from I in DBInmobiliaria.Set<INMUEBLE>()
+                        join Est in DBInmobiliaria.Set<ESTADO>() on I.Codigo_Estado equals Est.Codigo_Estado
+                        join TI in DBInmobiliaria.Set<TIPO_INMUEBLE>() on I.Codigo_TipoInmueble equals TI.Codigo_TipoInmueble
+                        join C in DBInmobiliaria.Set<CIUDAD>() on I.Codigo_Ciudad equals C.Codigo_Ciudad
+                        join D in DBInmobiliaria.Set<DEPARTAMENTO>() on C.Codigo_Departamento equals D.Codigo_Departamento
+                        join Img in DBInmobiliaria.Set<IMAGEN_INMUEBLE>() on I.Codigo_Inmueble equals Img.Codigo_Inmueble
+                        where I.Codigo_Inmueble == id && Img.Es_Principal == true
+                        select new
+                        {
+                            Codigo = I.Codigo_Inmueble,
+                            Descripcion = I.Descripcion,
+                            Direccion = I.Direccion,
+                            Es_Nuevo = I.Es_Nuevo,
+                            Estrato = I.Estrato,
+                            Anio = I.Anio_Construccion,
+                            Precio_Venta = I.Precio_Venta,
+                            Arriendo = I.Canon_Mensual,
+                            Departamento = D.Nombre,
+                            Ciudad = C.Nombre_Ciudad,
+                            Codigo_Tipo = TI.Codigo_TipoInmueble,
+                            Tipo = TI.Descripcion,
+                            Estado = Est.Nombre_Estado,
+                            url = _baseUrl + Img.Url_Imagen,
+                        };
+            return query.ToList();
+        }
+        public IEnumerable<object> ConsultarInmuebles(int tipo = 0, decimal? precioMin = null, decimal? precioMax = null)
         {
             var query = from I in DBInmobiliaria.Set<INMUEBLE>()
                         join Est in  DBInmobiliaria.Set<ESTADO>() on I.Codigo_Estado equals Est.Codigo_Estado
@@ -76,13 +104,14 @@ namespace InmobiliariaAPI.Clases
                             Arriendo = I.Canon_Mensual,
                             Departamento = D.Nombre,
                             Ciudad = C.Nombre_Ciudad,
+                            Codigo_Tipo = TI.Codigo_TipoInmueble,
                             Tipo = TI.Descripcion,
                             Estado = Est.Nombre_Estado,
                             url = _baseUrl + Img.Url_Imagen,
                         };
 
-            if (!string.IsNullOrEmpty(tipo))
-                query = query.Where(x => x.Tipo == tipo);
+            if (tipo!=0)
+                query = query.Where(x => x.Codigo_Tipo == tipo );
 
             if (precioMin.HasValue)
                 query = query.Where(x => (x.Precio_Venta ?? x.Arriendo) >= precioMin.Value);

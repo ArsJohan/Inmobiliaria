@@ -15,7 +15,7 @@ namespace InmobiliariaAPI.Controllers
         [Route("Todos")]
         public IHttpActionResult ConsultarTodos()
         {
-            var servicio = new TipoEmpleado();
+            var servicio = new clsTipoEmpleado();
             return Ok(servicio.ConsultarTodos());
         }
 

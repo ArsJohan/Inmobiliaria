@@ -39,6 +39,19 @@ namespace InmobiliariaAPI.Controllers
         }
 
         [AllowAnonymous]
+        // GET: api/Visitas/PorCodigo/5
+        [HttpGet]
+        [Route("PorCLiente/{codigoCliente:int}")]
+        public IHttpActionResult ConsultarVisitaPorCLiente(string codigoCliente)
+        {
+            var servicio = new clsVisita();
+            var visita = servicio.ConsultarVisitaCliente(codigoCliente);
+            if (visita == null)
+                return NotFound();
+            return Ok(visita);
+        }
+
+        [AllowAnonymous]
         // POST: api/Visitas/Insertar
         [HttpPost]
         [Route("Insertar")]
@@ -54,7 +67,6 @@ namespace InmobiliariaAPI.Controllers
             return Content(HttpStatusCode.BadRequest, mensaje);
         }
 
-        [Authorize]
         // PUT: api/Visitas/Actualizar
         [HttpPut]
         [Route("Actualizar")]
@@ -70,7 +82,6 @@ namespace InmobiliariaAPI.Controllers
             return Content(HttpStatusCode.BadRequest, mensaje);
         }
 
-        [Authorize]
         // DELETE: api/Visitas/Eliminar/5
         [HttpDelete]
         [Route("Eliminar/{codigoVisita:int}")]

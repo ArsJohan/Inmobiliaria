@@ -17,7 +17,8 @@ namespace InmobiliariaAPI.Clases
             {
                 DBInmobiliaria.CLIENTEs.Add(cliente); //Agrega un cliente a la lista del entity framework, se debe invocar el metodo SaveChanges para guardar los cambios en la base de datos
                 DBInmobiliaria.SaveChanges(); //Guarda los cambios en la base de datos
-                return "Cliente insertado correctamente"; //Retorna un mensaje de confirmación
+
+                return cliente.Codigo_Cliente.ToString(); //Retorna un mensaje de confirmación
             }
             catch (Exception ex)
             {

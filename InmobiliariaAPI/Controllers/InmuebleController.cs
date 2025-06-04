@@ -11,14 +11,13 @@ using System.Web.Http;
 namespace InmobiliariaAPI.Controllers
 {
     [RoutePrefix("api/Inmueble")]
-    [Authorize]
     public class InmuebleController : ApiController
     {
 
         // GET: api/Inmueble/Buscar
         [HttpGet]
         [Route("Buscar")]
-        public IHttpActionResult BuscarInmuebles(string tipo = null, decimal? precioMin = null, decimal? precioMax = null, int pagina = 1, int tamanioPagina = 6)
+        public IHttpActionResult BuscarInmuebles(int tipo = 0, decimal? precioMin = null, decimal? precioMax = null, int pagina = 1, int tamanioPagina = 6)
         {
             var servicio = new clsInmueble();
 
@@ -31,6 +30,17 @@ namespace InmobiliariaAPI.Controllers
                                    .ToList();
 
             return Ok(resultado);
+        }
+
+        [HttpGet]
+        [Route("ConsultarPorCodigo/{codigo:int}")]
+        public IHttpActionResult ConsultarPorCodigo(int codigo)
+        {
+            var servicio = new clsInmueble();
+            var inmueble = servicio.ConsultarInmueblesId(codigo);
+            if (inmueble == null)
+                return NotFound();
+            return Ok(inmueble);
         }
 
         // POST: api/Inmueble/Insertar

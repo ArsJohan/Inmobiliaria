@@ -17,17 +17,22 @@
     <div class="Detalle-image-container">
         <div class="Detalle-info">
             <h4>Información Destacada</h4>
-            <p><strong>Tipo producto:</strong> <span class="detalle-valor" id="detalleTipoProducto"></span></p>
-            <p><strong>Producto:</strong> <span class="detalle-valor" id="detalleProducto"></span></p>
-            <p><strong>Cantidad:</strong> <span class="detalle-valor" id="detalleCantidad"></span></p>
-            <p><strong>Valor Unitario:</strong> <span class="detalle-valor" id="detalleValorUnitario"></span></p>
-            <p><strong>Subtotal:</strong> <span class="detalle-valor" id="detalleSubtotal"></span></p>
-            <button id="btnAGENDAR" class="btn btn-primary" style="margin-left: inherit;">AGENDAR</button>
+
+            <p><strong>Descripción:</strong> <span class="detalle-valor" id="txtDescripcion"></span></p>
+            <p><strong>Dirección:</strong> <span class="detalle-valor" id="txtDireccion"></span></p>
+            <p><strong>Estrato:</strong> <span class="detalle-valor" id="txtEstrato"></span></p>
+            <p><strong>Anio:</strong> <span class="detalle-valor" id="txtAnio"></span></p>
+            <p><strong>PrecioVenta:</strong> <span class="detalle-valor" id="txtPrecioVenta"></span></p>
+            <p><strong>Departamento:</strong> <span class="detalle-valor" id="xtDepartamento"></span></p>
+            <p><strong>Ciudad:</strong> <span class="detalle-valor" id="txtCiudad"></span></p>
+            <p><strong>Tipo:</strong> <span class="detalle-valor" id="txtTipo"></span></p>
+            <p><strong>Estado:</strong> <span class="detalle-valor" id="txtEstado"></span></p>
+            <button id="btnAGENDAR" class="btn btn-primary" style="margin-left: inherit;" onclick="MostrarFormulario()">AGENDAR</button>
         </div>
-        <img src="../../wwwroot/pages/images/imagen de prueba.png" alt="Imagen de la propiedad" id="detalleImagen" />
+        <img src="" alt="Imagen de la propiedad" id="detalleImagen" />
     </div>
 
-    <div class="Detalle-image-container">
+    <div class="Detalle-image-container" id="formularioIngreso" style="display:none;">
 
         <div class="row">
 
@@ -60,14 +65,7 @@
                     <input type="text" class="form-control" id="txtDireccion" placeholder="Dirección">
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="form-group">
-                    <label for="cboTipoTelefono">TIPO TELEFONO</label>
-                    <select id="cboTipoTelefono" class="form-control select2" style="width: 100%;">
-                        <option selected="selected" value="0">Seleccione un tipo de telefono</option>
-                    </select>
-                </div>
-            </div>
+
             <div class="col-md-4">
                 <div class="form-group">
                     <label for="txtTelefono">TELEFONO</label>
@@ -83,15 +81,6 @@
             </div>
             <div class="col-md-4">
                 <div class="form-group">
-                    <label for="cboHora">HORA DE VISITA</label>
-                    <select id="cboHora" class="form-control select2" style="width: 100%;">
-                        <option selected="selected" value="0">Seleccione la hora</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="form-group">
                     <label for="txtEmail">EMAIL</label>
                     <input type="text" class="form-control" id="txtEmail" placeholder="Correo electrónico">
                 </div>
@@ -99,15 +88,16 @@
 
             <div class="col-md-12 text-start">
                 <div class="form-group">
-                    <button id="btnEnviar" class="btn btn-primary">ENVIAR</button>
+                    <button id="btnEnviar" class="btn btn-primary" onclick="AsignarVisita()">ENVIAR</button>
                 </div>
             </div>
         </div>
-        
+
     </div>
 
     <script src="../../Scripts/jquery-3.4.1.min.js"></script>
     <script src="../../Scripts/bootstrap.bundle.min.js"></script>
     <script src="../Scripts/Cliente/MenuCliente.js"></script>
+    <script src="../Scripts/Cliente/visita.js"></script>
 </body>
 </html>

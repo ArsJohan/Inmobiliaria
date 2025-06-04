@@ -10,7 +10,6 @@ using System.Web.Http;
 namespace InmobiliariaAPI.Controllers
 {
     [RoutePrefix("api/Venta")]
-    [Authorize]
     public class VentaController : ApiController
     {
             [HttpPost]
