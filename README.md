@@ -123,6 +123,20 @@ Este proyecto cuenta con los siguientes contribuidores.
                     <sub><b>Johan Esteban Arias Arboleda</b></sub>
                 </a>
             </td>
+            <td align="center">
+                <a href="https://github.com/SYeison">
+                    <img src="https://avatars.githubusercontent.com/u/187584546?v=4" width="100;" alt="SYeison"/>
+                    <br />
+                    <sub><b>Yeison Sanchez</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/santiagooaristi">
+                    <img src="https://avatars.githubusercontent.com/u/203028083?v=4" width="100;" alt="santiagooaristi"/>
+                    <br />
+                    <sub><b>Santiago Aristizabal</b></sub>
+                </a>
+            </td>
 		</tr>
 	<tbody>
 </table>
