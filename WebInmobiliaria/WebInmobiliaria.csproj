@@ -137,13 +137,14 @@
     <Content Include="Content\bootstrap-grid.rtl.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Paginas\Admin\Panel.html" />
     <Content Include="Paginas\Cliente\DetalleImagen.html" />
     <Content Include="Paginas\Cliente\InmueblesCatalogo.html" />
     <Content Include="Paginas\Cliente\LandPage.html" />
     <Content Include="Paginas\Cliente\Menu-Landpage.html" />
     <Content Include="Paginas\Empleado\GestionEmpleado.html" />
     <Content Include="Paginas\Empleado\GestionTransaccion.html" />
-    <Content Include="Paginas\Empleado\IndexEmpleado.html" />
+    <Content Include="Paginas\Empleado\Index.html" />
     <Content Include="Paginas\Empleado\MenuEmpleado.html" />
     <Content Include="Paginas\Estilos\adminlte.css" />
     <Content Include="Paginas\Estilos\adminlte.min.css" />
@@ -178,6 +179,7 @@
     <Content Include="Paginas\Estilos\Stylesheet\cliente.css" />
     <Content Include="Paginas\Estilos\Stylesheet\DetalleImagen.css" />
     <Content Include="Paginas\Estilos\Stylesheet\GestioVisita.css" />
+    <Content Include="Paginas\Estilos\Stylesheet\indexAdmin.css" />
     <Content Include="Paginas\Estilos\Stylesheet\IndexEmpleado.css" />
     <Content Include="Paginas\Estilos\Stylesheet\InmueblesCatalogo.css" />
     <Content Include="Paginas\Estilos\Stylesheet\LandPage.css" />
@@ -200,6 +202,7 @@
     <Content Include="Paginas\Scripts\Comunes\Comunes.js" />
     <Content Include="Paginas\Scripts\Comunes\CRUD.js" />
     <Content Include="Paginas\Scripts\Cliente\InmueblesCatalogo.js" />
+    <Content Include="Paginas\Scripts\Empleado\Empleado.js" />
     <Content Include="Paginas\Scripts\Empleado\MenuEmpleado.js" />
     <Content Include="Paginas\Scripts\Login.js" />
     <Content Include="Paginas\Scripts\Menu.js" />
