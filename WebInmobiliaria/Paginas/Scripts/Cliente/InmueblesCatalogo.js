@@ -1,16 +1,19 @@
 ﻿
-var api_url = "http://localhost:53901/";
+
+var api_url = "http://inmobiliaria-ysja.runasp.net";
 let pagina = 1;
 let cargando = false;
 let sinMasDatos = false;
 
 // Filtros activos
-let filtroTipo = "";
+let filtroTipo = 1;
 let filtroPrecio = "";
 
 $(function () {
     $("#dvMenu").load("Menu-Landpage.html");
 });
+
+LlenarComboXServicios(`${api_url}/api/tipoinmueble/ConsultarTodos`, "#tipoInmueble");
 
 window.addEventListener("scroll", async () => {
     if (cargando || sinMasDatos) return;
@@ -26,7 +29,6 @@ function aplicarFiltros() {
     sinMasDatos = false;
     filtroTipo = document.getElementById("tipoInmueble").value;
     filtroPrecio = document.getElementById("precioMax").value;
-
     document.getElementById("contenedorInmuebles").innerHTML = '';
     cargarInmuebles();
 }
@@ -40,7 +42,7 @@ async function cargarInmuebles() {
         tipo: filtroTipo,
         precioMax: filtroPrecio
     });
-
+    console.log(params);
     try {
         const respuesta = await fetch(`${api_url}/api/inmueble/buscar?${params}`);
         const data = await respuesta.json();
@@ -102,6 +104,18 @@ async function cargarInmuebles() {
         document.getElementById("loading").style.display = "none";
     }
 }
+
+
+function agendar(idInmueble) {
+    // Confirmar con el usuario
+    if (confirm("¿Deseas agendar una cita para este inmueble?")) {
+        // Redirigir a la página de agendamiento, pasando el id del inmueble por querystring
+        window.location.href = `DetalleImagen.html?idInmueble=${idInmueble}`;
+    }
+}
+
+
+
 
 document.addEventListener("DOMContentLoaded", () => {
     cargarInmuebles(); // Cargar todos los inmuebles apenas la página esté lista
