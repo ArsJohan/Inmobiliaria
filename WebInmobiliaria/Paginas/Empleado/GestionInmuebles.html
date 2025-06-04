@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>MAESTRO EMPLEADO</title>
+    <title>GESTION INMUEBLE</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link href="../Estilos/css/all.min.css" rel="stylesheet" />
@@ -23,136 +23,183 @@
                     <div class="card card-primary">
 
                         <div class="card-header">
-                            <h3 class="card-title">ADMINISTRACIÓN DE EMPLEADOS</h3>
+                            <h3 class="card-title">ADMINISTRACIÓN DE INMUEBLES</h3>
                         </div>
 
-                        <form id="frmRegistraEmpleado">
+                        <form id="frmRegistraInmuebles">
                             <div class="card-body">
                                 <div class="row">
 
                                     <!-- 1ra linea -->
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label for="txtCodEmpleado">CODIGO EMPLEADO</label>
-                                            <input type="text" class="form-control" id="txtCodEmpleado" placeholder="Cod. de empleado">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label for="cboTipoDocumento">TIPO DE DOCUMENTO</label>
-                                            <select id="cboTipoDocumento" class="form-control select2" style="width: 100%;">
-                                                <option selected="selected" value="0">Seleccione un tipo de documento</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label for="txtNroDocumento">NRO.DOCUMENTO</label>
-                                            <input type="text" class="form-control" id="txtNroDocumento" placeholder="Nro. de documento del empleado">
+                                            <label for="txtCodInmueble">CODIGO INMUEBLE</label>
+                                            <input type="text" class="form-control" id="txtCodInmueble" placeholder="Cod. de inmueble">
                                         </div>
                                     </div>
                                     <div class="col-md-1">
                                         <div class="form-group">
-                                            <label for="chkActivoEmpleado">ACTIVO</label>
-                                            <input type="checkbox" class="form-control" id="chkActivoEmpleado" placeholder="CHECKBOX">
+                                            <label for="chkActivoInmueble">ACTIVO</label>
+                                            <input type="checkbox" class="form-control" id="chkActivoInmueble" placeholder="CHECKBOX">
                                         </div>
                                     </div>
                                     <div class="col-md-2">
                                         <div class="form-group">
-                                            <label for="cboSede">Sede</label>
-                                            <select id="cboSede" class="form-control select2" style="width: 100%;">
-                                                <option selected="selected" value="0">Seleccione una sede</option>
+                                            <label for="cboTipoInmueble">TIPO DE INMUEBLE</label>
+                                            <select id="cboTipoInmueble" class="form-control select2" style="width: 100%;">
+                                                <option selected="selected" value="0">Seleccione tipo de inmueble</option>
                                             </select>
                                         </div>
                                     </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="cboDepartamentos">DEPARTAMENTO</label>
+                                            <select id="cboDepartamentos" class="form-control select2" style="width: 100%;">
+                                                <option selected="selected" value="0">Seleccione un departamento</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="cboCiudad">CIUDAD</label>
+                                            <select id="cboCiudad" class="form-control select2" style="width: 100%;">
+                                                <option selected="selected" value="0">Seleccione una ciudad</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+
 
                                     <!-- 2da linea -->
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label for="txtNombre">NOMBRE</label>
-                                            <input type="text" class="form-control" id="txtNombre" placeholder="Nombre del empleado">
+                                            <label for="txtDireccion">DIRECCIÓN</label>
+                                            <input type="text" class="form-control" id="txtDireccion" placeholder="Ingrese la dirección">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label for="txtApellido">APELLIDO</label>
-                                            <input type="text" class="form-control" id="txtApellido" placeholder="Apellido del empleado">
+                                            <label for="txtPrecio">PRECIO DE VENTA</label>
+                                            <input type="text" class="form-control" id="txtPrecio" placeholder="Precio de venta">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label for="cboGenero">GENERO</label>
-                                            <select id="cboGenero" class="form-control select2" style="width: 100%;">
-                                                <option selected="selected" value="0">Seleccione un genero</option>
-                                            </select>
+                                            <label for="txtCanon">CANON DE ARRENDAMIENTO</label>
+                                            <input type="text" class="form-control" id="txtCanon" placeholder="Canon de arrendamiento">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label for="txtEmail">EMAIL</label>
-                                            <input type="text" class="form-control" id="txtEmail" placeholder="Correo electrónico">
+                                            <label for="txtFechaActualizacion">ULTIMA ACTUALIZACIÓN</label>
+                                            <input type="date" class="form-control" id="txtFechaActualizacion" placeholder="Fecha de ultima actualizacion">
                                         </div>
                                     </div>
 
                                     <!-- 3ra linea -->
-                                    <div class="col-md-3">
+                                    <div class="col-md-1">
                                         <div class="form-group">
-                                            <label for="cboTipoTelefono">TIPO TELEFONO</label>
-                                            <select id="cboTipoTelefono" class="form-control select2" style="width: 100%;">
-                                                <option selected="selected" value="0">Seleccione un tipo de telefono</option>
-                                            </select>
+                                            <label for="chkNuevo">NUEVO</label>
+                                            <input type="checkbox" class="form-control" id="chkNuevo" placeholder="CHECKBOX">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label for="chkParqueadero">PARQUEADERO</label>
+                                            <input type="checkbox" class="form-control" id="chkParqueadero" placeholder="CHECKBOX">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label for="txtTelefono">TELEFONO</label>
-                                            <input type="text" class="form-control" id="txtTelefono" placeholder="Telefono">
+                                            <label for="txtMetros">METROS CUADRADOS</label>
+                                            <input type="number" class="form-control" id="txtMetros" placeholder="Ingrese los metros cuadrados">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label for="txtFechaContratacion">FECHA CONTRATACION</label>
-                                            <input type="date" class="form-control" id="txtFechaContratacion" placeholder="Fecha de contratacion">
+                                            <label for="txtHabitaciones">CANTIDAD DE HABITACIONES</label>
+                                            <input type="number" class="form-control" id="txtHabitaciones" placeholder="Ingrese la cantidad de habitaciones">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtBanos">CANTIDAD DE BAÑOS</label>
+                                            <input type="number" class="form-control" id="txtBanos" placeholder="Ingrese la cantidad de baños">
                                         </div>
                                     </div>
 
-
+                                    <!-- 4ta linea -->
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label for="cboTipoEmpleado">TIPO EMPLEADO</label>
-                                            <select id="cboTipoEmpleado" class="form-control select2" style="width: 100%;">
-                                                <option selected="selected" value="0">Seleccione un tipo de empleado</option>
-                                            </select>
+                                            <label for="txtPisos">CANTIDAD DE PISOS</label>
+                                            <input type="number" class="form-control" id="txtPisos" placeholder="Ingrese la cantidad de pisos">
                                         </div>
                                     </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtEstrato">ESTRATO</label>
+                                            <input type="number" class="form-control" id="txtEstrato" placeholder="Ingrese estrato">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtAnoContruccion">AÑO DE CONSTRUCCION</label>
+                                            <input type="number" class="form-control" id="txtAnoContruccion" placeholder="Ingrese año de construcción">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtEstado">ESTADO</label>
+                                            <input type="text" class="form-control" id="txtEstado" placeholder="Ingrese estado del apartamento">
+                                        </div>
+                                    </div>
+
+                                    <!-- 5ta linea -->
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="txtDescripcion">DESCRIPCIÓN</label>
+                                            <textarea class="form-control" id="txtDescripcion" rows="1" placeholder="Ingrese una descripción detallada"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtCodEmpleado">CODIGO EMPLEADO CAPTACION</label>
+                                            <input type="text" class="form-control" id="txtCodEmpleado" placeholder="Ingrese codigo de empleado que realizó la captacion">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="txtNombreEmpleado">NOMBRE DEL EMPLEADO</label>
+                                            <input type="text" class="form-control" id="txtNombreEmpleado" placeholder="Nombre del empleado" readonly>
+                                        </div>
+                                    </div>
+
                                 </div>
 
-                                <!--TABLA USUARIO-->
+                                <!--TABLA INMUEBLE CONSIGNACION-->
                                 <div class="card card-primary mt-4">
                                     <div class="card-header">
-                                        <h3 class="card-title">USUARIO EMPLEADO</h3>
+                                        <h3 class="card-title">PROPIETARIO</h3>
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
 
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label for="txtUsuario">USUARIO</label>
-                                                    <input type="text" class="form-control" id="txtUsuario" readonly>
+                                                    <label for="txtNombreProp">NOMBRE DEL PROPIETARIO</label>
+                                                    <input type="text" class="form-control" id="txtNombreProp" placeholder="Ingrese nombre completo">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label for="txtContrasena">CONTRASEÑA</label>
-                                                    <input type="text" class="form-control" id="txtContrasena" readonly>
+                                                    <label for="txtTelefonoProp">TELEFONO</label>
+                                                    <input type="text" class="form-control" id="txtTelefonoProp" placeholder="Ingrese telefono celular">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label for="cboPerfil">PERFIL</label>
-                                                    <select id="cboPerfil" class="form-control select2" style="width: 100%;">
-                                                        <option selected="selected" value="0">Seleccione Perfil</option>
-                                                    </select>
+                                                    <label for="txtEmailProp">EMAIL</label>
+                                                    <input type="text" class="form-control" id="txtEmailProp" placeholder="Ingrese correo electrónico">
                                                 </div>
                                             </div>
 
@@ -189,19 +236,29 @@
                                             <thead>
                                                 <tr>
                                                     <th>Edit</th>
-                                                    <th>Cod Empleado</th>
-                                                    <th>Tipo Documento</th>
-                                                    <th>Nro.Documento</th>
+                                                    <th>Código</th>
                                                     <th>Activo</th>
-                                                    <th>Sede</th>
-                                                    <th>Nombre</th>
-                                                    <th>Apellido</th>
-                                                    <th>Genero</th>
-                                                    <th>Email</th>
-                                                    <th>Tipo telefono</th>
-                                                    <th>Telefono</th>
-                                                    <th>Fecha Contratacion</th>
-                                                    <th>Tipo empleado</th>
+                                                    <th>Tipo</th>
+                                                    <th>Departamento</th>
+                                                    <th>Ciudad</th>
+                                                    <th>Dirección</th>
+                                                    <th>Precio Venta</th>
+                                                    <th>Canon</th>
+                                                    <th>Fecha Actualización</th>
+                                                    <th>Nuevo</th>
+                                                    <th>Parqueadero</th>
+                                                    <th>Metros</th>
+                                                    <th>Habitaciones</th>
+                                                    <th>Baños</th>
+                                                    <th>Pisos</th>
+                                                    <th>Estrato</th>
+                                                    <th>Año Construcción</th>
+                                                    <th>Estado</th>
+                                                    <th>Descripción</th>
+                                                    <th>Empleado Captador</th>
+                                                    <th>Propietario</th>
+                                                    <th>Teléfono Propietario</th>
+                                                    <th>Email Propietario</th>
                                                 </tr>
                                             </thead>
                                         </table>
