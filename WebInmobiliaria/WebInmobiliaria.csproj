@@ -193,6 +193,7 @@
     <Content Include="Paginas\Empleado\GestionVisita.html" />
     <Content Include="Paginas\Empleado\GestionInmuebles.html" />
     <Content Include="Paginas\Empleado\Login.html" />
+    <Content Include="Paginas\Imagenes\Editar.png" />
     <Content Include="Paginas\Menu.html" />
     <Content Include="Paginas\MenuLateral.html" />
     <Content Include="Paginas\Pagina1.html" />
