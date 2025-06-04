@@ -10,6 +10,7 @@ namespace InmobiliariaAPI.Clases
 	{
         private DBINMOBILIARIAEntities DBInmobiliaria = new DBINMOBILIARIAEntities();
         public USUARIO usuario { get; set; }
+
         public string CrearUsuario(int idPerfil)
         {
             try

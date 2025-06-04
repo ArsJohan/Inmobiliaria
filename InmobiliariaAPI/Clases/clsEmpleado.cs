@@ -5,6 +5,7 @@ using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Xml.Linq;
 
 namespace InmobiliariaAPI.Clases
 {
@@ -12,6 +13,30 @@ namespace InmobiliariaAPI.Clases
     {
         private DBINMOBILIARIAEntities DBInmobiliaria = new DBINMOBILIARIAEntities();
         public EMPLEADO empleado { get; set; }
+
+        public EMPLEADO ConsultarPorUsuario(string username)
+        {
+            try
+            {
+                //Consulta el usuario por su nombre de usuario
+                USUARIO usuario = DBInmobiliaria.USUARIOs.FirstOrDefault(u => u.Username == username);
+                if (usuario == null)
+                {
+                    return null; //Retorna un mensaje de error si no se encuentra el usuario
+                }
+                //Consulta el empleado por su documento
+                empleado = DBInmobiliaria.EMPLEADOes.FirstOrDefault(e => e.Codigo_Empleado == usuario.Documento_Empleado);
+                if (empleado == null)
+                {
+                    return null; //Retorna un mensaje de error si no se encuentra el empleado
+                }
+                return empleado; //Retorna un mensaje de confirmación si se encuentra el empleado
+            }
+            catch 
+            {
+                return null; //Retorna un mensaje de error
+            }
+        }
         public string Insertar()
         {
             try
@@ -31,10 +56,35 @@ namespace InmobiliariaAPI.Clases
             //El método FirstOrDefault retorna el primer objeto que cumpla con la condición que se escribe en la consulta
             return DBInmobiliaria.EMPLEADOes.FirstOrDefault(e => e.Nro_Documento == documento);
         }
-        public List<EMPLEADO> ConsultarTodo()
+        public IQueryable ConsultarTodo()
         {
-            return DBInmobiliaria.EMPLEADOes
-                .ToList(); //Retorna una lista de empleados
+            return DBInmobiliaria.Set<EMPLEADO>()
+                .OrderBy(E => E.Apellido)
+                .ThenBy(E => E.Nombre)
+                .AsEnumerable() // 👈 Trae datos a memoria
+                .Select(E => new
+                {
+                    Editar = "<img src =\"../Imagenes/Editar.png\" onclick=\"Editar('" + E.Nro_Documento + "', '" + E.Nombre + "', '" + E.Apellido +
+                             "', '" + E.Email + "', '" + E.Fecha_Contratacion.ToString("yyyy-MM-dd") + "') \"style=\"cursor:grab\"/>",
+                    Codigo =  E.Codigo_Empleado,
+                    E.Tipo_Doc,
+                    E.Nro_Documento,
+                    E.Activo,
+                    Sede = E.Codigo_Sede,
+                    E.Nombre,
+                    E.Apellido,
+                    Genero=E.Codigo_Genero,
+                    E.Email,
+                    E.Tipo_Telefono,
+                    E.Telefono,
+                    E.Fecha_Contratacion,
+                    TipoEmpleado= E.Codigo_TipoEmpleado,
+                    
+                    
+                    
+                    
+                })
+                .AsQueryable(); // Si necesitas devolver IQueryable
         }
         public string Actualizar()
         {
