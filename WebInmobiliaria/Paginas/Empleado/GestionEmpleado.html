@@ -34,7 +34,7 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="txtCodEmpleado">CODIGO EMPLEADO</label>
-                                            <input type="text" class="form-control" id="txtCodEmpleado" placeholder="Cod. de empleado">
+                                            <input type="text" class="form-control" id="txtCodEmpleado" placeholder="Cod. de empleado" disabled>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
@@ -159,26 +159,29 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="card-footer">
+                                    <div id="dvMensaje" class="badge-danger" ></div>
+                                </div>
 
                                 <div class="row">
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <button id="bntInsertar" class="btn-block btn-lg btn-primary" onclick="insertarEmpleado()">INSERTAR</button>
+                                            <button type="button" id="bntInsertar" class="btn-block btn-lg btn-primary" onclick="insertarEmpleado()">INSERTAR</button>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <button id="btnActualizar" class="btn-block btn-lg btn-primary" onclick="actualizarEmpleado()">ACTUALIZAR</button>
+                                            <button type="button" id="btnActualizar" class="btn-block btn-lg btn-primary" onclick="actualizarEmpleado()">ACTUALIZAR</button>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <button id="btnEliminar" class="btn-block btn-lg btn-primary" onclick="eliminarEmpleado()">ELIMINAR</button>
+                                            <button type="button" id="btnEliminar" class="btn-block btn-lg btn-primary" onclick="eliminarEmpleado()">ELIMINAR</button>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <button id="btnConsultar" class="btn-block btn-lg btn-primary" onclick="ConsultarEmpleado()">CONSULTAR</button>
+                                            <button type="button" id="btnConsultar" class="btn-block btn-lg btn-primary" onclick="ConsultarEmpleado()">CONSULTAR</button>
                                         </div>
                                     </div>
                                 </div>
@@ -208,9 +211,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="card-footer">
-                                <div id="dvMensaje" class=""></div>
-                            </div>
+                           
                         </form>
                     </div>
                 </div>
@@ -218,7 +219,6 @@
         </div>
     </section>
     <script src="../../Scripts/jquery-3.4.1.min.js"></script>
-    <script src="../../Scripts/jquery.min.js"></script>
     <script src="../../Scripts/bootstrap.bundle.min.js"></script>
     <script src="../../Scripts/jquery.dataTables.min.js"></script>
     <script src="../../Scripts/dataTables.bootstrap4.min.js"></script>
