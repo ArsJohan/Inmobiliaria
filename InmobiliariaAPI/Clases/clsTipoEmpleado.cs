@@ -7,7 +7,7 @@ using InmobiliariaAPI.Models;
 
 namespace InmobiliariaAPI.Clases
 {
-	public class TipoEmpleado
+	public class clsTipoEmpleado
 	{
         DBINMOBILIARIAEntities DBInmobiliaria = new DBINMOBILIARIAEntities();
         public TIPO_EMPLEADO tipoEmpleado { get; set; }

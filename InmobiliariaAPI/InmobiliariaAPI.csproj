@@ -238,7 +238,8 @@
     <Compile Include="Clases\clsTransacion.cs" />
     <Compile Include="Clases\clsUsuario.cs" />
     <Compile Include="Clases\clsVisita.cs" />
-    <Compile Include="Clases\TipoEmpleado.cs" />
+    <Compile Include="Clases\clsTipoEmpleado.cs" />
+    <Compile Include="Clases\clsTipoInmueble.cs" />
     <Compile Include="Clases\TokenValidatorHandler.cs" />
     <Compile Include="Controllers\ArriendoController.cs" />
     <Compile Include="Controllers\CiudadController.cs" />
@@ -250,6 +251,7 @@
     <Compile Include="Controllers\SedesController.cs" />
     <Compile Include="Controllers\TipoDocumentoController.cs" />
     <Compile Include="Controllers\TipoEmpleadoController.cs" />
+    <Compile Include="Controllers\TipoInmuebleController.cs" />
     <Compile Include="Controllers\TipoPagoController.cs" />
     <Compile Include="Controllers\TipoTelefonoController.cs" />
     <Compile Include="Controllers\TipoTransaccionController.cs" />

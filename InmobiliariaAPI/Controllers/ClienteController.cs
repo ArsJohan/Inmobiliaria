@@ -11,7 +11,6 @@ using InmobiliariaAPI.Models;
 namespace InmobiliariaAPI.Controllers
 {
     [RoutePrefix("api/Cliente")]
-    [Authorize]
     public class ClienteController : ApiController
     {
         [HttpPost]

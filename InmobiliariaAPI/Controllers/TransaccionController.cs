@@ -10,7 +10,6 @@ using InmobiliariaAPI.Models;
 namespace InmobiliariaAPI.Controllers
 {
     [RoutePrefix("api/Transaccion")]
-    [Authorize]
     public class TransaccionController : ApiController
     {
         [HttpGet]
