@@ -128,7 +128,7 @@ a {
 }
 
 /* === BOTÓN PERSONALIZADO === */
-.btn-primary {
+.btn-primary, .btn-secondary {
     display: inline-block;
     padding: 0.9rem 2.2rem !important;
     font-size: 1.1rem !important;
@@ -139,7 +139,6 @@ a {
     border-radius: 4px;
     text-decoration: none;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.10);
-
     transition: background 0.2s, color 0.2s, box-shadow 0.2s;
 }
 

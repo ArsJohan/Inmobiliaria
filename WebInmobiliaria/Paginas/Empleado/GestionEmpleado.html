@@ -134,12 +134,7 @@
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
-                                            <div class="col-md-1">
-                                                <div class="form-group">
-                                                    <label for="chkActivoUsuario">ACTIVO</label>
-                                                    <input type="checkbox" class="form-control" id="chkActivoUsuario" placeholder="CHECKBOX">
-                                                </div>
-                                            </div>
+                                            
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for="txtUsuario">USUARIO</label>
@@ -152,7 +147,7 @@
                                                     <input type="text" class="form-control" id="txtContrasena" readonly>
                                                 </div>
                                             </div>
-                                            <div class="col-md-3">
+                                            <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for="cboPerfil">PERFIL</label>
                                                     <select id="cboPerfil" class="form-control select2" style="width: 100%;">
@@ -160,6 +155,7 @@
                                                     </select>
                                                 </div>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -182,66 +178,7 @@
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <button id="btnEliminar" class="btn-block btn-lg btn-primary">CONSULTAR</button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Modal -->
-                                <div class="modal fade" id="modTelefonos" tabindex="-1" role="dialog" aria-labelledby="modTelefonosLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="modTelefonosLabel">GESTIÓN DE TELÉFONOS</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="LlenarTablaClientes()">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <input type="text" class="form-control" id="txtCodigo" placeholder="Código teléfono" hidden>
-                                                            <label for="cboTipoTelefono">Tipo teléfono</label>
-                                                            <select id="cboTipoTelefono" class="form-control select2" style="width: 100%;">
-                                                                <option selected="selected" value="0">Seleccione el tipo de teléfono</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="txtNumero">NÚMERO</label>
-                                                            <input type="text" class="form-control" id="txtNumero" placeholder="Número de teléfono">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-3">
-                                                        <div class="form-group">
-                                                            <button id="bntInsertarTel" class="btn-block btn-lg btn-secondary" onclick="EjecutarComando('POST', 'Insertar')">INSERTAR</button>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-3">
-                                                        <div class="form-group">
-                                                            <button id="btnActualizarTel" class="btn-block btn-lg btn-secondary" onclick="EjecutarComando('PUT', 'Actualizar')">ACTUALIZAR</button>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-3">
-                                                        <br />
-                                                        <button type="button" id="btnConsultar" class="btn-block btn-lg btn-primary" onclick="Consultar()">CONSULTAR</button>
-                                                    </div>
-                                                    <div class="col-md-3">
-                                                        <div class="form-group">
-                                                            <button id="btnEliminarTel" class="btn-block btn-lg btn-secondary" onclick="EjecutarComando('DELETE', 'Eliminar')">ELIMINAR</button>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-3">
-                                                        <div class="form-group">
-                                                            <button id="btnCerrarModal" class="btn-block btn-lg btn-secondary" data-dismiss="modal" onclick="LlenarTablaClientes()">CERRAR</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <button id="btnConsultar" class="btn-block btn-lg btn-primary">CONSULTAR</button>
                                         </div>
                                     </div>
                                 </div>
