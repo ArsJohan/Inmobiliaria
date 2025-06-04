@@ -1,0 +1,116 @@
+﻿/* LANDPAGE ADMIN - Elegante con paleta institucional */
+
+/* Contenedor principal */
+.landpage-image-container {
+    position: relative;
+    width: 100vw;
+    max-width: 100%;
+    height: 100vh;
+    animation: imageZoomIn 1.4s cubic-bezier(0.77, 0, 0.175, 1) 0.4s both;
+}
+
+    .landpage-image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        filter: brightness(0.45) contrast(1.1);
+    }
+
+    /* Degradado elegante con azul institucional */
+    .landpage-image-container::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        background: linear-gradient( to bottom, rgba(0, 0, 90, 0.9) 0%, /* Azul oscuro */
+        rgba(58, 91, 160, 0.4) 40%, /* Azul claro */
+        rgba(0, 0, 90, 0.8) 100% /* Vuelve al azul oscuro */
+        );
+        z-index: 2;
+    }
+
+/* Animación para navbar */
+@keyframes navbarSlideDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.navbar {
+    animation: navbarSlideDown 1s cubic-bezier(0.77, 0, 0.175, 1) 0.2s both;
+}
+
+/* Zoom-in para imagen */
+@keyframes imageZoomIn {
+    0% {
+        opacity: 0;
+        transform: scale(1.08);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Contenido centrado */
+.landpage-hero-content {
+    position: absolute;
+    z-index: 3;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #FFFFFF;
+    width: 90vw;
+    max-width: 600px;
+    animation: heroFadeInUp 1.2s cubic-bezier(0.77, 0, 0.175, 1) 1s both;
+}
+
+/* Animación del texto */
+@keyframes heroFadeInUp {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -40%);
+        filter: blur(8px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+        filter: blur(0);
+    }
+}
+
+/* Título */
+.landpage-hero-content h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #FFC700; /* Amarillo oro como acento */
+    text-shadow: 0 3px 10px rgba(0, 0, 0, 0.7);
+}
+
+/* Párrafo */
+.landpage-hero-content p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+    color: #F4F4F4; /* Gris claro */
+    background: rgba(51, 51, 51, 0.6); /* Gris oscuro translúcido */
+    padding: 0.8em 1.5em;
+    border-radius: 8px;
+    line-height: 1.6;
+}
