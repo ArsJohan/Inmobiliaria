@@ -137,7 +137,6 @@
     <Content Include="Content\bootstrap-grid.rtl.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
-    <Content Include="Paginas\Cliente\Cliente.html" />
     <Content Include="Paginas\Cliente\DetalleImagen.html" />
     <Content Include="Paginas\Cliente\InmueblesCatalogo.html" />
     <Content Include="Paginas\Cliente\LandPage.html" />
@@ -190,7 +189,6 @@
     <Content Include="Paginas\Estilos\webfonts\fa-regular-400.svg" />
     <Content Include="Paginas\Estilos\webfonts\fa-solid-900.svg" />
     <Content Include="Paginas\Empleado\GestionVisita.html" />
-    <Content Include="Paginas\Cliente\LandPage.html" />
     <Content Include="Paginas\Empleado\GestionInmuebles.html" />
     <Content Include="Paginas\Empleado\Login.html" />
     <Content Include="Paginas\Menu.html" />
