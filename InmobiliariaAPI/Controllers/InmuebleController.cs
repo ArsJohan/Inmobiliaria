@@ -11,6 +11,7 @@ using System.Web.Http;
 namespace InmobiliariaAPI.Controllers
 {
     [RoutePrefix("api/Inmueble")]
+    [Authorize]
     public class InmuebleController : ApiController
     {
 
