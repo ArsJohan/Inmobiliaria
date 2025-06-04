@@ -4,8 +4,8 @@ function obtenerDatosFormulario() {
     const codEmpleado = $("#txtCodEmpleado").val();
     const nombre = $("#txtNombre").val();
     const apellido = $("#txtApellido").val();
-    const documento = $("#txtDocumento").val();
-    const correo = $("#txtCorreo").val();
+    const documento = $("#txtNroDocumento").val();
+    const correo = $("#txtEmail").val();
     const telefono = $("#txtTelefono").val();
     const tipoTelefono = $("#cboTipoTelefono").val();
     const genero = $("#cboGenero").val();
@@ -23,30 +23,76 @@ function obtenerDatosFormulario() {
     }
 
     return {
-        codEmpleado,
-        nombre,
-        apellido,
-        documento,
-        correo,
-        telefono,
-        tipoTelefono,
-        genero,
-        tipoEmpleado,
-        sede,
-        tipoDocumento,
-        activo,
-        fechaContratacion
+        Codigo_Empleado: parseInt(codEmpleado) || 0, // en caso de que esté vacío, enviamos 0
+        Activo: activo,
+        Nombre: nombre,
+        Apellido: apellido,
+        Tipo_Doc: parseInt(tipoDocumento),
+        Nro_Documento: documento,
+        Tipo_Telefono: parseInt(tipoTelefono),
+        Telefono: telefono,
+        Email: correo,
+        Fecha_Contratacion: fechaContratacion,
+        Codigo_TipoEmpleado: parseInt(tipoEmpleado),
+        Codigo_Sede: parseInt(sede),
+        Codigo_Genero: parseInt(genero)
     };
+
 }
 
 
 // Insertar empleado
+async function ConsultarEmpleado() {
+    const documento = $("#txtNroDocumento").val();
+    const response = await ConsultarServicio(`${BaseURL}/api/Empleado/Consultar?Documento=${documento}`);
+    console.log("Respuesta Consulta:", response, documento);
+    if (response == null) {
+        $("#dvMensaje").html("Ingrese un documento para consultar la información");
+        return;
+    } 
+        
+    
+    $("#txtCodEmpleado").val(response.Codigo_Empleado);
+    $("#txtNombre").val(response.Nombre);
+    $("#txtApellido").val(response.Apellido);
+    $("#txtDocumento").val(response.Nro_Documento);
+    $("#txtEmail").val(response.Email);
+    $("#txtTelefono").val(response.Telefono);
+    $("#cboTipoTelefono").val(response.Tipo_Telefono);
+    $("#cboGenero").val(response.Codigo_Genero);
+    $("#cboTipoEmpleado").val(response.Codigo_TipoEmpleado);
+    $("#cboSede").val(response.Codigo_Sede);
+    $("#cboTipoDocumento").val(response.Tipo_Doc);
+    $("#chkActivoEmpleado").prop("checked", response.Activo);
+    // Convertir la fecha al formato YYYY-MM-DD
+    let fechaTexto = response.Fecha_Contratacion;
+    let fechaFormateada = "";
+
+    if (fechaTexto.includes("/")) {
+        // Si viene en formato DD/MM/YYYY
+        const partes = fechaTexto.split("/");
+        if (partes.length === 3) {
+            fechaFormateada = `${partes[2]}-${partes[1].padStart(2, '0')}-${partes[0].padStart(2, '0')}`;
+        }
+    } else if (fechaTexto.includes("-")) {
+        // Si ya viene en formato ISO, tomar solo la fecha sin la hora
+        fechaFormateada = fechaTexto.substring(0, 10);
+    }
+
+    $("#txtFechaContratacion").val(fechaFormateada);
+    
+
+
+   
+}
 async function insertarEmpleado() {
     const empleado = obtenerDatosFormulario();
-    if (!empleado) return;
+    if (!empleado) {
 
-    const response = await EjecutarComandoServicio("POST", `${BaseURL}/api/Empleado//Insertar`, empleado);
-    console.log(response);
+        return;
+    } 
+
+    const response = await EjecutarComandoServicio("POST", `${BaseURL}/api/Empleado/Insertar`, empleado);
     listarEmpleados(); // Recargar tabla
     limpiarFormulario();
 }
@@ -56,7 +102,7 @@ async function actualizarEmpleado() {
     const empleado = obtenerDatosFormulario();
     if (!empleado) return;
 
-    await EjecutarComandoServicio("PUT", `${BaseURL}/api/Empleado/${empleado.codEmpleado}`, empleado);
+    await EjecutarComandoServicio("PUT", `${BaseURL}/api/Empleado/Actualizar`, empleado);
     listarEmpleados();
     limpiarFormulario();
 }
@@ -69,7 +115,7 @@ async function eliminarEmpleado() {
         return;
     }
 
-    await EjecutarComandoServicio("DELETE", `${BaseURL}/api/Empleado/${codEmpleado}`, {});
+    await EjecutarComandoServicio("DELETE", `${BaseURL}/api/Empleado/Eliminar?empleado=${codEmpleado}`, {});
     listarEmpleados();
     limpiarFormulario();
 }
