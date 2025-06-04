@@ -54,7 +54,7 @@ namespace InmobiliariaAPI.Clases
                 //Validar que visita no exita en la misma fecha
                 var visitaExistente = DBInmobiliaria.VISITAs
                     .FirstOrDefault(v => v.Codigo_Inmueble == visita.Codigo_Inmueble && v.Fecha_Visita.Date == visita.Fecha_Visita.Date);
-                if (visitaExistente != null) { return "La fecha de la visita no se encuentra disponible" }
+                if (visitaExistente != null) { return "La fecha de la visita no se encuentra disponible"; }
                     DBInmobiliaria.VISITAs.Add(visita);
                 DBInmobiliaria.SaveChanges();
                 return "Visita registrada correctamente";
