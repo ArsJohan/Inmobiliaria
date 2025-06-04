@@ -2,20 +2,21 @@
 
 // Obtener datos del formulario de visita
 function obtenerDatosVisita() {
+
     const idVisita = $("#txtIdVisita").val();
     const idPropiedad = $("#txtIdPropiedad").val();
     const codigoCliente = $("#txtCodigoCliente").val();
     const fechaVisita = $("#txtFechaVisita").val() ? $("#txtFechaVisita").val() + "T00:00:00" : null;
     const descripcion = $("#txtDescripcion").val();
 
-    if (!idPropiedad || !nroDocumento || !fechaVisita) {
+    if (!idPropiedad || !fechaVisita) {
         $("#dvMensaje").html("Por favor complete todos los campos obligatorios.");
         return null;
     }
 
     return {
-        Id_Visita: parseInt(idVisita) || 0,
-        Codigo_Imueble: parseInt(idPropiedad),
+        Codigo_Visita: parseInt(idVisita) || 0,
+        Codigo_Inmueble: parseInt(idPropiedad),
         Codigo_Cliente: codigoCliente,
         Fecha_Visita: fechaVisita,
         Comentarios: descripcion
@@ -187,13 +188,7 @@ function Eliminar(fila_, e) {
             console.error(err);
             alert("Error de conexión al eliminar.");
         });
-} // ← Aquí se cierra la función Eliminar correctamente
-
-// ------------------------------------------------------------------
-// Aquí empieza el “binding” de eventos a la tabla y a los botones
-// ------------------------------------------------------------------
-
-// Maneja el clic en el botón “🗑️” que se agregó a cada fila
+} 
 $("#tblVisita").on("click", ".btnEliminar", function (e) {
     Eliminar(this, e);
 });
