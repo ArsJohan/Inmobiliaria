@@ -230,6 +230,7 @@
     <Compile Include="Clases\clsCypher.cs" />
     <Compile Include="Clases\clsInmueble.cs" />
     <Compile Include="Clases\clsLogin.cs" />
+    <Compile Include="Clases\clsSede.cs" />
     <Compile Include="Clases\clsTipoDePago.cs" />
     <Compile Include="Clases\clsTipoDocumento.cs" />
     <Compile Include="Clases\clsTipoTelefono.cs" />
@@ -246,6 +247,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImaganesInmuebleController.cs" />
     <Compile Include="Controllers\InmuebleController.cs" />
+    <Compile Include="Controllers\SedesController.cs" />
     <Compile Include="Controllers\TipoDocumentoController.cs" />
     <Compile Include="Controllers\TipoEmpleadoController.cs" />
     <Compile Include="Controllers\TipoPagoController.cs" />

@@ -6,14 +6,30 @@ using System.Net.Http;
 using System.Web.Http;
 using InmobiliariaAPI.Models;
 using InmobiliariaAPI.Clases;
+using System.Web.Http.Cors;
 
 namespace InmobiliariaAPI.Controllers
 {
     [RoutePrefix("api/Empleado")]
-    [Authorize]
+    [AllowAnonymous]
     public class EmpleadoController : ApiController
     {
-       
+
+
+            // GET: api/Empleado/Consultar
+            [HttpGet]
+            [Route("ConsultarPorUsuario")]
+            public IHttpActionResult ConsultarPorUsuario(string usuario)
+            {
+                clsEmpleado empleado = new clsEmpleado();
+                var resultado = empleado.ConsultarPorUsuario(usuario);
+                if (resultado != null)
+                {
+                    return Ok(resultado);
+                }
+                return NotFound();
+            }
+
             [HttpPost]
             [Route("Insertar")]
             public string Insertar([FromBody] EMPLEADO dato)
@@ -24,7 +40,7 @@ namespace InmobiliariaAPI.Controllers
             }
             [HttpGet]
             [Route("ConsultarTodos")]
-            public List<EMPLEADO> ConsultarTodos()
+            public IQueryable ConsultarTodos()
             {
                 //Se crea un objeto de la clase clsEmpleado
                 clsEmpleado empleado = new clsEmpleado();
