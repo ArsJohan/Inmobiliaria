@@ -1,60 +1,43 @@
 ﻿let BaseURL = "http://inmobiliaria-ysja.runasp.net";
 
-// Llenar tabla de visitas
-async function listarVisitas() {
-    await LlenarTablaXServicios(`${BaseURL}/api/Visitas/Todas`, "#tblVisita");
-}
-
-// Obtener datos del formulario de visitas
-function obtenerDatosFormulario() {
+// Obtener datos del formulario de visita
+function obtenerDatosVisita() {
     const idVisita = $("#txtIdVisita").val();
     const idPropiedad = $("#txtIdPropiedad").val();
     const nroDocumento = $("#txtNroDocumento").val();
-    const nombre = $("#txtNombre").val();
-    const apellido = $("#txtApellido").val();
-    const direccion = $("#txtDireccion").val();
-    const tipoTelefono = $("#cboTipoTelefono").val();
-    const telefono = $("#txtTelefono").val();
-    const fechaVisita = $("#txtFechaVisita").val();
-    const email = $("#txtEmail").val();
+    const fechaVisita = $("#txtFechaVisita").val() ? $("#txtFechaVisita").val() + "T00:00:00" : null;
     const descripcion = $("#txtDescripcion").val();
 
-    if (!idVisita || !idPropiedad || !nroDocumento || !fechaVisita) {
-        $("#dvMensaje").html("Por favor complete los campos obligatorios.");
+    if (!idPropiedad || !nroDocumento || !fechaVisita) {
+        $("#dvMensaje").html("Por favor complete todos los campos obligatorios.");
         return null;
     }
 
     return {
-        idVisita,
-        idPropiedad,
-        nroDocumento,
-        nombre,
-        apellido,
-        direccion,
-        tipoTelefono,
-        telefono,
-        fechaVisita,
-        email,
-        descripcion
+        Id_Visita: parseInt(idVisita) || 0,
+        Id_Propiedad: parseInt(idPropiedad),
+        Nro_Documento: nroDocumento,
+        Fecha_Visita: fechaVisita,
+        Descripcion: descripcion
     };
 }
 
 // Insertar visita
 async function insertarVisita() {
-    const visita = obtenerDatosFormulario();
+    const visita = obtenerDatosVisita();
     if (!visita) return;
 
-    await EjecutarComandoServicio("POST", `${BaseURL}/api/Visitas/Insertar`, visita);
+    await EjecutarComandoServicio("POST", `${BaseURL}/api/Visita/Insertar`, visita);
     listarVisitas();
     limpiarFormulario();
 }
 
 // Actualizar visita
 async function actualizarVisita() {
-    const visita = obtenerDatosFormulario();
+    const visita = obtenerDatosVisita();
     if (!visita) return;
 
-    await EjecutarComandoServicio("PUT", `${BaseURL}/api/Visitas/Actualizar`, visita);
+    await EjecutarComandoServicio("PUT", `${BaseURL}/api/Visita/Actualizar`, visita);
     listarVisitas();
     limpiarFormulario();
 }
@@ -63,80 +46,89 @@ async function actualizarVisita() {
 async function eliminarVisita() {
     const idVisita = $("#txtIdVisita").val();
     if (!idVisita) {
-        $("#dvMensaje").html("Seleccione una visita para eliminar.");
+        $("#dvMensaje").html("Debe seleccionar una visita para eliminar.");
         return;
     }
 
-    await EjecutarComandoServicio("DELETE", `${BaseURL}/api/Visitas/Eliminar/${idVisita}`, {});
+    await EjecutarComandoServicio("DELETE", `${BaseURL}/api/Visita/Eliminar?visita=${idVisita}`, {});
     listarVisitas();
     limpiarFormulario();
 }
 
-// Cargar combos al iniciar
-async function cargarCombos() {
-    await LlenarComboXServicios(`${BaseURL}/api/TipoTelefono/Todos`, "#cboTipoTelefono");
-    // Si agregas combos nuevos aquí puedes añadir más
+// Consultar datos del cliente a partir del documento
+async function consultarClientePorDocumento() {
+    const documento = $("#txtNroDocumento").val();
+    if (!documento) {
+        $("#dvMensaje").html("Debe ingresar el documento del cliente.");
+        return;
+    }
+
+    const response = await ConsultarServicio(`${BaseURL}/api/Cliente/Consultar?documento=${documento}`);
+    if (!response) {
+        $("#dvMensaje").html("Cliente no encontrado.");
+        return;
+    }
+
+    $("#txtNombre").val(response.Nombre);
+    $("#txtApellido").val(response.Apellido);
+    $("#txtDireccion").val(response.Direccion);
+    $("#txtTipoTelefono").val(response.Tipo_Telefono);
+    $("#txtTelefono").val(response.Telefono);
+    $("#txtEmail").val(response.Email);
+}
+
+// Llenar tabla de visitas
+async function listarVisitas() {
+    await LlenarTablaXServicios(`${BaseURL}/api/Visitas/Todas`, "#tblVisita");
 }
 
 // Limpiar formulario
 function limpiarFormulario() {
-    $("#frmRegistraVisita")[0].reset();
-    $("#dvMensaje").html("");
+    $("input[type='text'], input[type='date'], textarea").val("");
 }
 
-// Cargar datos al hacer clic en la tabla
-$("#tblVista").on("click", "tr", function () {
-    const fila = $(this).find("td");
-    if (fila.length < 12) return;
+// Seleccionar fila de la tabla
+$("#tblVisita").on("click", "tr", function () {
+    const celdas = $(this).find("td");
+    if (celdas.length < 13) return;
+    $("#txtNroDocumento").val(celdas.eq(1).text());
+    $("#txtIdVisita").val(celdas.eq(2).text());
+    $("#txtIdPropiedad").val(celdas.eq(3).text());
+    $("#txtNombre").val(celdas.eq(4).text());
+    $("#txtApellido").val(celdas.eq(5).text());
+    $("#txtDireccion").val(celdas.eq(6).text());
+    $("#txtDireccion").val(celdas.eq(6).text());
+    $("#txtTipoTelefono").val(celdas.eq(7).text());
+    $("#txtTelefono").val(celdas.eq(8).text());
+    $("#txtFechaVisita").val(celdas.eq(9).text().substring(0, 10));
+    $("#txtEmail").val(celdas.eq(10).text());
+    $("#txtDescripcion").val(celdas.eq(11).text());
 
-    $("#txtIdVisita").val(fila.eq(1).text());
-    $("#txtIdPropiedad").val(fila.eq(2).text());
-    $("#txtNombre").val(fila.eq(3).text());
-    $("#txtApellido").val(fila.eq(4).text());
-    $("#txtNroDocumento").val(fila.eq(6).text());
-    $("#txtDireccion").val(fila.eq(7).text());
-    $("#txtTelefono").val(fila.eq(8).text());
-    $("#cboTipoTelefono").val(fila.eq(5).text());
-    $("#txtFechaVisita").val(formatearFecha(fila.eq(9).text()));
-    $("#txtEmail").val(fila.eq(10).text());
-    $("#txtDescripcion").val(fila.eq(11).text());
+    // Opcional: auto-consulta del cliente
+    consultarClientePorDocumento();
 });
 
-// Convertir fechas a formato YYYY-MM-DD
-function formatearFecha(fechaTexto) {
-    if (fechaTexto.includes("/")) {
-        const partes = fechaTexto.split("/");
-        if (partes.length === 3) {
-            return `${partes[2]}-${partes[1].padStart(2, '0')}-${partes[0].padStart(2, '0')}`;
-        }
-    } else if (fechaTexto.includes("-")) {
-        return fechaTexto.substring(0, 10);
-    }
-    return "";
-}
-
-// Al cargar la página
+// Asignar eventos a botones
 $(document).ready(function () {
-    cargarCombos();
     listarVisitas();
 
-    $("#bntInsertar").on("click", function (e) {
+    $("#bntInsertar").click(function (e) {
         e.preventDefault();
         insertarVisita();
     });
 
-    $("#btnActualizar").on("click", function (e) {
+    $("#btnActualizar").click(function (e) {
         e.preventDefault();
         actualizarVisita();
     });
 
-    $("#btnEliminar").on("click", function (e) {
+    $("#btnEliminar").click(function (e) {
         e.preventDefault();
         eliminarVisita();
     });
 
-    $("#btnConsultar").on("click", function (e) {
+    $("#btnConsultar").click(function (e) {
         e.preventDefault();
-        listarVisitas();
+        consultarClientePorDocumento();
     });
 });
