@@ -12,9 +12,27 @@ namespace InmobiliariaAPI.Clases
 		private DBINMOBILIARIAEntities DBInmobiliaria = new DBINMOBILIARIAEntities();
         public VISITA visita { get; set; }
 
-        public List<VISITA> ConsultarTodos()
+        public IQueryable<object> ConsultarTodos()
         {
-            return DBInmobiliaria.VISITAs.ToList();
+            return from v in DBInmobiliaria.Set<VISITA>()
+                   join c in DBInmobiliaria.Set<CLIENTE>()
+                     on v.Codigo_Cliente equals c.Codigo_Cliente
+                   select new
+                   {
+                       Eliminar = "<img src =\"../Imagenes/Eliminar.png\" onclick=\"Eliminar() \"style=\"cursor:grab\"/>",
+                       v.Codigo_Cliente,
+                       Nro_Documento = c.Nro_Documento,
+                       Codigo_visita = v.Codigo_Visita,
+                       v.Codigo_Inmueble,
+                       Nombre = c.Nombre,
+                       Apellido = c.Apellido,
+                       Direccion = c.Direccion,
+                       TipoTelefono = c.Tipo_Telefono,
+                       Telefono = c.Telefono,
+                       v.Fecha_Visita,
+                       Email = c.Email,
+                       v.Comentarios
+                   };
         }
 
         public List<VISITA> ConsultarPorInmueble(int codigoInmueble)
@@ -55,6 +73,7 @@ namespace InmobiliariaAPI.Clases
                 var visitaExistente = DBInmobiliaria.VISITAs
                     .FirstOrDefault(v => v.Codigo_Inmueble == visita.Codigo_Inmueble && v.Fecha_Visita.Date == visita.Fecha_Visita.Date);
                 if (visitaExistente != null) { return "La fecha de la visita no se encuentra disponible"; }
+                visita.Comentarios = "Visita registrada correctamente";
                     DBInmobiliaria.VISITAs.Add(visita);
                 DBInmobiliaria.SaveChanges();
                 return "Visita registrada correctamente";

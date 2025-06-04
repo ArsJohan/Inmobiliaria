@@ -12,7 +12,7 @@ namespace InmobiliariaAPI
         {
             // Configuración y servicios de Web API
             //CORS
-            config.EnableCors(new System.Web.Http.Cors.EnableCorsAttribute("*", "*", "*"));
+            config.EnableCors(new System.Web.Http.Cors.EnableCorsAttribute("http://localhost:54736/", "*", "*"));
 
             // Web API configuration and services
             config.MessageHandlers.Add(new TokenValidationHandler());

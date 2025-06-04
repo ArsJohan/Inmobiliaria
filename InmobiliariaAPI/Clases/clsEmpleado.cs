@@ -64,8 +64,7 @@ namespace InmobiliariaAPI.Clases
                 .AsEnumerable() // 👈 Trae datos a memoria
                 .Select(E => new
                 {
-                    Editar = "<img src =\"../Imagenes/Editar.png\" onclick=\"Editar('" + E.Nro_Documento + "', '" + E.Nombre + "', '" + E.Apellido +
-                             "', '" + E.Email + "', '" + E.Fecha_Contratacion.ToString("yyyy-MM-dd") + "') \"style=\"cursor:grab\"/>",
+                    Editar = "<img src =\"../Imagenes/Editar.png\" onclick=\"Editar() \"style=\"cursor:grab\"/>",
                     Codigo =  E.Codigo_Empleado,
                     E.Tipo_Doc,
                     E.Nro_Documento,
