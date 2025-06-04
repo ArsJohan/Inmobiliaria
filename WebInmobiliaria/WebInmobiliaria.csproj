@@ -204,6 +204,8 @@
     <Content Include="Paginas\Scripts\Comunes\CRUD.js" />
     <Content Include="Paginas\Scripts\Cliente\InmueblesCatalogo.js" />
     <Content Include="Paginas\Scripts\Empleado\Empleado.js" />
+    <Content Include="Paginas\Scripts\Empleado\GestionVisita.js" />
+    <Content Include="Paginas\Scripts\Empleado\Inmueble.js" />
     <Content Include="Paginas\Scripts\Empleado\MenuEmpleado.js" />
     <Content Include="Paginas\Scripts\Login.js" />
     <Content Include="Paginas\Scripts\Menu.js" />
