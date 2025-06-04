@@ -23,29 +23,34 @@ function obtenerDatosFormulario() {
     }
 
     return {
-        codEmpleado,
-        nombre,
-        apellido,
-        documento,
-        correo,
-        telefono,
-        tipoTelefono,
-        genero,
-        tipoEmpleado,
-        sede,
-        tipoDocumento,
-        activo,
-        fechaContratacion
+        Codigo_Empleado: codEmpleado,
+        Activo: activo,
+        Nombre: nombre,
+        Apellido: apellido,
+        Tipo_Doc:tipoDocumento,
+        Nro_Documento: documento,
+        Tipo_Telefono: tipoTelefono,
+        Telefono: telefono,
+        Email: correo,
+        fecha_Contratacion: fechaContratacion,
+        Codigo_TipoEmpleado: tipoEmpleado,
+        Codigo_Sede: sede,
+        Codigo_Genero: genero
     };
 }
 
 
 // Insertar empleado
+async function ConsultarEmpleado() {
+    const documento = $("#txtDocumento").val();
+    const response = await ConsultarServicio(`${BaseURL}/api/Empleado/Consultar?Documento=${documento}`);
+    console.log("Respuesta de ConsultarEmpleado:", response); // Log para verificar la response
+}
 async function insertarEmpleado() {
     const empleado = obtenerDatosFormulario();
     if (!empleado) return;
 
-    const response = await EjecutarComandoServicio("POST", `${BaseURL}/api/Empleado//Insertar`, empleado);
+    const response = await EjecutarComandoServicio("POST", `${BaseURL}/api/Empleado/Insertar`, empleado);
     console.log(response);
     listarEmpleados(); // Recargar tabla
     limpiarFormulario();
