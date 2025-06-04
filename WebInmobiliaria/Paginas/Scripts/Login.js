@@ -1,9 +1,8 @@
 ﻿async function Ingresar() {
-    let BaseURL = "http://joseitm20251.runasp.net";//"http://localhost:54671";// "http://joseitm20251.runasp.net";//
+    let BaseURL = "http://inmobiliaria-ysja.runasp.net/";
     let URL = BaseURL + "/api/Login/Ingresar";
     const login = new Login($("#txtUsuario").val(), $("#txtClave").val());
     const Respuesta = await EjecutarComandoServicioRpta("POST", URL, login);
-    console.log(Respuesta);
     if (Respuesta === undefined) {
         document.cookie = "token=0;path=/";
         //Hubo un error al procesar el comando
