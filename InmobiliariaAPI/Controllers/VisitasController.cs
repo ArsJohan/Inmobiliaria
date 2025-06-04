@@ -9,7 +9,7 @@ namespace InmobiliariaAPI.Controllers
     [RoutePrefix("api/Visitas")]
     public class VisitasController : ApiController
     {
-        [Authorize]
+        [AllowAnonymous]
         // GET: api/Visitas/Todas
         [HttpGet]
         [Route("Todas")]
@@ -18,8 +18,7 @@ namespace InmobiliariaAPI.Controllers
             var servicio = new clsVisita();
             return Ok(servicio.ConsultarTodos());
         }
-
-        [Authorize]
+        [AllowAnonymous]
         // GET: api/Visitas/PorInmueble/5
         [HttpGet]
         [Route("PorInmueble/{codigoInmueble:int}")]

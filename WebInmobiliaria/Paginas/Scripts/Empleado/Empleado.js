@@ -141,9 +141,8 @@ function limpiarFormulario() {
     $("select").val("");
 }
 
-// Cargar datos al hacer clic en una fila
-$("#tblEmpleados").on("click", "tr", function () {
-    const fila = $(this).find("td");
+function Editar(fila_) {
+    const fila = $(fila_).find("td");
     if (fila.length < 13) return; // Asegúrate de que haya suficientes columnas
 
     $("#txtCodEmpleado").val(fila.eq(1).text());
@@ -176,6 +175,10 @@ $("#tblEmpleados").on("click", "tr", function () {
     $("#txtFechaContratacion").val(fechaFormateada);
 
     $("#chkActivoEmpleado").prop("checked", fila.eq(4).text().toLowerCase() === 'true');
+};
+// Cargar datos al hacer clic en una fila
+$("#tblEmpleados").on("click", "tr", function () {
+    Editar(this); // Pasas el elemento clickeado
 });
 
 
